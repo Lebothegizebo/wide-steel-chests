@@ -1,18 +1,30 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.5
 Date: ?.10.2024
+  Changes:
+    - Split Wide Containers technology into two technologies, for better gameplay progression.
+    - Rebalanced Wide steel container technology to cost 50% less.
+    - Added migrations so that if the wide steel containers technology was already researched, Wide containers would be automaticly researched.
+  Graphics:
+    - Changed icon for Wide containers technology.
+    - Added HR icon for Wide steel containers technology.
+  Scripting:
+    - Added new technology: wide-steel-containers.
+  Compatibility:
+    - Added Compatibility with AAI containers that resprites the containers to macth with the AAI models. Requires a separate graphics mod that should automaticly install along with the new mod version.
+    - The resprite can be disabled via mod startup settings when AAI containers is installed, as well as a setting to enable the resprite without AAI containers installed.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.4
 Date: 11.10.2024
   Features:
-    - Added technology for wide containers
+    - Added technology for wide containers.
   Changes:
-    - Migrated all recipies to be unlocked via technology, and recipies will be disabled upon resuming a savefile untill the new technology is researched
+    - Migrated all recipies to be unlocked via technology, and recipies will be disabled upon resuming a savefile untill the new technology is researched.
   Graphics:
-    - Added HR icon for wide containers technology
+    - Added HR icon for wide containers technology.
   Scripting:
-    - Added new technology: wide-containers
-    - Migrated __wide-steel-chests__/graphics/shadows to __wide-steel-chests__/graphics/entity/shadows
+    - Added new technology: wide-containers.
+    - Migrated __wide-steel-chests__/graphics/shadows to __wide-steel-chests__/graphics/entity/shadows.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.3
 Date: 9.10.2024
