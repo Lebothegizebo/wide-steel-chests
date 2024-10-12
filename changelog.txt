@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.5
-Date: ?.10.2024
+Date: 12.10.2024
+  Info:
+    - Updated mod description and mod dependencys. Updated information on mod portal
   Changes:
     - Split Wide Containers technology into two technologies, for better gameplay progression.
     - Rebalanced Wide steel container technology to cost 50% less.
@@ -10,9 +12,6 @@ Date: ?.10.2024
     - Added HR icon for Wide steel containers technology.
   Scripting:
     - Added new technology: wide-steel-containers.
-  Compatibility:
-    - Added Compatibility with AAI containers that resprites the containers to macth with the AAI models. Requires a separate graphics mod that should automaticly install along with the new mod version.
-    - The resprite can be disabled via mod startup settings when AAI containers is installed, as well as a setting to enable the resprite without AAI containers installed.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.4
 Date: 11.10.2024
