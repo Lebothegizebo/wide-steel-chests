@@ -2,16 +2,16 @@
 Version: 0.1.5
 Date: 12.10.2024
   Info:
-    - Updated mod description and mod dependencys. Updated information on mod portal
+    - Updated mod description and mod dependencys. Updated mod information on mod portal.
   Changes:
     - Split Wide Containers technology into two technologies, for better gameplay progression.
     - Rebalanced Wide steel container technology to cost 50% less.
-    - Added migrations so that if the wide steel containers technology was already researched, Wide containers would be automaticly researched.
   Graphics:
     - Changed icon for Wide containers technology.
     - Added HR icon for Wide steel containers technology.
   Scripting:
     - Added new technology: wide-steel-containers.
+    - If former technology wide-containers was unlocked, wide-steel-containers will be unlocked upon resuming a savefile.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.4
 Date: 11.10.2024
