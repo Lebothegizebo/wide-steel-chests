@@ -1,0 +1,13 @@
+{
+  "name": "wide-steel-chests",
+  "version": "0.1.5",
+  "title": "Wide Containers",
+  "author": "Lebothegizebo",
+  "description": "Adds 2x1 Containers ideal for train-based manufacturing. Compatible with Space Exploration and AAI Containers.",
+  "dependencies": [
+"base >= 1.1",
+"? space-exploration >= 0.6.0",
+"? aii-containers >= 0.2.0"
+],
+  "factorio_version": "1.1"
+}

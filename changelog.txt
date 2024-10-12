@@ -1,0 +1,86 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.1.6
+Date: ????
+  Changes:
+---------------------------------------------------------------------------------------------------
+Version: 0.1.5
+Date: ?.10.2024
+  Info:
+  Features:
+---------------------------------------------------------------------------------------------------
+Version: 0.1.4
+Date: 11.10.2024
+  Features:
+    - Added technology for wide containers
+  Changes:
+    - Migrated all recipies to be unlocked via technology, and recipies will be disabled upon resuming a savefile untill the new technology is researched
+  Graphics:
+    - Added HR icon for wide containers technology
+  Scripting:
+    - Added new technology: wide-containers
+    - Migrated __wide-steel-chests__/graphics/shadows to __wide-steel-chests__/graphics/entity/shadows
+---------------------------------------------------------------------------------------------------
+Version: 0.1.3
+Date: 9.10.2024
+  Info:
+    - Adding a technology for the containers is planned in the next update.
+    - Wide logistic containers and mod specific containers is planned in the future.
+  Changes:
+    - Updated mod description.
+  Graphics:
+    - Removed placeholder art.
+    - Updated mod thumbnail.
+    - Updated graphics for Wide iron chests.
+    - Updated graphics for Wide wooden chests.
+    - Updated icons for Wide iron chests.
+    - Updated icons for Wide wooden chests.
+    - Updated icons for Wide steel chests.
+  Bugfixes:
+    - Fixed wide storage chests being organized incorrectly in map editor under logistics.
+    - Fixed wide storage chest remnants being organized incorrectly in map editor under enviroment.
+  Scripting:
+    - Added a new item subgroup - wide-storage-remnants.
+---------------------------------------------------------------------------------------------------
+Version: 0.1.2
+Date: 9.10.2024
+  Info:
+    - Mainly a bugfix update, while also adding entities with placeholder graphics.
+    - Wide iron chests and Wide wooden chests have placeholder graphics, will be updated in the next update, with final graphics coming soon.
+    - Planning on organizing all chests to be unlocked via a technology research utilizing automation and logistic science.
+  Changes:
+    - Organised all types of chests into one submenu under logistics.
+    - Changed entity hit effect to damaged.trigger_effect of the respective entity.
+  Features:
+    - Added Wide iron chests to the game (Placeholder Graphics).
+    - Added Wide iron chest remnants to the game (Placeholder Graphics).
+    - Added Wide iron chest icon (Placeholder Graphics).
+    - Added Wide wooden chests to the game (Placeholder Graphics).
+    - Added Wide wooden chest remnants to the game (Placeholder Graphics).
+    - Added Wide wooden chest icon (Placeholder Graphics).
+  Bugfixes:
+    - Fixed Wide steel chest open/close sound being too loud.
+    - Fixed Wide steel chest having no resistances.
+    - Fixed Wide steel chest being obtainable without the steel processing research at the start of the game.
+---------------------------------------------------------------------------------------------------
+Version: 0.1.1
+Date: 8.10.2024
+  Changes:
+    - Updated Wide steel chest icon.
+    - Updated Wide steel chest remnants.
+    - Renamed wide-steel-chests.cfg to wide-containers.cfg in locale\en.
+  Bugfixes:
+    - Fixed typos in changelog.txt for version 0.1.0.
+    - Fixed locale issue for wide steel chest remnants.
+    - Fixed incorrect selection hitbox for wide steel chest remnants.
+    - Fixed wide steel chest remnants placing incorrectly when placed via editor.
+
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 6.10.2024
+  Info:
+    - Initial version.
+  Changes:
+    - Added Wide steel chests to the game.
+    - Added Wide steel chest remnants.
+  Compatibility:
+    - Added compatibility with Space Exploration.
