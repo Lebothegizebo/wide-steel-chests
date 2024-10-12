@@ -6,7 +6,7 @@ data:extend({
 	  order = "a",
 	  prerequisites = {"wide-containers","steel-processing", "logistic-science-pack"},
 	  unit = {
-		count = 100,
+		count = 50,
 		ingredients = {
 		  {"automation-science-pack", 1},
 		  {"logistic-science-pack", 1},
