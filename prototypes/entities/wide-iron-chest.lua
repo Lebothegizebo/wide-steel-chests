@@ -9,19 +9,19 @@ require("prototypes.subgroups")
 data:extend(
 {
  {
-    type = "item",
-    name = "wide-iron-chest",
-	  icon = "__wide-steel-chests__/graphics/icons/wide-iron-chest.png",
-    icon_size = 128,
-    subgroup = "wide-storage",
-    place_result = "wide-iron-chest",
-    stack_size = 50,
-    order = "b"
+      type = "item",
+      name = "wide-iron-chest",
+      icon_size = 128,
+      subgroup = "wide-storage",
+      place_result = "wide-iron-chest",
+      stack_size = 50,
+      order = "b"
+
   },
    {
     type = "container",
     name = "wide-iron-chest",
-    icon = "__wide-steel-chests__/graphics/icons/wide-iron-chest.png", icon_size = 128,
+    icon_size = 128,
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.2, result = "wide-iron-chest"},
     max_health = 200,
@@ -52,26 +52,22 @@ data:extend(
       layers =
       {
         {
-          filename = "__wide-steel-chests__/graphics/entity/wide-iron-chest.png",
           priority = "extra-high",
           scale = 0.5,
           width = 128,
           height = 80,
-          shift = util.by_pixel(-0.25, -0.5),
         },
         {
-          filename = "__wide-steel-chests__/graphics/entity/shadows/wide-iron-chest-shadow.png",
           priority = "extra-high",
           scale = 0.5,
           width = 180,
           height = 46,
-          shift = util.by_pixel(24.25-10, 6),
           draw_as_shadow = true,
         }
       }
     },
     circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance,
   }
 })

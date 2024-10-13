@@ -2,7 +2,7 @@ data:extend({
 	{
 	  type = "technology",
 	  name = "wide-steel-containers",
-	  icons = { { icon = "__wide-steel-chests__/graphics/technology/wide-steel-containers.png", icon_size = 128 } },
+	  icon_size = 128 ,
 	  order = "a",
 	  prerequisites = {"wide-containers","steel-processing", "logistic-science-pack"},
 	  unit = {
@@ -18,8 +18,7 @@ data:extend({
 	{
 		type = "technology",
 		name = "wide-containers",
-		icons = { { icon = "__wide-steel-chests__/graphics/technology/wide-containers.png", icon_size = 128 } },
-		order = "a",
+		icon_size = 128,
 		unit = {
 		  count = 20,
 		  ingredients = {

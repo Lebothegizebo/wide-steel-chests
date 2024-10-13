@@ -10,3 +10,5 @@ require("prototypes.recipes.wide-wooden-chest")
 require("prototypes.technology")
 -- Scripts
 require("circuit-connector-generated-definitions")
+-- Prototype Fixes
+require("prototypes.prototype-fixes")

@@ -1,9 +1,18 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.6
-Date: ????
-  Changes:
+Date: 12.10.2024
+  Info:
+    - Due to the way mod prototypes work, if Wide AAI containers is enabled, all multiplayer users will also have Wide AAI containers enabled.
+  Features:
+    - Added automatic compatibility with AAI containers. Can be disabled in mod startup settings and requires the mod Wide AAI containers.
+    - Added the ablity to turn on/off Wide AAI containers. Can be enabled via mod startup settings and requires the mod Wide AAI containers.
   Bugfixes:
-    - Fixed that wide-steel-containers research price was not decreased by 50% (oops)
+    - Fixed that Wide steel container's research price was not decreased by 50%.
+  Scripting:
+    - Added mod startup settings: wide-aai-chests-enabled-by-default, wide-aai-chests-enabled.
+  Compatibility:
+    - Added prototype-fixes.lua, which automaticly applies certian mod prototypes. Possibly going to remove later.
+    - Added Compatibility with AAI containers that resprites the containers to macth with the AAI models. Requires a separate graphics mod which can be found on the dependency listings.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.5
 Date: 12.10.2024
