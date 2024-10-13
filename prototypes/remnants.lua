@@ -17,14 +17,24 @@ local remnants =
         remove_on_tile_placement = false,
         animation =
         {   
-            filename = "__wide-steel-chests__/graphics/remnants/wide-wooden-chest-remnants.png",
-            line_length = 1,
-            width = 192,
-            height = 87,
-            frame_count = 1,
-            direction_count = 1,
-            scale = 0.5,
-            shift = util.by_pixel(9, -1),
+            layers =
+            {   
+                {
+                    filename = "__wide-steel-chests__/graphics/remnants/wide-wooden-chest-remnants.png",
+                    width = 192,
+                    height = 87,
+                    scale = 0.5,
+                    shift = util.by_pixel(9, -1),
+                    direction_count=1,
+                },
+                {
+                    filename = "__wide-steel-chests__/graphics/remnants/empty.png",
+                    width = 1,
+                    height = 1,
+                    scale = 0.5,
+                    direction_count=1,
+                },
+            }
         }
     },
     {
@@ -42,16 +52,26 @@ local remnants =
         time_before_removed = 60 * 60 * 15, -- 15 minutes
         final_render_layer = "remnants",
         remove_on_tile_placement = false,
-        animation =
+        animation=
         {
-            filename = "__wide-steel-chests__/graphics/remnants/wide-iron-chest-remnants.png",
-            line_length = 1,
-            width = 192,
-            height = 87,
-            frame_count = 1,
-            direction_count = 1,
-            scale = 0.5,
-            shift = util.by_pixel(9, -1),
+            layers =
+            {
+                {
+                    filename = "__wide-steel-chests__/graphics/remnants/wide-iron-chest-remnants.png",
+                    width = 192,
+                    height = 87,
+                    scale = 0.5,
+                    shift = util.by_pixel(9, -1),
+                    direction_count=1,
+                },
+                {
+                    filename = "__wide-steel-chests__/graphics/remnants/empty.png",
+                    width = 1,
+                    height = 1,
+                    scale = 0.5,
+                    direction_count=1,
+                },
+            }
         },
     },
     {
@@ -69,17 +89,27 @@ local remnants =
         time_before_removed = 60 * 60 * 15, -- 15 minutes
         final_render_layer = "remnants",
         remove_on_tile_placement = false,
-        animation =
-        {   
-            filename = "__wide-steel-chests__/graphics/remnants/wide-steel-chest-remnants.png",
-            line_length = 1,
-            width = 192,
-            height = 87,
-            frame_count = 1,
-            direction_count = 1,
-            scale = 0.5,
-            shift = util.by_pixel(9, -1),
+        animation=
+        {
+            layers =
+            {   
+                {
+                    filename = "__wide-steel-chests__/graphics/remnants/wide-steel-chest-remnants.png",
+                    width = 192,
+                    height = 87,
+                    scale = 0.5,
+                    shift = util.by_pixel(9, -1),
+                    direction_count=1,
+                },
+                {
+                    filename = "__wide-steel-chests__/graphics/remnants/empty.png",
+                    width = 1,
+                    height = 1,
+                    scale = 0.5,
+                    direction_count=1,
+                },
+            }
         }
-    },
+    }
 }
 data:extend(remnants)
