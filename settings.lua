@@ -1,4 +1,3 @@
-print("DATA_DEBUG: LOADED SETTINGS")
 data:extend({
     {
         type = "bool-setting",

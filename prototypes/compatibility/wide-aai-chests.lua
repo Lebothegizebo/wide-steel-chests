@@ -1,3 +1,5 @@
+require("scripts.compatibility.wide-aai-chests.sprites")
+
 --wide-wooden-chest--
 
 data.raw["item"]["wide-wooden-chest"].icon = "__wide-aai-chests__/graphics/icons/wide-wooden-chest.png"
@@ -44,4 +46,12 @@ data.raw["corpse"]["wide-steel-chest-remnants"]["animation"].shift = util.by_pix
 
 data.raw["technology"]["wide-steel-containers"].icon="__wide-aai-chests__/graphics/technology/wide-steel-containers.png"
 data.raw["technology"]["wide-containers"].icon="__wide-aai-chests__/graphics/technology/wide-containers.png"
-print("DATA_DEBUG: Ran wide-aai-chests.lua")
+
+
+--circuit connector sprites
+data.raw["container"]["wide-wooden-chest"].circuit_wire_connection_point = circuit_connector_definitions["wide-aai-chest"].points
+data.raw["container"]["wide-wooden-chest"].circuit_connector_sprites = nil
+data.raw["container"]["wide-iron-chest"].circuit_wire_connection_point = circuit_connector_definitions["wide-aai-chest"].points
+data.raw["container"]["wide-iron-chest"].circuit_connector_sprites = nil
+data.raw["container"]["wide-steel-chest"].circuit_wire_connection_point = circuit_connector_definitions["wide-aai-chest"].points
+data.raw["container"]["wide-steel-chest"].circuit_connector_sprites = nil

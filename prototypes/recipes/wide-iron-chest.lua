@@ -9,6 +9,7 @@ data:extend(
 	{"iron-plate", 16}
     },
     result= "wide-iron-chest",
+    icon = "__wide-steel-chests__/graphics/icons/wide-iron-chest.png",
     icon_size = 128,
     subgroup = "wide-storage",
     order = "b",
