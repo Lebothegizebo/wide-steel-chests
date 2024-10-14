@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.7
-Date: 14.10.2024
+Date: 15.10.2024
   Compatibility:
     - Updated compatibility with Wide AAI containers and AAI containers and warehouses:
     - Wide Containers now respects AAI container's startup settings, when number icons are enabled in AAI containers, number icons will also be enabled in Wide Containers when Wide AAI containers is active.
