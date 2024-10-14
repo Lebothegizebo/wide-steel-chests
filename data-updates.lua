@@ -6,9 +6,11 @@ elseif mods["wide-aai-chests"] and settings.startup["wide-aai-chests-enabled"].v
 end
 
 -- Loads mod settings from AAI containers if wide-aai-chests is enabled
-if mods["aai-containers"] and mods["wide-aai-chests"] and settings.startup["wide-aai-chests-enabled-by-default"].value then
-    if settings.startup["aai-containers-number-icons"].value then
-        require("prototypes.compatibility.aai-containers.number")
+if mods["aai-containers"] and mods["wide-aai-chests"] then
+    if settings.startup["aai-containers-number-icons"].value  then
+        if settings.startup["wide-aai-chests-enabled"].value or settings.startup["wide-aai-chests-enabled-by-default"].value then
+            require("prototypes.compatibility.aai-containers.number")
+        end
     end
 end
 
