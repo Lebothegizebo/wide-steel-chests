@@ -3,8 +3,17 @@ local remnants =
     {    
         type = "corpse",
         name = "wide-wooden-chest-remnants",
-        icon = "__wide-steel-chests__/graphics/icons/wide-wooden-chest.png",
-        icon_size = 128,
+        icons = 
+        {
+            {
+                icon = "__wide-steel-chests__/graphics/icons/wide-wooden-chest.png",
+                icon_size = 128,
+            },
+            {
+                icon = "__wide-steel-chests__/graphics/icons/empty.png",
+                icon_size = 1,
+            },
+        },
         flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
         subgroup = "wide-storage-remnants",
         order = "a",
@@ -40,8 +49,17 @@ local remnants =
     {
         type = "corpse",
         name = "wide-iron-chest-remnants",
-        icon = "__wide-steel-chests__/graphics/icons/wide-iron-chest.png",
-        icon_size = 128,
+        icons = 
+        {
+            {
+                icon = "__wide-steel-chests__/graphics/icons/wide-iron-chest.png",
+                icon_size = 128,
+            },
+            {
+                icon = "__wide-steel-chests__/graphics/icons/empty.png",
+                icon_size = 1,
+            },
+        },
         flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
         subgroup = "wide-storage-remnants",
         order = "b",
@@ -77,8 +95,17 @@ local remnants =
     {
         type = "corpse",
         name = "wide-steel-chest-remnants",
-        icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
-        icon_size = 128,
+        icons = 
+        {
+            {
+                icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+                icon_size = 128,
+            },
+            {
+                icon = "__wide-steel-chests__/graphics/icons/empty.png",
+                icon_size = 1,
+            },
+        },
         flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
         subgroup = "wide-storage-remnants",
         order = "c",

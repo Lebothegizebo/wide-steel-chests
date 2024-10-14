@@ -1,7 +1,15 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.7
-Date: ????
-  Changes:
+Date: 14.10.2024
+  Compatibility:
+    - Updated compatibility with Wide AAI containers and AAI containers and warehouses:
+    - Wide Containers now respects AAI container's startup settings, when number icons are enabled in AAI containers, number icons will also be enabled in Wide Containers when Wide AAI containers is active.
+    - Updated dependency listing for Wide AAI containers from 0.0.2 to 0.0.3 due to new assets.
+  Scripting:
+    - Migrated all prototype compatibility files into prototypes/compatibility.
+    - Migrated all icon prototypes into the array, icons,  for better compatibility.
+  Locale:
+    - Renamed file locale/en/wide-containers.cfg to locale/en/en.cfg for less confusion about which locale file is doing what.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.6
 Date: 14.10.2024

@@ -1,0 +1,12 @@
+    --container-1
+    data.raw["recipe"]["wide-steel-chest"].order="a"
+    data.raw["recipe"]["wide-iron-chest"].subgroup="container-1"
+    --wide-aai-wood-containers
+    data.raw["recipe"]["iron-chest"].subgroup="wide-aai-wood-containers"
+    data.raw["recipe"]["iron-chest"].order="aa"
+    data.raw["recipe"]["wooden-chest"].subgroup="wide-aai-wood-containers"
+    data.raw["recipe"]["wooden-chest"].order="ab"
+    data.raw["recipe"]["wide-iron-chest"].subgroup="wide-aai-wood-containers"
+    data.raw["recipe"]["wide-iron-chest"].order="ac"
+    data.raw["recipe"]["wide-wooden-chest"].subgroup="wide-aai-wood-containers"
+    data.raw["recipe"]["wide-wooden-chest"].order="ad"

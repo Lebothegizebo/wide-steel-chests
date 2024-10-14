@@ -3,18 +3,36 @@ data:extend(
  {
     type = "item",
     name = "wide-steel-chest",
-    icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
-    icon_size = 128,
     subgroup = "wide-storage",
     place_result = "wide-steel-chest",
     stack_size = 50,
-    order = "c"
+    order = "c",
+    icons = 
+    {
+      {
+        icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+        icon_size = 128,
+      },
+      {
+        icon = "__wide-steel-chests__/graphics/icons/empty.png",
+        icon_size = 1,
+      },
+    }
   },
    {
     type = "container",
     name = "wide-steel-chest",
-    icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
-    icon_size = 128,
+    icons = 
+    {
+      {
+        icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+        icon_size = 128,
+      },
+      {
+        icon = "__wide-steel-chests__/graphics/icons/empty.png",
+        icon_size = 1,
+      },
+    },
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.2, result = "wide-steel-chest"},
     max_health = 350,

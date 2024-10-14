@@ -3,8 +3,17 @@ data:extend(
  {
     type = "item",
     name = "wide-wooden-chest",
-    icon = "__wide-steel-chests__/graphics/icons/wide-wooden-chest.png",
-    icon_size = 128,
+    icons = 
+    {
+      {
+        icon = "__wide-steel-chests__/graphics/icons/wide-wooden-chest.png",
+        icon_size = 128,
+      },
+      {
+        icon = "__wide-steel-chests__/graphics/icons/empty.png",
+        icon_size = 1,
+      },
+    },
     subgroup = "wide-storage",
     place_result = "wide-wooden-chest",
     stack_size = 50,
@@ -13,8 +22,17 @@ data:extend(
    {
     type = "container",
     name = "wide-wooden-chest",
-    icon = "__wide-steel-chests__/graphics/icons/wide-wooden-chest.png",
-    icon_size = 128,
+    icons = 
+    {
+      {
+        icon = "__wide-steel-chests__/graphics/icons/wide-wooden-chest.png",
+        icon_size = 128,
+      },
+      {
+        icon = "__wide-steel-chests__/graphics/icons/empty.png",
+        icon_size = 1,
+      },
+    },
     flags = {"placeable-neutral", "player-creation"},
     minable = {mining_time = 0.2, result = "wide-wooden-chest"},
     max_health = 200,
