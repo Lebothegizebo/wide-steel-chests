@@ -9,10 +9,6 @@ local remnants =
                 icon = "__wide-steel-chests__/graphics/icons/wide-wooden-chest.png",
                 icon_size = 128,
             },
-            {
-                icon = "__wide-steel-chests__/graphics/icons/empty.png",
-                icon_size = 1,
-            },
         },
         flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
         subgroup = "wide-storage-remnants",
@@ -36,13 +32,6 @@ local remnants =
                     shift = util.by_pixel(9, -1),
                     direction_count=1,
                 },
-                {
-                    filename = "__wide-steel-chests__/graphics/remnants/empty.png",
-                    width = 1,
-                    height = 1,
-                    scale = 0.5,
-                    direction_count=1,
-                },
             }
         }
     },
@@ -54,10 +43,6 @@ local remnants =
             {
                 icon = "__wide-steel-chests__/graphics/icons/wide-iron-chest.png",
                 icon_size = 128,
-            },
-            {
-                icon = "__wide-steel-chests__/graphics/icons/empty.png",
-                icon_size = 1,
             },
         },
         flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
@@ -82,13 +67,6 @@ local remnants =
                     shift = util.by_pixel(9, -1),
                     direction_count=1,
                 },
-                {
-                    filename = "__wide-steel-chests__/graphics/remnants/empty.png",
-                    width = 1,
-                    height = 1,
-                    scale = 0.5,
-                    direction_count=1,
-                },
             }
         },
     },
@@ -100,10 +78,6 @@ local remnants =
             {
                 icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
                 icon_size = 128,
-            },
-            {
-                icon = "__wide-steel-chests__/graphics/icons/empty.png",
-                icon_size = 1,
             },
         },
         flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
@@ -126,13 +100,6 @@ local remnants =
                     height = 87,
                     scale = 0.5,
                     shift = util.by_pixel(9, -1),
-                    direction_count=1,
-                },
-                {
-                    filename = "__wide-steel-chests__/graphics/remnants/empty.png",
-                    width = 1,
-                    height = 1,
-                    scale = 0.5,
                     direction_count=1,
                 },
             }

@@ -19,10 +19,6 @@ data:extend(
         icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
         icon_size = 128,
       },
-      {
-        icon = "__wide-steel-chests__/graphics/icons/empty.png",
-        icon_size = 1,
-      },
     }
   },
 
@@ -44,10 +40,6 @@ data:extend(
       {
         icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
         icon_size = 128,
-      },
-      {
-        icon = "__wide-steel-chests__/graphics/icons/empty.png",
-        icon_size = 1,
       },
     }
   },
@@ -71,10 +63,6 @@ data:extend(
         icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
         icon_size = 128,
       },
-      {
-        icon = "__wide-steel-chests__/graphics/icons/empty.png",
-        icon_size = 1,
-      },
     }
   },
   
@@ -97,10 +85,6 @@ data:extend(
         icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
         icon_size = 128,
       },
-      {
-        icon = "__wide-steel-chests__/graphics/icons/empty.png",
-        icon_size = 1,
-      },
     }
   },
   
@@ -122,10 +106,6 @@ data:extend(
       {
         icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
         icon_size = 128,
-      },
-      {
-        icon = "__wide-steel-chests__/graphics/icons/empty.png",
-        icon_size = 1,
       },
     }
   },

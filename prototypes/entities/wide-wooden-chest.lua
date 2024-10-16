@@ -9,10 +9,6 @@ data:extend(
         icon = "__wide-steel-chests__/graphics/icons/wide-wooden-chest.png",
         icon_size = 128,
       },
-      {
-        icon = "__wide-steel-chests__/graphics/icons/empty.png",
-        icon_size = 1,
-      },
     },
     subgroup = "wide-storage",
     place_result = "wide-wooden-chest",
@@ -27,10 +23,6 @@ data:extend(
       {
         icon = "__wide-steel-chests__/graphics/icons/wide-wooden-chest.png",
         icon_size = 128,
-      },
-      {
-        icon = "__wide-steel-chests__/graphics/icons/empty.png",
-        icon_size = 1,
       },
     },
     flags = {"placeable-neutral", "player-creation"},

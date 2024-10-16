@@ -8,10 +8,6 @@ data:extend({
 			icon="__wide-steel-chests__/graphics/technology/wide-steel-containers.png",
 			icon_size = 128 ,
 		},
-		{
-			icon = "__wide-steel-chests__/graphics/icons/empty.png",
-			icon_size = 1,
-		},
 	  },
 	  order = "a",
 	  prerequisites = {"wide-containers","steel-processing", "logistic-science-pack"},
@@ -33,10 +29,6 @@ data:extend({
 			{
 				icon="__wide-steel-chests__/graphics/technology/wide-containers.png",
 				icon_size = 128,
-			},
-			{
-				icon = "__wide-steel-chests__/graphics/icons/empty.png",
-				icon_size = 1,
 			},
 		},
 		unit = {

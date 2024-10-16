@@ -13,13 +13,9 @@ data:extend(
           icon = "__wide-steel-chests__/graphics/icons/wide-iron-chest.png",
           icon_size = 128,
         },
-        {
-          icon = "__wide-steel-chests__/graphics/icons/empty.png",
-          icon_size = 1,
-        },
       }
   },
-   {
+  {
     type = "container",
     name = "wide-iron-chest",
     icons = 
@@ -27,10 +23,6 @@ data:extend(
       {
         icon = "__wide-steel-chests__/graphics/icons/wide-iron-chest.png",
         icon_size = 128,
-      },
-      {
-        icon = "__wide-steel-chests__/graphics/icons/empty.png",
-        icon_size = 1,
       },
     },
     flags = {"placeable-neutral", "player-creation"},

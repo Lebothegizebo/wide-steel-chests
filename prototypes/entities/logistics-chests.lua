@@ -14,10 +14,6 @@ data:extend(
           icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
           icon_size = 128,
         },
-        {
-          icon = "__wide-steel-chests__/graphics/icons/empty.png",
-          icon_size = 1,
-        },
       }
   },
   {
@@ -29,10 +25,6 @@ data:extend(
         {
           icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
           icon_size = 128,
-        },
-        {
-          icon = "__wide-steel-chests__/graphics/icons/empty.png",
-          icon_size = 1,
         },
       },
     flags = {"placeable-neutral", "player-creation"},
@@ -101,10 +93,6 @@ data:extend(
           icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
           icon_size = 128,
         },
-        {
-          icon = "__wide-steel-chests__/graphics/icons/empty.png",
-          icon_size = 1,
-        },
       }
   },
   {
@@ -116,10 +104,6 @@ data:extend(
         {
           icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
           icon_size = 128,
-        },
-        {
-          icon = "__wide-steel-chests__/graphics/icons/empty.png",
-          icon_size = 1,
         },
       },
     flags = {"placeable-neutral", "player-creation"},
@@ -189,10 +173,6 @@ data:extend(
         icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
         icon_size = 128,
       },
-      {
-        icon = "__wide-steel-chests__/graphics/icons/empty.png",
-        icon_size = 1,
-      },
     }
   },
   {
@@ -205,10 +185,6 @@ data:extend(
         {
           icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
           icon_size = 128,
-        },
-        {
-          icon = "__wide-steel-chests__/graphics/icons/empty.png",
-          icon_size = 1,
         },
       },
     flags = {"placeable-neutral", "player-creation"},
@@ -278,10 +254,6 @@ data:extend(
           icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
           icon_size = 128,
         },
-        {
-          icon = "__wide-steel-chests__/graphics/icons/empty.png",
-          icon_size = 1,
-        },
       }
   },
   {
@@ -293,10 +265,6 @@ data:extend(
         {
           icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
           icon_size = 128,
-        },
-        {
-          icon = "__wide-steel-chests__/graphics/icons/empty.png",
-          icon_size = 1,
         },
       },
     flags = {"placeable-neutral", "player-creation"},
@@ -351,7 +319,7 @@ data:extend(
     circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
     circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
-  
+
   --Wide Requester Chest
   {
     type = "item",
@@ -366,10 +334,6 @@ data:extend(
           icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
           icon_size = 128,
         },
-        {
-          icon = "__wide-steel-chests__/graphics/icons/empty.png",
-          icon_size = 1,
-        },
       }
   },
   {
@@ -381,10 +345,6 @@ data:extend(
         {
           icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
           icon_size = 128,
-        },
-        {
-          icon = "__wide-steel-chests__/graphics/icons/empty.png",
-          icon_size = 1,
         },
       },
     flags = {"placeable-neutral", "player-creation"},
