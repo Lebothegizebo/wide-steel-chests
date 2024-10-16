@@ -2,13 +2,16 @@
 Version: 0.1.8
 Date: ????
   Features:
-    - Added Wide Logistics Chests to the game
-    - Added Wide Logistics Chest remnants to the game
+    - Added 2x1 logistics chests to the game
+    - Added 2x1 logistics chest remnants to the game
+    - Added technologies for the new logistic chest variations.
   Compatibility:
     - Updated compatibility with Wide AAI containers and AAI containers and warehouses.
   Scripting:
     - Removed legacy graphics and legacy thumbnail. 
     - Removed graphics/icons/empty.png
+  Locale:
+    - Updated technology names.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.7
 Date: 15.10.2024

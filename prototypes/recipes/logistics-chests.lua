@@ -7,7 +7,7 @@ data:extend(
     result= "wide-active-provider-chest",
     subgroup = "wide-logistics-storage",
     order = "a",
-    --enabled=false,
+    enabled=false,
     energy_required = 0.5,
     ingredients =
     {
@@ -29,7 +29,7 @@ data:extend(
     result= "wide-passive-provider-chest",
     subgroup = "wide-logistics-storage",
     order = "b",
-    --enabled=false,
+    enabled=false,
     energy_required = 0.5,
     ingredients =
     {
@@ -51,7 +51,7 @@ data:extend(
     result= "wide-storage-chest",
     subgroup = "wide-logistics-storage",
     order = "c",
-    --enabled=false,
+    enabled=false,
     energy_required = 0.5,
     ingredients =
     {
@@ -73,7 +73,7 @@ data:extend(
     result= "wide-buffer-chest",
     subgroup = "wide-logistics-storage",
     order = "d",
-    --enabled=false,
+    enabled=false,
     energy_required = 0.5,
     ingredients =
     {
@@ -95,7 +95,7 @@ data:extend(
     result= "wide-requester-chest",
     subgroup = "wide-logistics-storage",
     order = "e",
-    --enabled=false,
+    enabled=false,
     energy_required = 0.5,
     ingredients =
     {
