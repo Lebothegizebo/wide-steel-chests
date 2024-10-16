@@ -8,6 +8,12 @@ data:extend({
     },
     {
       type = "item-subgroup",
+      name = "wide-logistics-storage",
+      group = "logistics",
+      order = "a3",
+    },
+    {
+      type = "item-subgroup",
       name = "wide-storage-remnants",
       group = "environment",
       order = "da",
