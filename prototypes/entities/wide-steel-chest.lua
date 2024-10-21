@@ -73,8 +73,7 @@ data:extend(
         }
       }
     },
-    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_connector = table.deepcopy(circuit_connector_definitions["wide-chest"]),
     circuit_wire_max_distance = default_circuit_wire_max_distance,
   }
 })

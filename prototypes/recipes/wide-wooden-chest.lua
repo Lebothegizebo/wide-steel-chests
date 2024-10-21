@@ -3,14 +3,25 @@ data:extend(
    {
     type = "recipe",
     name = "wide-wooden-chest",
-    result= "wide-wooden-chest",
     subgroup = "wide-storage",
     order = "a",
     energy_required = 0.5,
     enabled = false,
+    results=
+    {
+      {
+        type = "item", 
+        name = "wide-wooden-chest",
+        amount = 1,
+      } 
+    },
     ingredients =
     {
-	    {"wood", 4}
+	    {
+        type = "item",
+        name = "wood",
+        amount = 4
+      }
     },
     icons= 
     {

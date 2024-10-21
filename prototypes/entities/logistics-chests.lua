@@ -75,8 +75,7 @@ data:extend(
             }
           }
       },
-    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_connector = table.deepcopy(circuit_connector_definitions["wide-chest"]),
     circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
   --Wide Passive Provider chest
@@ -154,8 +153,7 @@ data:extend(
             }
           }
       },
-    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_connector = table.deepcopy(circuit_connector_definitions["wide-chest"]),
     circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
 
@@ -235,9 +233,8 @@ data:extend(
           }
         }
       },
-    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
-    circuit_wire_max_distance = default_circuit_wire_max_distance,
+      circuit_connector = table.deepcopy(circuit_connector_definitions["wide-chest"]),
+      circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
 
   --Wide Buffer Chest
@@ -315,9 +312,8 @@ data:extend(
             }
           }
       },
-    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
-    circuit_wire_max_distance = default_circuit_wire_max_distance,
+      circuit_connector = table.deepcopy(circuit_connector_definitions["wide-chest"]),
+      circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
 
   --Wide Requester Chest
@@ -395,8 +391,7 @@ data:extend(
             }
           }   
       },
-    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
-    circuit_wire_max_distance = default_circuit_wire_max_distance,
+      circuit_connector = table.deepcopy(circuit_connector_definitions["wide-chest"]),
+      circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
 })

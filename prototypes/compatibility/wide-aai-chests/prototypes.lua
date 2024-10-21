@@ -38,5 +38,6 @@ data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[2].draw_as_shad
 data.raw["technology"]["wide-steel-containers"].icons[1].icon="__wide-aai-chests__/graphics/technology/wide-steel-containers.png"
 
 --circuit connector sprites
-data.raw["container"]["wide-steel-chest"].circuit_wire_connection_point = wide_aai_chest_circuit_connector_definitions.points
-data.raw["container"]["wide-steel-chest"].circuit_connector_sprites = nil
+data.raw["container"]["wide-steel-chest"].circuit_connector.sprites = nil
+data.raw["container"]["wide-steel-chest"].circuit_connector.points = wide_aai_chest_circuit_connector_definitions.points
+
