@@ -1,13 +1,19 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.8
 Date: ????
+  Info:
+    - Preparing mod for Factorio 2.0 launch.
+    - Added startup setting to enable beta content, allowing for faster bugfixes and hotfixes.
+    - Note: Beta content wont break your game, but it will be unfinished and unpolished, probbably with placeholder graphics. If anything breaks the mod it wont be listed under beta content and will be commented out upon a hotfix.
+    - Note: Version 0.1.9 will be the last version of Wide Containers for Factorio Version 1.1 in the future with completed logistics content. I will be foxusing my efforts on Facctorio version 2.0.
   Features:
-    - Added 2x1 logistics chests to the game
-    - Added 2x1 logistics chest remnants to the game
-    - Added technologies for the new logistic chest variations.
+    - Added 2x1 logistics chests to the game (BETA CONTENT)
+    - Added 2x1 logistics chest remnants to the game (BETA CONTENT)
+    - Added technologies for the new logistic chest variations. (BETA CONTENT)
   Compatibility:
     - Updated compatibility with Wide AAI containers and AAI containers and warehouses.
   Scripting:
+    - Added new startup setting: enable-wide-containers-beta
     - Removed legacy graphics and legacy thumbnail. 
     - Removed graphics/icons/empty.png
   Locale:

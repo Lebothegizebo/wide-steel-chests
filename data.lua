@@ -17,3 +17,6 @@ require("prototypes.recipes.wide-iron-chest")
 require("prototypes.recipes.wide-wooden-chest")
 -- Technology
 require("prototypes.technology")
+
+-- BETA CONTENT FLAGS
+require("prototypes.beta-content")

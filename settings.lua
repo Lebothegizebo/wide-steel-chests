@@ -10,5 +10,12 @@ data:extend({
         name = "wide-aai-chests-enabled",
         setting_type = "startup",
         default_value = false
+    },
+    {
+        type = "bool-setting",
+        name = "enable-wide-containers-beta",
+        setting_type = "startup",
+        default_value = false
     }
+    
 })
