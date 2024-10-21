@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.8
-Date: ????
+Date: 21.10.2024
   Info:
     - Preparing mod for Factorio 2.0 launch.
     - Added startup setting to enable beta content, allowing for faster bugfixes and hotfixes.
