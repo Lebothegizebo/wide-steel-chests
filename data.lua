@@ -19,7 +19,7 @@ function make_wide_and_tall(params)
 
 	local wide_name = "wide-"..params.name
 	local tall_name = "tall-"..params.name
-	local item_name = wide_name
+	local item_name = wide_name --TODO: make a migration to use the rotatable name?
 	local rote_name = "rotatable-"..params.name
 
 	wide_container.name = wide_name
@@ -44,11 +44,20 @@ function make_wide_and_tall(params)
 	wide_container.inventory_size = wide_container.inventory_size * 2
 	tall_container.inventory_size = tall_container.inventory_size * 2
 
+	wide_container.picture = params.picture.north
+	tall_container.picture = params.picture.east
+
+	wide_container.placeable_by = {item = item_name, count = 1}
+	tall_container.placeable_by = {item = item_name, count = 1}
+
+	tall_container.localised_name = {"entity-name."..wide_name}
+
   data:extend{
 		{
       type = "item",
-      name = wide_name, --TODO: make a migration to use the rotatable name?
+      name = item_name,
       subgroup = "wide-storage",
+			flags = {"primary-place-result"},
       place_result = rote_name,
       stack_size = 50,
       order = "b",
@@ -57,6 +66,14 @@ function make_wide_and_tall(params)
 		{
 			type = "assembling-machine",
 			name = rote_name,
+			localised_name = {"entity-name."..wide_name},
+
+			-- Empty minable results is intentional
+			-- Item may be accidentally lost, but it's better than duplicating it
+			-- or accidentally deleting the contents of another chest
+			--
+			-- Regardless, this entity should never just exist.
+			minable = {mining_time = orig_container.minable.mining_time},
 
 			energy_usage = "1W",
 			crafting_speed = 0.01,
@@ -65,14 +82,27 @@ function make_wide_and_tall(params)
 
 			collision_box = params.collision_box,
 			selection_box = params.selection_box,
+			fast_replaceable_group = orig_container.fast_replaceable_group,
 
 			graphics_set = {
 				animation = {
 					north = params.picture.north--[[@as data.Animation]],
 					east = params.picture.east--[[@as data.Animation]],
+					-- South not necessary as it defaults to north.
+					-- West only is because it defaults to north for some godforsaken reason
 					west = params.picture.east--[[@as data.Animation]],
 				}
-			}
+			},
+			created_effect = {
+				type = "direct",
+				action_delivery = {
+					type = "instant",
+					source_effects = {
+						type = "script",
+						effect_id = "rotatable-placed"
+					}
+				}
+			},
 
 		}--[[@as data.AssemblingMachinePrototype]],
 
