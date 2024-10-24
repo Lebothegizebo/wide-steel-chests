@@ -6,14 +6,17 @@ end
 
 ---@class chest_params 
 ---@field name data.EntityID The name of the container this is duplicating
+---@field localised_name? data.LocalisedString
 ---@field subgroup data.ItemSubGroupID
 ---@field icons data.IconData[]
 ---@field collision_box data.BoundingBox
 ---@field selection_box data.BoundingBox
 ---@field horizontal_picture? data.Sprite
 ---@field horizontal_animation? data.Animation
+---@field horizontal_remnants data.Animation
 ---@field vertical_picture? data.Sprite
 ---@field vertical_animation? data.Animation
+---@field vertical_remnants data.Animation
 
 ---@param params chest_params
 function make_wide_and_tall(params)
@@ -29,10 +32,18 @@ function make_wide_and_tall(params)
 	local wide_container = table.deepcopy(orig_container)
 	local tall_container = table.deepcopy(orig_container)
 
+	local orig_remnants = data.raw["corpse"][orig_container.corpse--[[@as string]]]
+	local wide_remnants = table.deepcopy(orig_remnants)
+	local tall_remnants = table.deepcopy(orig_remnants)
+
 	local wide_name = "wide-"..params.name
 	local tall_name = "tall-"..params.name
 	local item_name = wide_name --TODO: make a migration to use the rotatable name?
 	local rote_name = "rotatable-"..params.name
+
+	local remnants_subgroup = params.subgroup.."-remnants"
+	local wide_remnants_name = wide_name.."-remnants"
+	local tall_remnants_name = tall_name.."-remnants"
 
 	local localised_name = params.localised_name or {"entity-name."..wide_name}
 
@@ -52,8 +63,8 @@ function make_wide_and_tall(params)
 	wide_container.minable.result = item_name
 	tall_container.minable.result = item_name
 
-	wide_container.corpse = wide_name.."-remnants"
-	tall_container.corpse = wide_name.."-remnants" -- HACK: to avoid bothering with rotated remnants right now
+	wide_container.corpse = wide_remnants_name
+	tall_container.corpse = tall_remnants_name
 
 	wide_container.collision_box = params.collision_box
 	wide_container.selection_box = params.selection_box
@@ -74,6 +85,34 @@ function make_wide_and_tall(params)
 	-- Hide it because we just want it to see the wide one
 	tall_container.hidden_in_factoriopedia = true
 	tall_container.localised_name = localised_name
+
+	--MARK: Remnants
+
+	wide_remnants.name = wide_remnants_name
+	tall_remnants.name = tall_remnants_name
+
+	wide_remnants.subgroup = remnants_subgroup
+	tall_remnants.subgroup = remnants_subgroup
+
+	wide_remnants.icon = nil
+	wide_remnants.icons = params.icons
+	tall_remnants.icon = nil
+	tall_remnants.icons = params.icons
+
+	wide_remnants.selection_box = table.deepcopy(params.selection_box) -- Deepcopy to keep it from being linked to the container
+	tall_remnants.selection_box = rotate_box(params.selection_box)
+
+	-- Why were these set, they are determined automatically..
+	wide_remnants.tile_width = nil
+	wide_remnants.tile_height = nil
+	tall_remnants.tile_width = nil
+	tall_remnants.tile_height = nil
+
+	wide_remnants.animation = params.horizontal_remnants
+	tall_remnants.animation = params.vertical_remnants
+
+	wide_remnants.localised_name = {"remnant-name", localised_name}
+	tall_remnants.localised_name = {"remnant-name", localised_name}
 
 	--MARK: Item & ASM
 
@@ -134,5 +173,7 @@ function make_wide_and_tall(params)
 
 		wide_container,
 		tall_container,
+		wide_remnants,
+		tall_remnants,
 	}
 end

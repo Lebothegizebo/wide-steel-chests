@@ -55,5 +55,33 @@ make_wide_and_tall{
         draw_as_shadow = true,
       }
     }
-  }
+  },
+  horizontal_remnants =
+  {
+    layers =
+    {
+      {
+        filename = "__wide-steel-chests__/graphics/remnants/wide-iron-chest-remnants.png",
+        width = 192,
+        height = 87,
+        scale = 0.5,
+        shift = util.by_pixel(9, -1),
+        direction_count = 1,
+      },
+    }
+  },
+  vertical_remnants =
+  {
+    layers =
+    {
+      {
+        filename = "__wide-steel-chests__/graphics/remnants/tall-iron-chest-remnants.png",
+        width = 87,
+        height = 192,
+        scale = 0.5,
+        shift = util.by_pixel(-1, 9),
+        direction_count = 1,
+      },
+    }
+  },
 }

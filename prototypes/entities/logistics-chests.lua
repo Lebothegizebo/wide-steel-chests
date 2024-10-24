@@ -57,6 +57,34 @@ make_wide_and_tall{
       }
     }
   },
+  horizontal_remnants =
+  {
+    layers =
+    {
+      {
+        filename = "__wide-steel-chests__/graphics/remnants/wide-steel-chest-remnants.png",
+        width = 192,
+        height = 87,
+        scale = 0.5,
+        shift = util.by_pixel(9, -1),
+        direction_count = 1,
+      },
+    }
+  },
+  vertical_remnants =
+  {
+    layers =
+    {
+      {
+        filename = "__wide-steel-chests__/graphics/remnants/tall-steel-chest-remnants.png",
+        width = 87,
+        height = 192,
+        scale = 0.5,
+        shift = util.by_pixel(-1, 9),
+        direction_count = 1,
+      },
+    }
+  },
 }
 
 --MARK: Passive Provider
@@ -116,6 +144,34 @@ make_wide_and_tall{
         shift = util.by_pixel(8, 24.25-10),
         draw_as_shadow = true,
       }
+    }
+  },
+  horizontal_remnants =
+  {
+    layers =
+    {
+      {
+        filename = "__wide-steel-chests__/graphics/remnants/wide-steel-chest-remnants.png",
+        width = 192,
+        height = 87,
+        scale = 0.5,
+        shift = util.by_pixel(9, -1),
+        direction_count = 1,
+      },
+    }
+  },
+  vertical_remnants =
+  {
+    layers =
+    {
+      {
+        filename = "__wide-steel-chests__/graphics/remnants/tall-steel-chest-remnants.png",
+        width = 87,
+        height = 192,
+        scale = 0.5,
+        shift = util.by_pixel(-1, 9),
+        direction_count = 1,
+      },
     }
   },
 }
@@ -179,6 +235,34 @@ make_wide_and_tall{
       }
     }
   },
+  horizontal_remnants =
+  {
+    layers =
+    {
+      {
+        filename = "__wide-steel-chests__/graphics/remnants/wide-steel-chest-remnants.png",
+        width = 192,
+        height = 87,
+        scale = 0.5,
+        shift = util.by_pixel(9, -1),
+        direction_count = 1,
+      },
+    }
+  },
+  vertical_remnants =
+  {
+    layers =
+    {
+      {
+        filename = "__wide-steel-chests__/graphics/remnants/tall-steel-chest-remnants.png",
+        width = 87,
+        height = 192,
+        scale = 0.5,
+        shift = util.by_pixel(-1, 9),
+        direction_count = 1,
+      },
+    }
+  },
 }
 
 --MARK: Buffer
@@ -240,6 +324,34 @@ make_wide_and_tall{
       }
     }
   },
+  horizontal_remnants =
+  {
+    layers =
+    {
+      {
+        filename = "__wide-steel-chests__/graphics/remnants/wide-steel-chest-remnants.png",
+        width = 192,
+        height = 87,
+        scale = 0.5,
+        shift = util.by_pixel(9, -1),
+        direction_count = 1,
+      },
+    }
+  },
+  vertical_remnants =
+  {
+    layers =
+    {
+      {
+        filename = "__wide-steel-chests__/graphics/remnants/tall-steel-chest-remnants.png",
+        width = 87,
+        height = 192,
+        scale = 0.5,
+        shift = util.by_pixel(-1, 9),
+        direction_count = 1,
+      },
+    }
+  },
 }
 
 --MARK: Requester
@@ -299,6 +411,34 @@ make_wide_and_tall{
         shift = util.by_pixel(8, 24.25-10),
         draw_as_shadow = true,
       }
+    }
+  },
+  horizontal_remnants =
+  {
+    layers =
+    {
+      {
+        filename = "__wide-steel-chests__/graphics/remnants/wide-steel-chest-remnants.png",
+        width = 192,
+        height = 87,
+        scale = 0.5,
+        shift = util.by_pixel(9, -1),
+        direction_count = 1,
+      },
+    }
+  },
+  vertical_remnants =
+  {
+    layers =
+    {
+      {
+        filename = "__wide-steel-chests__/graphics/remnants/tall-steel-chest-remnants.png",
+        width = 87,
+        height = 192,
+        scale = 0.5,
+        shift = util.by_pixel(-1, 9),
+        direction_count = 1,
+      },
     }
   },
 }
