@@ -18,6 +18,12 @@ data:extend({
       group = "environment",
       order = "da",
     },
+    {
+      type = "item-subgroup",
+      name = "wide-logistics-storage-remnants",
+      group = "environment",
+      order = "da",
+    },
     --compatibility
     {
       type = "item-subgroup",

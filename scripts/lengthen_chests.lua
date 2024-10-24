@@ -10,12 +10,22 @@ end
 ---@field icons data.IconData[]
 ---@field collision_box data.BoundingBox
 ---@field selection_box data.BoundingBox
----@field horizontal_picture data.Sprite
----@field vertical_picture data.Sprite
+---@field horizontal_picture? data.Sprite
+---@field horizontal_animation? data.Animation
+---@field vertical_picture? data.Sprite
+---@field vertical_animation? data.Animation
 
 ---@param params chest_params
 function make_wide_and_tall(params)
-  local orig_container = data.raw["container"][params.name]
+	---@type data.ContainerPrototype
+  local orig_container
+	for _, container_type in pairs{"container", "logistic-container", "temporary-container", "infinity-container"} do
+		orig_container = data.raw[container_type][params.name] --[[@as data.ContainerPrototype]]
+		if orig_container then break end
+	end
+
+	if not orig_container then error("No container found of name '"..params.name.."'") end
+
 	local wide_container = table.deepcopy(orig_container)
 	local tall_container = table.deepcopy(orig_container)
 
@@ -23,6 +33,10 @@ function make_wide_and_tall(params)
 	local tall_name = "tall-"..params.name
 	local item_name = wide_name --TODO: make a migration to use the rotatable name?
 	local rote_name = "rotatable-"..params.name
+
+	local localised_name = params.localised_name or {"entity-name."..wide_name}
+
+	--MARK: Containers
 
 	wide_container.name = wide_name
 	tall_container.name = tall_name
@@ -50,12 +64,18 @@ function make_wide_and_tall(params)
 	tall_container.inventory_size = tall_container.inventory_size * 2
 
 	wide_container.picture = params.horizontal_picture
+	wide_container.animation = params.horizontal_animation
 	tall_container.picture = params.vertical_picture
+	tall_container.animation = params.horizontal_animation
 
 	wide_container.placeable_by = {item = item_name, count = 1}
 	tall_container.placeable_by = {item = item_name, count = 1}
 
-	tall_container.localised_name = {"entity-name."..wide_name}
+	-- Hide it because we just want it to see the wide one
+	tall_container.hidden_in_factoriopedia = true
+	tall_container.localised_name = localised_name
+
+	--MARK: Item & ASM
 
   data:extend{
 		{
@@ -71,7 +91,8 @@ function make_wide_and_tall(params)
 		{
 			type = "assembling-machine",
 			name = rote_name,
-			localised_name = {"entity-name."..wide_name},
+			localised_name = localised_name,
+			hidden_in_factoriopedia = true,
 
 			-- Empty minable results is intentional
 			-- Item may be accidentally lost, but it's better than duplicating it
