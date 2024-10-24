@@ -9,6 +9,7 @@ end
 ---@field localised_name? data.LocalisedString
 ---@field subgroup data.ItemSubGroupID
 ---@field icons data.IconData[]
+---@field inventory_multiplier int
 ---@field collision_box data.BoundingBox
 ---@field selection_box data.BoundingBox
 ---@field horizontal_picture? data.Sprite
@@ -71,8 +72,8 @@ function make_wide_and_tall(params)
 	tall_container.collision_box = rotate_box(params.collision_box)
 	tall_container.selection_box = rotate_box(params.selection_box)
 
-	wide_container.inventory_size = wide_container.inventory_size * 2
-	tall_container.inventory_size = tall_container.inventory_size * 2
+	wide_container.inventory_size = wide_container.inventory_size * params.inventory_multiplier
+	tall_container.inventory_size = tall_container.inventory_size * params.inventory_multiplier
 
 	wide_container.picture = params.horizontal_picture
 	wide_container.animation = params.horizontal_animation

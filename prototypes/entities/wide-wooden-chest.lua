@@ -8,6 +8,7 @@ make_wide_and_tall{
       icon_size = 128,
     },
   },
+  inventory_multiplier = 2,
   collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
   selection_box = {{-1, -0.5}, {1, 0.5}},
   horizontal_picture =
