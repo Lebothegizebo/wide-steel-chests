@@ -1,5 +1,6 @@
 make_wide_and_tall{
   name = "iron-chest",
+  subgroup = "wide-storage",
   icons =
   {
     {
@@ -9,52 +10,49 @@ make_wide_and_tall{
   },
   collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
   selection_box = {{-1, -0.5}, {1, 0.5}},
-  picture =
+  horizontal_picture =
   {
-    north =
+    layers =
     {
-      layers =
       {
-        {
-          filename = "__wide-steel-chests__/graphics/entity/wide-iron-chest.png",
-          priority = "extra-high",
-          scale = 0.5,
-          width = 128,
-          height = 80,
-          shift = util.by_pixel(-0.25, -0.5),
-        },
-        {
-          filename = "__wide-steel-chests__/graphics/entity/shadows/wide-iron-chest-shadow.png",
-          priority = "extra-high",
-          scale = 0.5,
-          width = 180,
-          height = 46,
-          shift = util.by_pixel(24.25-10, 6),
-          draw_as_shadow = true,
-        }
+        filename = "__wide-steel-chests__/graphics/entity/wide-iron-chest.png",
+        priority = "extra-high",
+        scale = 0.5,
+        width = 128,
+        height = 80,
+        shift = util.by_pixel(-0.25, -0.5),
+      },
+      {
+        filename = "__wide-steel-chests__/graphics/entity/shadows/wide-iron-chest-shadow.png",
+        priority = "extra-high",
+        scale = 0.5,
+        width = 180,
+        height = 46,
+        shift = util.by_pixel(24.25-10, 6),
+        draw_as_shadow = true,
       }
-    },
-    east =
+    }
+  },
+  vertical_picture =
+  {
+    layers =
     {
-      layers =
       {
-        {
-          filename = "__wide-steel-chests__/graphics/entity/tall-iron-chest.png",
-          priority = "extra-high",
-          scale = 0.5,
-          width = 80,
-          height = 128,
-          shift = util.by_pixel(-0.5, -0.25),
-        },
-        {
-          filename = "__wide-steel-chests__/graphics/entity/shadows/tall-iron-chest-shadow.png",
-          priority = "extra-high",
-          scale = 0.5,
-          width = 46,
-          height = 180,
-          shift = util.by_pixel(6, 24.25-10),
-          draw_as_shadow = true,
-        }
+        filename = "__wide-steel-chests__/graphics/entity/tall-iron-chest.png",
+        priority = "extra-high",
+        scale = 0.5,
+        width = 80,
+        height = 128,
+        shift = util.by_pixel(-0.5, -0.25),
+      },
+      {
+        filename = "__wide-steel-chests__/graphics/entity/shadows/tall-iron-chest-shadow.png",
+        priority = "extra-high",
+        scale = 0.5,
+        width = 46,
+        height = 180,
+        shift = util.by_pixel(6, 24.25-10),
+        draw_as_shadow = true,
       }
     }
   }

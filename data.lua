@@ -6,10 +6,12 @@ end
 
 ---@class chest_params
 ---@field name data.EntityID The name of the container this is duplicating
+---@field subgroup data.ItemSubGroupID
 ---@field icons data.IconData[]
 ---@field collision_box data.BoundingBox
 ---@field selection_box data.BoundingBox
----@field picture {north:data.Sprite,east:data.Sprite}
+---@field horizontal_picture data.Sprite
+---@field vertical_picture data.Sprite
 
 ---@param params chest_params
 function make_wide_and_tall(params)
@@ -24,6 +26,9 @@ function make_wide_and_tall(params)
 
 	wide_container.name = wide_name
 	tall_container.name = tall_name
+
+	wide_container.subgroup = params.subgroup
+	wide_container.subgroup = params.subgroup
 
 	wide_container.icon = nil
 	wide_container.icons = params.icons
@@ -44,8 +49,8 @@ function make_wide_and_tall(params)
 	wide_container.inventory_size = wide_container.inventory_size * 2
 	tall_container.inventory_size = tall_container.inventory_size * 2
 
-	wide_container.picture = params.picture.north
-	tall_container.picture = params.picture.east
+	wide_container.picture = params.horizontal_picture
+	tall_container.picture = params.vertical_picture
 
 	wide_container.placeable_by = {item = item_name, count = 1}
 	tall_container.placeable_by = {item = item_name, count = 1}
@@ -86,11 +91,11 @@ function make_wide_and_tall(params)
 
 			graphics_set = {
 				animation = {
-					north = params.picture.north--[[@as data.Animation]],
-					east = params.picture.east--[[@as data.Animation]],
+					north = params.horizontal_picture--[[@as data.Animation]],
+					east = params.vertical_picture--[[@as data.Animation]],
 					-- South not necessary as it defaults to north.
 					-- West only is because it defaults to north for some godforsaken reason
-					west = params.picture.east--[[@as data.Animation]],
+					west = params.vertical_picture--[[@as data.Animation]],
 				}
 			},
 			created_effect = {
