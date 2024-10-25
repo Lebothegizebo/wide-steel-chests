@@ -1,7 +1,12 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.1
 Date: ????
-  Changes:
+  Major Features:
+    - Added the ability to rotate Wide Containers. Still possibly laden with bugs, report on the discord! Massive thanks to Pennyjim for implementing this. 
+  Features:
+    - Added logistics
+  Info:
+    - Custom graphics for all entities, including rotated varations. 
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 22.10.2024
