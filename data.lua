@@ -14,6 +14,8 @@ require("prototypes.recipes.logistics-chests")
 require("prototypes.recipes.wide-steel-chest")
 require("prototypes.recipes.wide-iron-chest")
 require("prototypes.recipes.wide-wooden-chest")
+-- Categories
+require("prototypes.categories")
 -- Technology
 require("prototypes.technology")
 

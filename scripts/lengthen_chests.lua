@@ -16,12 +16,12 @@ end
 ---@field horizontal_picture? data.Sprite
 ---@field horizontal_animation? data.Animation
 ---@field horizontal_remnants data.Animation
----@field horizontal_connection data.CircuitConnectorDefinition
+---@field horizontal_connection? data.CircuitConnectorDefinition
 ---
 ---@field vertical_picture? data.Sprite
 ---@field vertical_animation? data.Animation
 ---@field vertical_remnants data.Animation
----@field vertical_connection data.CircuitConnectorDefinition
+---@field vertical_connection? data.CircuitConnectorDefinition
 
 ---@param params chest_params
 function make_wide_and_tall(params)
@@ -95,7 +95,7 @@ function make_wide_and_tall(params)
 
 	-- Hide it because we just want it to see the wide one
 	tall_container.hidden_in_factoriopedia = true
-	tall_container.hidden = true
+	tall_container.factoriopedia_alternative = wide_name
 	tall_container.localised_name = localised_name
 
 	--MARK: Remnants
@@ -148,7 +148,7 @@ function make_wide_and_tall(params)
 			subgroup = params.subgroup,
 			hidden = true,
 			hidden_in_factoriopedia = true,
-			
+			factoriopedia_alternative = wide_name,
 
 			-- Empty minable results is intentional
 			-- Item may be accidentally lost, but it's better than duplicating it
@@ -157,10 +157,11 @@ function make_wide_and_tall(params)
 			-- Regardless, this entity should never just exist.
 			minable = {mining_time = orig_container.minable.mining_time},
 			flags = util.copy(orig_container.flags),
+			max_health = orig_container.max_health,
 
 			energy_usage = "1W",
-			crafting_speed = 0.01,
-			crafting_categories = {"crafting"},
+			crafting_speed = 1,
+			crafting_categories = {"null"},
 			energy_source = {type = "void"},
 
 			collision_box = params.collision_box,
