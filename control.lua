@@ -75,7 +75,12 @@ local function chest_built(EventData)
 
 	if not new_entity then error("Replacement failed!") end
 
-	if new_entity.type == "logistic-container" then
+	if new_entity.type == "container" and tags.circuit then
+
+		local behavior = new_entity.get_or_create_control_behavior() --[[@as LuaContainerControlBehavior]]
+		behavior.read_contents = tags.circuit.read_contents or false
+
+	elseif new_entity.type == "logistic-container" then
 		if tags.circuit then
 			local behavior = new_entity.get_or_create_control_behavior() --[[@as LuaLogisticContainerControlBehavior]]
 			behavior.circuit_condition = {condition=tags.circuit.condition}
@@ -123,8 +128,9 @@ script.on_event(defines.events.on_space_platform_built_entity, built)
 ---@field request? ChestTags.request_filters
 
 ---@class ChestTags.circuit
----@field enabled boolean
----@field condition CircuitCondition
+---@field read_contents? boolean
+---@field enabled? boolean
+---@field condition? CircuitCondition
 ---@field mode? defines.control_behavior.logistic_container.exclusive_mode defaults to `defines.control_behavior.logistic_container.exclusive_mode.send_contents`
 
 ---@class ChestTags.request_filters
@@ -153,6 +159,7 @@ script.on_event(defines.events.on_player_setup_blueprint, function (EventData)
 			entity.tags = entity.tags or {}
 			entity.tags.wide_chest = {
 				circuit = entity.control_behavior and {
+					read_contents = entity.control_behavior.read_contents,
 					enabled = entity.control_behavior.circuit_condition_enabled,
 					condition = entity.control_behavior.circuit_condition,
 					mode = entity.control_behavior.circuit_mode_of_operation,

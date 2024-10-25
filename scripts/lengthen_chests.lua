@@ -12,12 +12,16 @@ end
 ---@field inventory_multiplier int
 ---@field collision_box data.BoundingBox
 ---@field selection_box data.BoundingBox
+---
 ---@field horizontal_picture? data.Sprite
 ---@field horizontal_animation? data.Animation
 ---@field horizontal_remnants data.Animation
+---@field horizontal_connection data.CircuitConnectorDefinition
+---
 ---@field vertical_picture? data.Sprite
 ---@field vertical_animation? data.Animation
 ---@field vertical_remnants data.Animation
+---@field vertical_connection data.CircuitConnectorDefinition
 
 ---@param params chest_params
 function make_wide_and_tall(params)
@@ -79,6 +83,9 @@ function make_wide_and_tall(params)
 	wide_container.animation = params.horizontal_animation
 	tall_container.picture = params.vertical_picture
 	tall_container.animation = params.horizontal_animation
+
+	wide_container.circuit_connector = params.horizontal_connection or wide_container.circuit_connector
+	wide_container.circuit_connector = params.vertical_connection or tall_container.circuit_connector
 
 	wide_container.placeable_by = {item = item_name, count = 1}
 	tall_container.placeable_by = {item = item_name, count = 1}
@@ -171,6 +178,14 @@ function make_wide_and_tall(params)
 					}
 				}
 			},
+
+			circuit_wire_max_distance = orig_container.circuit_wire_max_distance,
+			circuit_connector = {
+				wide_container.circuit_connector,
+				tall_container.circuit_connector,
+				wide_container.circuit_connector,
+				tall_container.circuit_connector,
+			}
 
 		}--[[@as data.AssemblingMachinePrototype]],
 
