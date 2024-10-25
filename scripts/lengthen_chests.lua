@@ -57,8 +57,8 @@ function make_wide_and_tall(params)
 	wide_container.name = wide_name
 	tall_container.name = tall_name
 
-	wide_container.subgroup = params.subgroup
-	tall_container.subgroup = params.subgroup
+	wide_container.subgroup = params.subgroup.."-wide"
+	tall_container.subgroup = params.subgroup.."-tall"
 
 	wide_container.icon = nil
 	wide_container.icons = params.icons
@@ -90,6 +90,9 @@ function make_wide_and_tall(params)
 	wide_container.placeable_by = {item = item_name, count = 1}
 	tall_container.placeable_by = {item = item_name, count = 1}
 
+	wide_container.hidden = false
+	tall_container.hidden = true
+
 	-- Hide it because we just want it to see the wide one
 	tall_container.hidden_in_factoriopedia = true
 	tall_container.hidden = true
@@ -100,8 +103,8 @@ function make_wide_and_tall(params)
 	wide_remnants.name = wide_remnants_name
 	tall_remnants.name = tall_remnants_name
 
-	wide_remnants.subgroup = remnants_subgroup
-	tall_remnants.subgroup = remnants_subgroup
+	wide_remnants.subgroup = remnants_subgroup.."-wide"
+	tall_remnants.subgroup = remnants_subgroup.."-tall"
 
 	wide_remnants.icon = nil
 	wide_remnants.icons = params.icons
@@ -129,7 +132,7 @@ function make_wide_and_tall(params)
 		{
       type = "item",
       name = item_name,
-      subgroup = "wide-storage",
+      subgroup = params.subgroup,
 			flags = {"primary-place-result"},
       place_result = rote_name,
       stack_size = 50,
@@ -140,7 +143,10 @@ function make_wide_and_tall(params)
 			type = "assembling-machine",
 			name = rote_name,
 			localised_name = localised_name,
+
 			icons = params.icons,
+			subgroup = params.subgroup,
+			hidden = true,
 			hidden_in_factoriopedia = true,
 			
 
