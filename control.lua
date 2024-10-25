@@ -32,25 +32,77 @@ local function convert_bp_filters(bp_filters)
 	return filters
 end
 
+---@param chest_tags ChestTags
+---@param requester LuaLogisticPoint
+local function repair_logistic(requester, chest_tags)
+	requester.remove_section(requester.sections_count) -- Remove starting section
+	requester.trash_not_requested = chest_tags.request.trash_not_requested or false
 
----@alias BuiltEventData
----| EventData.on_built_entity
----| EventData.on_robot_built_entity
----| EventData.on_space_platform_built_entity
----| EventData.script_raised_built
+	for _, tag_section in pairs(chest_tags.request.sections) do
+		---@type LuaLogisticSection
+		local section
+		if tag_section.group then
+			section = requester.add_section(tag_section.group)--[[@as LuaLogisticSection]]
+		else
+			section = requester.add_section()--[[@as LuaLogisticSection]]
+			section.filters = convert_bp_filters(tag_section.filters)
+		end
+		section.multiplier = tag_section.multiplier or 1
+		section.active = tag_section.active ~= false
+	end
+end
 
----@param EventData BuiltEventData
-local function chest_built(EventData)
-	local entity = EventData.entity
-	if not entity then return end
+---@type table<string,fun(entity:LuaEntity, chest_tags:ChestTags, tags:Tags)>
+local restore_from_bp = {
+	["container"] = function (entity, chest_tags, tags)
+		if not chest_tags.circuit then return end
 
-	local entity_name = entity.name:sub(11)
+		local behavior = entity.get_or_create_control_behavior() --[[@as LuaContainerControlBehavior]]
+		behavior.read_contents = chest_tags.circuit.read_contents or false
+	end,
+
+	["logistic-container"] = function (entity, chest_tags, tags)
+		if chest_tags.circuit then
+			local behavior = entity.get_or_create_control_behavior() --[[@as LuaLogisticContainerControlBehavior]]
+			behavior.circuit_condition = {condition=chest_tags.circuit.circuit_condition}
+			behavior.circuit_condition_enabled = chest_tags.circuit.circuit_condition_enabled
+			behavior.circuit_exclusive_mode_of_operation = chest_tags.circuit.circuit_mode_of_operation
+			chest_tags.circuit = nil
+		end
+
+		if chest_tags.request then
+			entity.request_from_buffers = chest_tags.request.request_from_buffers or false
+
+			local requester = entity.get_requester_point()
+			-- Workaround for not being able to affect ghost points
+			if not requester then
+				chest_tags.request.request_from_buffers = nil
+				tags.wide_chest = chest_tags
+				goto skip_request
+			end
+
+			repair_logistic(requester, chest_tags)
+			chest_tags.request = nil
+		end
+		::skip_request::
+
+		entity.tags = tags
+	end,
+}
+
+
+---@param entity LuaEntity
+---@param full_name string
+---@param tags Tags
+---@param is_ghost boolean
+local function chest_built(entity, full_name, tags, is_ghost)
+	local entity_name = full_name:sub(11)
 	local surface = entity.surface
 
 	local direction = entity.direction % 8 --[[@as int]]
 	if direction % 4 ~= 0 then
 		error("Entity starting with 'rotatable-' had a non-cardinal direction: "
-			..entity.name..":\n"..serpent.block(entity)
+			..full_name..":\n"..serpent.block(entity)
 		)
 	end
 
@@ -60,11 +112,13 @@ local function chest_built(EventData)
 		entity_name = "tall-"..entity_name
 	end
 
-	local tags = EventData.tags
-	tags = tags and tags.wide_chest or {} --[[@as ChestTags]]
+	local chest_tags = tags.wide_chest or {} --[[@as ChestTags]]
+	tags.wide_chest = nil
 
-	local new_entity = surface.create_entity{
+	---@type LuaSurface.create_entity_param
+	local create = {
 		name = entity_name,
+		inner_name = entity_name,
 		quality = entity.quality,
 
 		position = entity.position,
@@ -72,51 +126,52 @@ local function chest_built(EventData)
 		player = entity.last_user,
 		create_build_effect_smoke = false,
 
-		bar = tags.bar,
+		bar = chest_tags.bar,
 		fast_replace = true,
 	}
+	chest_tags.bar = nil
 
+	if is_ghost then
+		create.name = "entity-ghost"
+		create.inner_name = entity_name
+		create.tags = tags
+	end
+
+	local new_entity = surface.create_entity(create)
 	if not new_entity then error("Replacement failed!") end
 
-	if new_entity.type == "container" and tags.circuit then
-
-		local behavior = new_entity.get_or_create_control_behavior() --[[@as LuaContainerControlBehavior]]
-		behavior.read_contents = tags.circuit.read_contents or false
-
-	elseif new_entity.type == "logistic-container" then
-		if tags.circuit then
-			local behavior = new_entity.get_or_create_control_behavior() --[[@as LuaLogisticContainerControlBehavior]]
-			behavior.circuit_condition = {condition=tags.circuit.circuit_condition}
-			behavior.circuit_condition_enabled = tags.circuit.circuit_condition_enabled
-			behavior.circuit_exclusive_mode_of_operation = tags.circuit.circuit_mode_of_operation
-		end
-
-		if tags.request then
-			local requester = new_entity.get_requester_point() --[[@as LuaLogisticPoint]]
-			requester.remove_section(1) -- Remove starting section
-
-			for _, tag_section in pairs(tags.request.sections) do
-				---@type LuaLogisticSection
-				local section
-				if tag_section.group then
-					section = requester.add_section(tag_section.group)--[[@as LuaLogisticSection]]
-				else
-					section = requester.add_section()--[[@as LuaLogisticSection]]
-					section.filters = convert_bp_filters(tag_section.filters)
-				end
-				section.multiplier = tag_section.multiplier or 1
-				section.active = tag_section.active ~= false
-			end
-		end
+	if chest_tags then
+		local func = restore_from_bp[is_ghost and new_entity.ghost_type or new_entity.type]
+		if func then func(new_entity, chest_tags, tags) end
 	end
 end
 
+---@alias BuiltEventData
+---| EventData.on_built_entity
+---| EventData.on_robot_built_entity
+---| EventData.on_space_platform_built_entity
+---| EventData.script_raised_built
 ---@param EventData BuiltEventData
 local function built(EventData)
 	local entity = EventData.entity
-	if entity.type == "assembling-machine"
-	and entity.name:sub(1, 10) == "rotatable-" then
-		chest_built(EventData)
+	local type, name, tags = entity.type, "", EventData.tags or {}
+	local is_ghost = type == "entity-ghost"
+	if is_ghost then
+		type = entity.ghost_type
+		name = entity.ghost_name
+		tags = entity.tags or {}
+	else
+		name = entity.name
+	end
+
+	if type == "assembling-machine"
+	and name:sub(1, 10) == "rotatable-" then
+		chest_built(entity, name, tags, is_ghost)
+	elseif tags.wide_chest then
+		local chest_tags = tags.wide_chest--[[@as ChestTags]]
+		local requester = entity.get_requester_point()
+		if not requester then error("Entity *still* didn't have a requester point?") end
+		repair_logistic(requester, chest_tags)
 	end
 end
 
@@ -137,6 +192,8 @@ script.on_event(defines.events.on_space_platform_built_entity, built)
 ---@field circuit_mode_of_operation? defines.control_behavior.logistic_container.exclusive_mode defaults to `defines.control_behavior.logistic_container.exclusive_mode.send_contents`
 
 ---@class ChestTags.request_filters
+---@field request_from_buffers? boolean
+---@field trash_not_requested? boolean
 ---@field sections ChestTags.request_filters.section[]
 
 ---@class ChestTags.request_filters.section
