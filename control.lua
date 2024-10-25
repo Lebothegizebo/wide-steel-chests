@@ -5,6 +5,30 @@ script.on_configuration_changed(function (data)
 	end
 end)
 
+---@param bp_filters BlueprintLogisticFilter[]
+---@return LogisticFilter[]
+local function convert_bp_filters(bp_filters)
+	---@type LogisticFilter[]
+	local filters = {}
+
+	for _, filter in pairs(bp_filters) do
+		filters[filter.index] = {
+			value = {
+				type = filter.type,
+				name = filter.name,
+				quality = filter.quality,
+				comparator = filter.comparator
+			},
+			min = filter.count,
+			max = filter.max_count,
+			minimum_delivery_count = filter.minimum_delivery_count,
+			-- Import_from??
+		}
+	end
+
+	return filters
+end
+
 
 ---@alias BuiltEventData
 ---| EventData.on_built_entity
@@ -33,9 +57,8 @@ local function chest_built(EventData)
 		entity_name = "tall-"..entity_name
 	end
 
-	---@type AnyBasic
 	local tags = EventData.tags
-	tags = tags and tags.wide_chest or {}
+	tags = tags and tags.wide_chest or {} --[[@as ChestTags]]
 
 	local new_entity = surface.create_entity{
 		name = entity_name,
@@ -49,6 +72,35 @@ local function chest_built(EventData)
 		bar = tags.bar,
 		fast_replace = true,
 	}
+
+	if not new_entity then error("Replacement failed!") end
+
+	if new_entity.type == "logistic-container" then
+		if tags.circuit then
+			local behavior = new_entity.get_or_create_control_behavior() --[[@as LuaLogisticContainerControlBehavior]]
+			behavior.circuit_condition = {condition=tags.circuit.condition}
+			behavior.circuit_condition_enabled = tags.circuit.enabled
+			behavior.circuit_exclusive_mode_of_operation = tags.circuit.mode
+		end
+
+		if tags.request then
+			local requester = new_entity.get_requester_point() --[[@as LuaLogisticPoint]]
+			requester.remove_section(1) -- Remove starting section
+
+			for _, tag_section in pairs(tags.request.sections) do
+				---@type LuaLogisticSection
+				local section
+				if tag_section.group then
+					section = requester.add_section(tag_section.group)--[[@as LuaLogisticSection]]
+				else
+					section = requester.add_section()--[[@as LuaLogisticSection]]
+					section.filters = convert_bp_filters(tag_section.filters)
+				end
+				section.multiplier = tag_section.multiplier or 1
+				section.active = tag_section.active ~= false
+			end
+		end
+	end
 end
 
 ---@param EventData BuiltEventData
@@ -65,11 +117,31 @@ script.on_event(defines.events.on_robot_built_entity, built)
 script.on_event(defines.events.script_raised_revive, built)
 script.on_event(defines.events.on_space_platform_built_entity, built)
 
+---@class ChestTags
+---@field circuit? ChestTags.circuit
+---@field bar? uint
+---@field request? ChestTags.request_filters
+
+---@class ChestTags.circuit
+---@field enabled boolean
+---@field condition CircuitCondition
+---@field mode? defines.control_behavior.logistic_container.exclusive_mode defaults to `defines.control_behavior.logistic_container.exclusive_mode.send_contents`
+
+---@class ChestTags.request_filters
+---@field sections ChestTags.request_filters.section[]
+
+---@class ChestTags.request_filters.section
+---@field index uint
+---@field filters BlueprintLogisticFilter[]
+---@field group string
+---@field multiplier? int
+---@field active? false
+
 script.on_event(defines.events.on_player_setup_blueprint, function (EventData)
 	local blueprint = EventData.stack
-	if not blueprint then return error() end
+	if not blueprint then error() end
 	local entities = blueprint.get_blueprint_entities()
-	if not entities then return error() end
+	if not entities then error() end
 
 	for _, entity in pairs(entities) do
 		local type_str = entity.name:sub(1, 5)
@@ -78,6 +150,18 @@ script.on_event(defines.events.on_player_setup_blueprint, function (EventData)
 			local chest = entity.name:sub(6)
 			entity.name = "rotatable-"..chest
 			entity.direction = type
+			entity.tags = entity.tags or {}
+			entity.tags.wide_chest = {
+				circuit = entity.control_behavior and {
+					enabled = entity.control_behavior.circuit_condition_enabled,
+					condition = entity.control_behavior.circuit_condition,
+					mode = entity.control_behavior.circuit_mode_of_operation,
+				},
+				bar = entity.bar,
+				request = entity.request_filters
+			}--[[@as ChestTags]]
+			entity.control_behavior = nil
+			entity.bar = nil
 		end
 	end
 
