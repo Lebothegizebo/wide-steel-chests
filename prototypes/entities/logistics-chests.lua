@@ -2,6 +2,7 @@
 make_wide_and_tall{
   name = "active-provider-chest",
   subgroup = "wide-logistics-storage",
+  order = "a",
   icons =
   {
     {
@@ -92,6 +93,7 @@ make_wide_and_tall{
 make_wide_and_tall{
   name = "passive-provider-chest",
   subgroup = "wide-logistics-storage",
+  order = "b",
   icons =
   {
     {
@@ -182,6 +184,7 @@ make_wide_and_tall{
 make_wide_and_tall{
   name = "storage-chest",
   subgroup = "wide-logistics-storage",
+  order = "c",
   icons =
   {
     {
@@ -272,6 +275,7 @@ make_wide_and_tall{
 make_wide_and_tall{
   name = "buffer-chest",
   subgroup = "wide-logistics-storage",
+  order = "d",
   icons =
   {
     {
@@ -362,6 +366,7 @@ make_wide_and_tall{
 make_wide_and_tall{
   name = "requester-chest",
   subgroup = "wide-logistics-storage",
+  order = "e",
   icons =
   {
     {

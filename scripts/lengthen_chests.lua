@@ -8,6 +8,7 @@ end
 ---@field name data.EntityID The name of the container this is duplicating
 ---@field localised_name? data.LocalisedString
 ---@field subgroup data.ItemSubGroupID
+---@field order string
 ---@field icons data.IconData[]
 ---@field inventory_multiplier int
 ---@field collision_box data.BoundingBox
@@ -60,6 +61,9 @@ function make_wide_and_tall(params)
 	wide_container.subgroup = params.subgroup.."-wide"
 	tall_container.subgroup = params.subgroup.."-tall"
 
+	wide_container.order = params.order
+	tall_container.order = params.order
+
 	wide_container.icon = nil
 	wide_container.icons = params.icons
 	tall_container.icon = nil
@@ -106,6 +110,9 @@ function make_wide_and_tall(params)
 	wide_remnants.subgroup = remnants_subgroup.."-wide"
 	tall_remnants.subgroup = remnants_subgroup.."-tall"
 
+	wide_remnants.order = params.order
+	tall_remnants.order = params.order
+
 	wide_remnants.icon = nil
 	wide_remnants.icons = params.icons
 	tall_remnants.icon = nil
@@ -133,10 +140,10 @@ function make_wide_and_tall(params)
       type = "item",
       name = item_name,
       subgroup = params.subgroup,
+      order = params.order,
 			flags = {"primary-place-result"},
       place_result = rote_name,
       stack_size = 50,
-      order = "b",
       icons = params.icons
 		}--[[@as data.ItemPrototype]],
 		{
@@ -146,6 +153,7 @@ function make_wide_and_tall(params)
 
 			icons = params.icons,
 			subgroup = params.subgroup,
+			order = params.order,
 			hidden = true,
 			hidden_in_factoriopedia = true,
 			factoriopedia_alternative = wide_name,
@@ -175,16 +183,6 @@ function make_wide_and_tall(params)
 					-- South not necessary as it defaults to north.
 					-- West only is because it defaults to north for some godforsaken reason
 					west = params.vertical_picture--[[@as data.Animation]],
-				}
-			},
-			created_effect = {
-				type = "direct",
-				action_delivery = {
-					type = "instant",
-					source_effects = {
-						type = "script",
-						effect_id = "rotatable-placed"
-					}
 				}
 			},
 

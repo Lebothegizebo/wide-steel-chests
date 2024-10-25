@@ -1,6 +1,7 @@
 make_wide_and_tall{
   name = "wooden-chest",
   subgroup = "wide-storage",
+  order = "a",
   icons =
   {
     {

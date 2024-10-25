@@ -1,6 +1,7 @@
 make_wide_and_tall{
   name = "iron-chest",
   subgroup = "wide-storage",
+  order = "b",
   icons =
   {
     {
