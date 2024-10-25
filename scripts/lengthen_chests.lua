@@ -132,6 +132,7 @@ function make_wide_and_tall(params)
 			type = "assembling-machine",
 			name = rote_name,
 			localised_name = localised_name,
+			icons = params.icons,
 			hidden_in_factoriopedia = true,
 
 			-- Empty minable results is intentional
@@ -140,6 +141,7 @@ function make_wide_and_tall(params)
 			--
 			-- Regardless, this entity should never just exist.
 			minable = {mining_time = orig_container.minable.mining_time},
+			flags = util.copy(orig_container.flags),
 
 			energy_usage = "1W",
 			crafting_speed = 0.01,
