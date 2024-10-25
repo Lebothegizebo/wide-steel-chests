@@ -2,11 +2,13 @@
 Version: 0.2.1
 Date: ????
   Major Features:
-    - Added the ability to rotate Wide Containers. Still possibly laden with bugs, report on the discord! Massive thanks to Pennyjim for implementing this. 
+    - Added the ability to rotate wide chests. Still possibly full of bugs, report on the discord! Massive thanks to Pennyjim for implementing this. 
   Features:
-    - Added logistics
+    - Added logistics wide chests.
   Info:
     - Custom graphics for all entities, including rotated varations. 
+    - If you want to disable the new rotatable chests, there is now a mod startup setting. Any entities already built will not be affected.
+    - Due to engine limitations, ghosts appear as assembing machines. You cannot rotate a already built chest. You can only rotate blueprints or your cursor.
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 22.10.2024

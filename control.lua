@@ -1,9 +1,12 @@
+-- Migrations
 script.on_configuration_changed(function (data)
 	for _, force in pairs(game.forces) do
 		force.reset_technology_effects()
-		print("Migrated to 0.1.5 and reset technologies")
+		print("Migrations complete.")
 	end
 end)
+
+-- Rotatable chests
 
 ---@param bp_filters BlueprintLogisticFilter[]
 ---@return LogisticFilter[]
