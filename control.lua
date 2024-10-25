@@ -83,9 +83,9 @@ local function chest_built(EventData)
 	elseif new_entity.type == "logistic-container" then
 		if tags.circuit then
 			local behavior = new_entity.get_or_create_control_behavior() --[[@as LuaLogisticContainerControlBehavior]]
-			behavior.circuit_condition = {condition=tags.circuit.condition}
-			behavior.circuit_condition_enabled = tags.circuit.enabled
-			behavior.circuit_exclusive_mode_of_operation = tags.circuit.mode
+			behavior.circuit_condition = {condition=tags.circuit.circuit_condition}
+			behavior.circuit_condition_enabled = tags.circuit.circuit_condition_enabled
+			behavior.circuit_exclusive_mode_of_operation = tags.circuit.circuit_mode_of_operation
 		end
 
 		if tags.request then
@@ -129,9 +129,9 @@ script.on_event(defines.events.on_space_platform_built_entity, built)
 
 ---@class ChestTags.circuit
 ---@field read_contents? boolean
----@field enabled? boolean
----@field condition? CircuitCondition
----@field mode? defines.control_behavior.logistic_container.exclusive_mode defaults to `defines.control_behavior.logistic_container.exclusive_mode.send_contents`
+---@field circuit_condition_enabled? boolean
+---@field circuit_condition? CircuitCondition
+---@field circuit_mode_of_operation? defines.control_behavior.logistic_container.exclusive_mode defaults to `defines.control_behavior.logistic_container.exclusive_mode.send_contents`
 
 ---@class ChestTags.request_filters
 ---@field sections ChestTags.request_filters.section[]
@@ -158,12 +158,7 @@ script.on_event(defines.events.on_player_setup_blueprint, function (EventData)
 			entity.direction = type
 			entity.tags = entity.tags or {}
 			entity.tags.wide_chest = {
-				circuit = entity.control_behavior and {
-					read_contents = entity.control_behavior.read_contents,
-					enabled = entity.control_behavior.circuit_condition_enabled,
-					condition = entity.control_behavior.circuit_condition,
-					mode = entity.control_behavior.circuit_mode_of_operation,
-				},
+				circuit = entity.control_behavior,
 				bar = entity.bar,
 				request = entity.request_filters
 			}--[[@as ChestTags]]
