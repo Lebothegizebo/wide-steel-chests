@@ -7,7 +7,6 @@ Date: ????
     - Added logistics wide chests.
   Info:
     - Custom graphics for all entities, including rotated varations. 
-    - If you want to disable the new rotatable chests, there is now a mod startup setting. Any entities already built will not be affected.
     - Due to engine limitations, logistic chests requests will not be restored until it's actually built.
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.0

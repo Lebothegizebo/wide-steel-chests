@@ -94,12 +94,14 @@ function make_wide_and_tall(params)
 	wide_container.placeable_by = {item = item_name, count = 1}
 	tall_container.placeable_by = {item = item_name, count = 1}
 
-	wide_container.hidden = false
+	wide_container.hidden = true
 	tall_container.hidden = true
 
 	-- Hide it because we just want it to see the wide one
 	tall_container.hidden_in_factoriopedia = true
-	tall_container.factoriopedia_alternative = wide_name
+	wide_container.hidden_in_factoriopedia = true
+	tall_container.factoriopedia_alternative = tall_name
+	wide_container.factoriopedia_alternative = wide_name
 	tall_container.localised_name = localised_name
 
 	--MARK: Remnants
