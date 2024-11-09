@@ -155,26 +155,26 @@ local is_beta = settings.startup["enable-wide-containers-beta"].value --[[@as bo
 ---| EventData.script_raised_built
 ---@param EventData BuiltEventData
 local function built(EventData)
-    local entity = EventData.entity
-    local type, name, tags = entity.type, "", EventData.tags or {}
-    local is_ghost = type == "entity-ghost"
-    if is_ghost and is_beta then
-        type = entity.ghost_type
-        name = entity.ghost_name
-        tags = entity.tags or {}
-    else
-        name = entity.name
-    end
+	local entity = EventData.entity
+	local type, name, tags = entity.type, "", EventData.tags or {}
+	local is_ghost = type == "entity-ghost"
+	if is_ghost and is_beta then
+		type = entity.ghost_type
+		name = entity.ghost_name
+		tags = entity.tags or {}
+	else
+		name = entity.name
+	end
 
-    if type == "assembling-machine"
-    and name:sub(1, 10) == "rotatable-" then
-        chest_built(entity, name, tags, is_ghost)
-    elseif tags.wide_chest then
-        local chest_tags = tags.wide_chest--[[@as ChestTags]]
-        local requester = entity.get_requester_point()
-        if not requester then error("Entity *still* didn't have a requester point?") end
-        repair_logistic(requester, chest_tags)
-    end
+	if type == "assembling-machine"
+	and name:sub(1, 10) == "rotatable-" then
+		chest_built(entity, name, tags, is_ghost)
+	elseif tags.wide_chest then
+		local chest_tags = tags.wide_chest--[[@as ChestTags]]
+		local requester = entity.get_requester_point()
+		if not requester then error("Entity *still* didn't have a requester point?") end
+		repair_logistic(requester, chest_tags)
+	end
 end
 
 script.on_event(defines.events.on_built_entity, built)
