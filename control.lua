@@ -71,17 +71,20 @@ local restore_from_bp = {
 		end
 
 		if chest_tags.request then
-			entity.request_from_buffers = chest_tags.request.request_from_buffers or false
+			if chest_tags.request.request_from_buffers then
+				entity.request_from_buffers = chest_tags.request.request_from_buffers
+			end
 
-			local requester = entity.get_requester_point()
+			local point = entity.get_logistic_point(defines.logistic_member_index.logistic_container)
+			---@cast point LuaLogisticPoint?
 			-- Workaround for not being able to affect ghost points
-			if not requester then
+			if not point then
 				chest_tags.request.request_from_buffers = nil
 				tags.wide_chest = chest_tags
 				goto skip_request
 			end
 
-			repair_logistic(requester, chest_tags)
+			repair_logistic(point, chest_tags)
 			chest_tags.request = nil
 		end
 		::skip_request::
@@ -171,9 +174,9 @@ local function built(EventData)
 		chest_built(entity, name, tags, is_ghost)
 	elseif tags.wide_chest then
 		local chest_tags = tags.wide_chest--[[@as ChestTags]]
-		local requester = entity.get_requester_point()
-		if not requester then error("Entity *still* didn't have a requester point?") end
-		repair_logistic(requester, chest_tags)
+		local point = entity.get_logistic_point(defines.logistic_member_index.logistic_container)
+		if not point then return log("Could not repair tags when reviving the entity") end
+		repair_logistic(point, chest_tags)
 	end
 end
 
