@@ -63,10 +63,18 @@ local restore_from_bp = {
 
 	["logistic-container"] = function (entity, chest_tags, tags)
 		if chest_tags.circuit then
+			local circuit = chest_tags.circuit
+			---@cast circuit -?
 			local behavior = entity.get_or_create_control_behavior() --[[@as LuaLogisticContainerControlBehavior]]
-			behavior.circuit_condition = {condition=chest_tags.circuit.circuit_condition}
-			behavior.circuit_condition_enabled = chest_tags.circuit.circuit_condition_enabled
-			behavior.circuit_exclusive_mode_of_operation = chest_tags.circuit.circuit_mode_of_operation
+			if circuit.circuit_condition then
+				behavior.circuit_condition = {condition=circuit.circuit_condition}
+			end
+			if circuit.circuit_condition_enabled then
+				behavior.circuit_condition_enabled = circuit.circuit_condition_enabled
+			end
+			if circuit.circuit_mode_of_operation then
+				behavior.circuit_exclusive_mode_of_operation = circuit.circuit_mode_of_operation
+			end
 			chest_tags.circuit = nil
 		end
 
