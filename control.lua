@@ -45,7 +45,7 @@ local function repair_logistic(requester, chest_tags)
 			section = requester.add_section(tag_section.group)--[[@as LuaLogisticSection]]
 		else
 			section = requester.add_section()--[[@as LuaLogisticSection]]
-			section.filters = convert_bp_filters(tag_section.filters)
+			section.filters = convert_bp_filters(tag_section.filters or {})
 		end
 		section.multiplier = tag_section.multiplier or 1
 		section.active = tag_section.active ~= false
@@ -146,8 +146,7 @@ local function chest_built(entity, full_name, tags, is_ghost)
 	end
 end
 
----@type boolean
-local is_beta = settings.startup["enable-wide-containers-beta"].value
+local is_beta = settings.startup["enable-wide-containers-beta"].value --[[@as boolean]]
 
 ---@alias BuiltEventData
 ---| EventData.on_built_entity
@@ -201,8 +200,8 @@ script.on_event(defines.events.on_space_platform_built_entity, built)
 
 ---@class ChestTags.request_filters.section
 ---@field index uint
----@field filters BlueprintLogisticFilter[]
----@field group string
+---@field filters? BlueprintLogisticFilter[]
+---@field group? string
 ---@field multiplier? int
 ---@field active? false
 
