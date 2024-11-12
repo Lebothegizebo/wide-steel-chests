@@ -2,12 +2,14 @@
 Version: 0.2.1
 Date: ????
   Major Features:
-    - Added the ability to rotate wide chests. Still possibly full of bugs, report on the discord! Massive thanks to Pennyjim for implementing this. 
+    - Added the ability to rotate Wide Chests. Still possibly full of bugs, report on the discord! Massive thanks to Pennyjim for implementing this. 
   Features:
     - Added logistics wide chests.
+    - Added logistics wide chest remnants.
   Info:
     - Custom graphics for all entities, including rotated varations. 
     - Due to engine limitations, logistic chests requests will not be restored until it's actually built.
+    - Due to engine limitations, any chest that has already been placed cannot be rotated. 
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 22.10.2024
