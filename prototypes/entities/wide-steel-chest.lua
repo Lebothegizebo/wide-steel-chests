@@ -14,7 +14,11 @@ make_wide_and_tall{
   selection_box = {{-1, -0.5}, {1, 0.5}},
   horizontal_connection = 
   {
-    circuit_connector=circuit_connector_definitions["wide-chest"]
+    circuit_connector=circuit_connector_definitions["wide_container"]
+  },
+  vertical_connection = 
+  {
+    circuit_connector=circuit_connector_definitions["tall_container"]
   },
   horizontal_picture =
   {

@@ -59,10 +59,10 @@ function make_wide_and_tall(params)
 	tall_container.name = tall_name
 
 	wide_container.subgroup = params.subgroup.."-wide"
-	tall_container.subgroup = params.subgroup.."-tall"
+	tall_container.subgroup = "parameters"
 
 	wide_container.order = params.order
-	tall_container.order = params.order
+	tall_container.order = nil
 
 	wide_container.icon = nil
 	wide_container.icons = params.icons
@@ -88,8 +88,8 @@ function make_wide_and_tall(params)
 	tall_container.picture = params.vertical_picture
 	tall_container.animation = params.horizontal_animation
 
-	wide_container.circuit_connector = params.horizontal_connection or wide_container.circuit_connector
-	wide_container.circuit_connector = params.vertical_connection or tall_container.circuit_connector
+	wide_container.circuit_connector = params["horizontal_connection"]["circuit_connector"] --or wide_container.circuit_connector
+	tall_container.circuit_connector = params["vertical_connection"]["circuit_connector"] --or tall_container.circuit_connector
 
 	wide_container.placeable_by = {item = item_name, count = 1}
 	tall_container.placeable_by = {item = item_name, count = 1}
@@ -99,8 +99,8 @@ function make_wide_and_tall(params)
 
 	-- Hide it because we just want it to see the wide one
 	tall_container.hidden_in_factoriopedia = true
-	wide_container.hidden_in_factoriopedia = true
-	tall_container.factoriopedia_alternative = tall_name
+	wide_container.hidden_in_factoriopedia = false
+	tall_container.factoriopedia_alternative = wide_name
 	wide_container.factoriopedia_alternative = wide_name
 	tall_container.localised_name = localised_name
 
@@ -143,7 +143,7 @@ function make_wide_and_tall(params)
       name = item_name,
       subgroup = params.subgroup,
       order = params.order,
-			flags = {"primary-place-result"},
+	  flags = {"primary-place-result"},
       place_result = rote_name,
       stack_size = 50,
       icons = params.icons
@@ -151,33 +151,18 @@ function make_wide_and_tall(params)
 		{
 			type = "assembling-machine",
 			name = rote_name,
+			subgroup = "parameters",
 			localised_name = localised_name,
-
 			icons = params.icons,
-			subgroup = params.subgroup,
-			order = params.order,
 			hidden = true,
 			hidden_in_factoriopedia = true,
-			factoriopedia_alternative = wide_name,
-
-			-- Empty minable results is intentional
-			-- Item may be accidentally lost, but it's better than duplicating it
-			-- or accidentally deleting the contents of another chest
-			--
-			-- Regardless, this entity should never just exist.
-			minable = {mining_time = orig_container.minable.mining_time},
-			flags = util.copy(orig_container.flags),
 			max_health = orig_container.max_health,
-
 			energy_usage = "1W",
 			crafting_speed = 1,
 			crafting_categories = {"null"},
 			energy_source = {type = "void"},
-
 			collision_box = params.collision_box,
 			selection_box = params.selection_box,
-			fast_replaceable_group = orig_container.fast_replaceable_group,
-
 			graphics_set = {
 				animation = {
 					north = params.horizontal_picture--[[@as data.Animation]],
@@ -187,15 +172,6 @@ function make_wide_and_tall(params)
 					west = params.vertical_picture--[[@as data.Animation]],
 				}
 			},
-
-			circuit_wire_max_distance = orig_container.circuit_wire_max_distance,
-			circuit_connector = {
-				wide_container.circuit_connector,
-				tall_container.circuit_connector,
-				wide_container.circuit_connector,
-				tall_container.circuit_connector,
-			}
-
 		}--[[@as data.AssemblingMachinePrototype]],
 
 		wide_container,
