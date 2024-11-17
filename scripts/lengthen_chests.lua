@@ -1,4 +1,3 @@
-require("container_definition") -- Defines varibles used in this file. Call define_containers(params) to use
 -- Use the function make_wide_and_tall for defining new containers
 
 ---@param box data.BoundingBox
@@ -6,7 +5,7 @@ local function rotate_box(box)
 	return {{box[1][2],box[1][1]}, {box[2][2],box[2][1]}}
 end
 ---@return data.BoundingBox
----@class chest_params 
+---@class chest_params
 ---@field name data.EntityID The name of the container
 ---@field localised_name? data.LocalisedString The LocalisedString of the container
 ---@field subgroup data.ItemSubGroupID The subgroup of the container item_prototype
@@ -30,20 +29,38 @@ end
 ---@field vertical_animation? data.Animation The vertical animation of the container
 ---@field vertical_remnants data.Animation The vertical animation of the container remnant
 ---@field vertical_connection? data.CircuitConnectorDefinition The vertical circuit definition of the container
-
 ---@param params chest_params
-function make_wide_and_tall(params)
-	define_containers(params)
-	--MARK: Containers
 
+
+function make_wide_and_tall(params)
+	--MARK: Containers
+	---@type data.ContainerPrototype
+	local orig_container
+	for _, container_type in pairs{"container", "logistic-container", "temporary-container", "infinity-container"} do
+	orig_container = data.raw[container_type][params.name] --[[@as data.ContainerPrototype]]
+	if orig_container then break end
+	end
+	if not orig_container then error("No container found of name '"..params.name.."'") end
+	local wide_container = table.deepcopy(orig_container)
+	local tall_container = table.deepcopy(orig_container)
+	local orig_remnants = data.raw["corpse"][orig_container.corpse--[[@as string]]]
+	local wide_remnants = table.deepcopy(orig_remnants)
+	local tall_remnants = table.deepcopy(orig_remnants)
+	local wide_name = "wide-"..params.name
+	local tall_name = "tall-"..params.name	local item_name = wide_name --TODO: make a migration to use the rotatable name?
+	local rote_name = "rotatable-"..params.name
+	local remnants_subgroup = params.subgroup.."-remnants"
+	local wide_remnants_name = wide_name.."-remnants"
+	local tall_remnants_name = tall_name.."-remnants"
+	local localised_name = params.localised_name or {"entity-name."..wide_name}
 	wide_container.name = wide_name
 	tall_container.name = tall_name
 
 	wide_container.subgroup = params.subgroup.."-wide"
-	tall_container.subgroup = params.subgroup..  "-tall"
+	tall_container.subgroup = params.subgroup.."-tall"
 
-	wide_container.order = wide_container.order
-	tall_container.order = tall_container.order
+	wide_container.order = params.order
+	tall_container.order = params.order
 
 	wide_container.inventory_move_sound = params.inventory_move_sound
 	tall_container.inventory_move_sound = params.inventory_move_sound
@@ -115,7 +132,7 @@ function make_wide_and_tall(params)
 	tall_remnants.icons = params.icons
 
 	wide_remnants.selection_box = table.deepcopy(params.selection_box) -- Deepcopy to keep it from being linked to the container
-	tall_remnants.selection_box = table.deepcopy(params.selection_box)
+	tall_remnants.selection_box = rotate_box(params.selection_box)
 
 	-- Why were these set, they are determined automatically..
 	wide_remnants.tile_width = nil
@@ -131,28 +148,28 @@ function make_wide_and_tall(params)
 
 	--MARK: Item & ASM
 
-  data:extend{
-		{
-      type = "item",
-      name = item_name,
-      subgroup = params.subgroup,
-      order = params.order,
-	  flags = {"primary-place-result"},
-      place_result = rote_name,
-      stack_size = 50,
-      icons = params.icons
-		}--[[@as data.ItemPrototype]],
+data:extend{
+{
+	type = "item",
+	name = item_name,
+	subgroup = params.subgroup,
+	order = params.order,
+	flags = {"primary-place-result"},
+	place_result = rote_name,
+	stack_size = 50,
+	icons = params.icons
+	}--[[@as data.ItemPrototype]],
 		{
 			type = "assembling-machine",
 			name = rote_name,
-			subgroup = "parameters",
-			fast_replaceable_group = orig_container.fast_replaceable_group,
 			localised_name = localised_name,
 			icons = params.icons,
+			subgroup = "parameters",
+			order = params.order,
 			hidden = true,
+			hidden_in_factoriopedia = true,
 			minable = {mining_time = orig_container.minable.mining_time},
 			flags = util.copy(orig_container.flags),
-			hidden_in_factoriopedia = true,
 			max_health = orig_container.max_health,
 			energy_usage = "1W",
 			crafting_speed = 1,
@@ -160,6 +177,7 @@ function make_wide_and_tall(params)
 			energy_source = {type = "void"},
 			collision_box = params.collision_box,
 			selection_box = params.selection_box,
+			fast_replaceable_group = orig_container.fast_replaceable_group,
 			graphics_set = {
 				animation = {
 					north = params.horizontal_picture--[[@as data.Animation]],
@@ -167,6 +185,13 @@ function make_wide_and_tall(params)
 					west = params.vertical_picture--[[@as data.Animation]],
 				}
 			},
+			circuit_wire_max_distance = orig_container.circuit_wire_max_distance,
+			circuit_connector = {
+				wide_container.circuit_connector,
+				tall_container.circuit_connector,
+				wide_container.circuit_connector,
+				tall_container.circuit_connector,
+			}
 		}--[[@as data.AssemblingMachinePrototype]],
 
 		wide_container,
