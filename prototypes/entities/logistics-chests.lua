@@ -3,6 +3,9 @@ make_wide_and_tall{
   name = "active-provider-chest",
   subgroup = "wide-logistics-storage",
   order = "a",
+  inventory_move_sound = item_sounds.metal_chest_inventory_move,
+  pick_sound = item_sounds.metal_chest_inventory_pickup,
+  drop_sound = item_sounds.metal_chest_inventory_move,
   icons =
   {
     {
@@ -102,6 +105,9 @@ make_wide_and_tall{
   name = "passive-provider-chest",
   subgroup = "wide-logistics-storage",
   order = "b",
+  inventory_move_sound = item_sounds.metal_chest_inventory_move,
+  pick_sound = item_sounds.metal_chest_inventory_pickup,
+  drop_sound = item_sounds.metal_chest_inventory_move,
   icons =
   {
     {
@@ -201,6 +207,9 @@ make_wide_and_tall{
   name = "storage-chest",
   subgroup = "wide-logistics-storage",
   order = "c",
+  inventory_move_sound = item_sounds.metal_chest_inventory_move,
+  pick_sound = item_sounds.metal_chest_inventory_pickup,
+  drop_sound = item_sounds.metal_chest_inventory_move,
   icons =
   {
     {
@@ -300,6 +309,9 @@ make_wide_and_tall{
   name = "buffer-chest",
   subgroup = "wide-logistics-storage",
   order = "d",
+  inventory_move_sound = item_sounds.metal_chest_inventory_move,
+  pick_sound = item_sounds.metal_chest_inventory_pickup,
+  drop_sound = item_sounds.metal_chest_inventory_move,
   icons =
   {
     {
@@ -399,6 +411,9 @@ make_wide_and_tall{
   name = "requester-chest",
   subgroup = "wide-logistics-storage",
   order = "e",
+  inventory_move_sound = item_sounds.metal_chest_inventory_move,
+  pick_sound = item_sounds.metal_chest_inventory_pickup,
+  drop_sound = item_sounds.metal_chest_inventory_move,
   icons =
   {
     {

@@ -2,6 +2,9 @@ make_wide_and_tall{
   name = "wooden-chest",
   subgroup = "wide-storage",
   order = "a",
+  inventory_move_sound = item_sounds.wood_inventory_move,
+  pick_sound = item_sounds.wood_inventory_pickup,
+  drop_sound = item_sounds.wood_inventory_pickup,
   icons =
   {
     {

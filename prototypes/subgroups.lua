@@ -1,5 +1,7 @@
 --Containers
-data:extend({
+data:extend
+(
+{
     { -- For the item and asm
       type = "item-subgroup",
       name = "wide-storage",
@@ -67,4 +69,5 @@ data:extend({
       group = "logistics",
       order = "a1",
     }
-  })
+}
+)

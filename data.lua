@@ -1,7 +1,9 @@
 -- Scripting
 require("circuit-connector-generated-definitions")
-require("scripts.sprites")
+require("scripts.circuit_connector_sprites")
 require("scripts.lengthen_chests")
+require("scripts.container_prototype_updates")
+
 -- Subgroups
 require("prototypes.subgroups")
 -- Entitys
