@@ -43,7 +43,7 @@ data.raw["container"]["tall-steel-chest"]["picture"].layers[1].filename = "__wid
 data.raw["container"]["tall-steel-chest"]["picture"].layers[2].filename = "__wide-aai-chests__/graphics/entity/shadows/tall-steel-chest-shadow.png"
 --shift--
 data.raw["container"]["tall-steel-chest"]["picture"].layers[1].shift = util.by_pixel(0, 0)
-data.raw["container"]["tall-steel-chest"]["picture"].layers[2].shift = util.by_pixel(26, 3)
+data.raw["container"]["tall-steel-chest"]["picture"].layers[2].shift = util.by_pixel(9, 3)
 --corpse--
 data.raw["corpse"]["tall-steel-chest-remnants"].animation.layers[1] = {}
 data.raw["corpse"]["tall-steel-chest-remnants"].icons[1].icon = "__wide-aai-chests__/graphics/icons/wide-steel-chest.png"

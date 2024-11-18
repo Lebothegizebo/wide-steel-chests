@@ -10,6 +10,11 @@ Date: ????
     - Custom graphics for all entities, including rotated varations. 
     - Due to engine limitations, logistic chests requests will not be restored until it's actually built.
     - Due to engine limitations, any chest that has already been placed cannot be rotated. 
+  Bugfixes:
+    - Fixed logistic containers not having a description.
+    - Fixed (many) crashes related to the new rotatable chests.
+  Compatibility:
+    - Updated compatibility with AAI containers.
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 22.10.2024
