@@ -19,7 +19,7 @@ data:extend(
 		type = "technology",
 		name = "wide-storage-containers",
 		icons = { {icon = "__wide-steel-chests__/graphics/technology/wide-storage-containers.png", icon_size = 128} },
-		rerequisites = {"wide-steel-containers", "logistic-robotics"},
+		prerequisites = {"wide-steel-containers", "logistic-robotics"},
 	  	unit = {count = 100, ingredients = { {"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}  }, time = 30},
 	  	effects = { { type = "unlock-recipe", recipe = "wide-storage-chest" }, { type = "unlock-recipe", recipe = "wide-passive-provider-chest" } },
 	},
