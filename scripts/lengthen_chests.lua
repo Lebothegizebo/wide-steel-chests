@@ -57,19 +57,10 @@ function make_wide_and_tall(params)
 	tall_container.name = tall_name
 
 	wide_container.subgroup = params.subgroup.."-wide"
-	tall_container.subgroup = params.subgroup.."-tall"
+	tall_container.subgroup = "parameters"
 
 	wide_container.order = params.order
 	tall_container.order = params.order
-
-	wide_container.inventory_move_sound = params.inventory_move_sound
-	tall_container.inventory_move_sound = params.inventory_move_sound
-
-	wide_container.pick_sound = params.pick_sound
-	tall_container.pick_sound = params.pick_sound
-
-	wide_container.drop_sound = params.drop_sound
-	tall_container.drop_sound = params.drop_sound
 
 	wide_container.icon = nil
 	wide_container.icons = params.icons
@@ -90,6 +81,14 @@ function make_wide_and_tall(params)
 	wide_container.inventory_size = wide_container.inventory_size * params.inventory_multiplier
 	tall_container.inventory_size = tall_container.inventory_size * params.inventory_multiplier
 
+	wide_container.inventory_move_sound = params.inventory_move_sound
+	tall_container.inventory_move_sound = params.inventory_move_sound
+
+	wide_container.pick_sound = params.pick_sound
+	tall_container.pick_sound = params.pick_sound
+
+	wide_container.drop_sound = params.drop_sound
+	tall_container.drop_sound = params.drop_sound
 	wide_container.picture = params.horizontal_picture
 	tall_container.picture = params.vertical_picture
 
@@ -154,6 +153,9 @@ data:extend{
 	name = item_name,
 	subgroup = params.subgroup,
 	order = params.order,
+	inventory_move_sound = params.inventory_move_sound,
+	pick_sound = params.pick_sound,
+	drop_sound = params.drop_sound,
 	flags = {"primary-place-result"},
 	place_result = rote_name,
 	stack_size = 50,
