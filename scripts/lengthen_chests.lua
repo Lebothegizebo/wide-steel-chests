@@ -59,7 +59,7 @@ function make_wide_and_tall(params)
 	wide_container.name = wide_name
 	tall_container.name = tall_name
 
-	wide_container.subgroup = params.subgroup.."-wide"
+	wide_container.subgroup = "parameters"
 	tall_container.subgroup = "parameters"
 
 	wide_container.order = params.order
@@ -70,9 +70,6 @@ function make_wide_and_tall(params)
 
 	wide_container.resistances = params.resistances
 	tall_container.resistances = params.resistances
-
-	wide_container.factoriopedia_simulation = params.factoriopedia_simulation
-	tall_container.factoriopedia_simulation = params.factoriopedia_simulation
 
 	wide_container.icon = nil
 	wide_container.icons = params.icons
@@ -162,11 +159,9 @@ function make_wide_and_tall(params)
 data:extend{
 {
 	type = "item",
-	hidden_in_factoriopedia = true,
-	factoriopedia_alternative = wide_name,
+	hidden_in_factoriopedia = false,
 	hide_resistances = params.hide_resistances,
 	resistances = params.resistances,
-	factoriopedia_simulation = params.factoriopedia_simulation,
 	name = item_name,
 	subgroup = params.subgroup,
 	order = params.order,
@@ -183,11 +178,11 @@ data:extend{
 			name = rote_name,
 			localised_name = localised_name,
 			icons = params.icons,
-			subgroup = "parameters",
+			item_subgroup = "logistics",
 			order = params.order,
 			hidden = true,
 			hidden_in_factoriopedia = true,
-			factoriopedia_alternative = wide_name,
+			factoriopedia_alternative = tall_name,
 			minable = {mining_time = orig_container.minable.mining_time},
 			flags = util.copy(orig_container.flags),
 			max_health = orig_container.max_health,
