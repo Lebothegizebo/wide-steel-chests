@@ -1,11 +1,25 @@
 local item_sounds = require("__base__/prototypes/item_sounds")
+local simulations = require("prototypes.factoriopedia-simulations")
 make_wide_and_tall{
   name = "iron-chest",
   subgroup = "wide-storage",
   order = "b",
+  factoriopedia_simulation = simulations.factoriopedia_wide_iron_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
+  hide_resistances = true,
+  resistances = 
+  {
+    {
+      type = "fire",
+      percent = 80,
+    },
+    {
+      type = "impact",
+      percent = 30 ,
+    },
+  },
   icons =
   {
     {

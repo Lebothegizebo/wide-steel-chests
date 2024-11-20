@@ -1,12 +1,26 @@
 local item_sounds = require("__base__/prototypes/item_sounds")
+local simulations = require("prototypes.factoriopedia-simulations")
 --MARK: Active Provider
 make_wide_and_tall{
   name = "active-provider-chest",
   subgroup = "wide-logistics-storage",
   order = "a",
+  factoriopedia_simulation = simulations.factoriopedia_wide_active_provider_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
+  hide_resistances = true,
+  resistances = 
+  {
+    {
+      type = "fire",
+      percent = 90,
+    },
+    {
+      type = "impact",
+      percent = 60 ,
+    },
+  },
   icons =
   {
     {
@@ -106,9 +120,22 @@ make_wide_and_tall{
   name = "passive-provider-chest",
   subgroup = "wide-logistics-storage",
   order = "b",
+  factoriopedia_simulation = simulations.factoriopedia_wide_passive_provider_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
+  hide_resistances = true,
+  resistances = 
+  {
+    {
+      type = "fire",
+      percent = 90,
+    },
+    {
+      type = "impact",
+      percent = 60 ,
+    },
+  },
   icons =
   {
     {
@@ -208,9 +235,22 @@ make_wide_and_tall{
   name = "storage-chest",
   subgroup = "wide-logistics-storage",
   order = "c",
+  factoriopedia_simulation = simulations.factoriopedia_wide_storage_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
+  hide_resistances = true,
+  resistances = 
+  {
+    {
+      type = "fire",
+      percent = 90,
+    },
+    {
+      type = "impact",
+      percent = 60 ,
+    },
+  },
   icons =
   {
     {
@@ -310,9 +350,22 @@ make_wide_and_tall{
   name = "buffer-chest",
   subgroup = "wide-logistics-storage",
   order = "d",
+  factoriopedia_simulation = simulations.factoriopedia_wide_buffer_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
+  hide_resistances = true,
+  resistances = 
+  {
+    {
+      type = "fire",
+      percent = 90,
+    },
+    {
+      type = "impact",
+      percent = 60 ,
+    },
+  },
   icons =
   {
     {
@@ -412,9 +465,22 @@ make_wide_and_tall{
   name = "requester-chest",
   subgroup = "wide-logistics-storage",
   order = "e",
+  factoriopedia_simulation = simulations.factoriopedia_wide_requester_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
+    hide_resistances = true,
+    resistances = 
+    {
+      {
+        type = "fire",
+        percent = 90,
+      },
+      {
+        type = "impact",
+        percent = 60 ,
+      },
+    },
   icons =
   {
     {

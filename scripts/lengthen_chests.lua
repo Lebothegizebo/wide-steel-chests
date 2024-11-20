@@ -10,6 +10,8 @@ end
 ---@field localised_name? data.LocalisedString The LocalisedString of the container
 ---@field subgroup data.ItemSubGroupID The subgroup of the container item_prototype
 ---@field order string The order of the container item_prototype
+---@field hide_resistances bool Hide resistances of the entity?
+---@field resistances data.Resistance
 ---@field icons data.IconData[] The icon set of the container
 ---@field inventory_multiplier int The inventory_multiplier of the containers inventory
 ---@field collision_box data.BoundingBox The collision box of the container 
@@ -47,7 +49,8 @@ function make_wide_and_tall(params)
 	local wide_remnants = table.deepcopy(orig_remnants)
 	local tall_remnants = table.deepcopy(orig_remnants)
 	local wide_name = "wide-"..params.name
-	local tall_name = "tall-"..params.name	local item_name = wide_name --TODO: make a migration to use the rotatable name?
+	local tall_name = "tall-"..params.name	
+	local item_name = wide_name --TODO: make a migration to use the rotatable name?
 	local rote_name = "rotatable-"..params.name
 	local remnants_subgroup = params.subgroup.."-remnants"
 	local wide_remnants_name = wide_name.."-remnants"
@@ -61,6 +64,15 @@ function make_wide_and_tall(params)
 
 	wide_container.order = params.order
 	tall_container.order = params.order
+
+	wide_container.hide_resistances = params.hide_resistances
+	tall_container.hide_resistances = params.hide_resistances
+
+	wide_container.resistances = params.resistances
+	tall_container.resistances = params.resistances
+
+	wide_container.factoriopedia_simulation = params.factoriopedia_simulation
+	tall_container.factoriopedia_simulation = params.factoriopedia_simulation
 
 	wide_container.icon = nil
 	wide_container.icons = params.icons
@@ -101,7 +113,7 @@ function make_wide_and_tall(params)
 	wide_container.placeable_by = {item = item_name, count = 1}
 	tall_container.placeable_by = {item = item_name, count = 1}
 
-	wide_container.hidden = true
+	wide_container.hidden = false
 	tall_container.hidden = true
 
 	wide_container.next_upgrade = params.horizontal_upgrade
@@ -150,6 +162,11 @@ function make_wide_and_tall(params)
 data:extend{
 {
 	type = "item",
+	hidden_in_factoriopedia = true,
+	factoriopedia_alternative = wide_name,
+	hide_resistances = params.hide_resistances,
+	resistances = params.resistances,
+	factoriopedia_simulation = params.factoriopedia_simulation,
 	name = item_name,
 	subgroup = params.subgroup,
 	order = params.order,
@@ -170,6 +187,7 @@ data:extend{
 			order = params.order,
 			hidden = true,
 			hidden_in_factoriopedia = true,
+			factoriopedia_alternative = wide_name,
 			minable = {mining_time = orig_container.minable.mining_time},
 			flags = util.copy(orig_container.flags),
 			max_health = orig_container.max_health,

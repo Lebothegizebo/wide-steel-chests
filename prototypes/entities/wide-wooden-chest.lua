@@ -1,11 +1,14 @@
 local item_sounds = require("__base__/prototypes/item_sounds")
+local simulations = require("prototypes.factoriopedia-simulations")
 make_wide_and_tall{
   name = "wooden-chest",
   subgroup = "wide-storage",
   order = "a",
+  factoriopedia_simulation = simulations.factoriopedia_wide_wooden_chest,
   inventory_move_sound = item_sounds.wood_inventory_move,
   pick_sound = item_sounds.wood_inventory_pickup,
   drop_sound = item_sounds.wood_inventory_drop,
+  hide_resistances = true,
   icons =
   {
     {
