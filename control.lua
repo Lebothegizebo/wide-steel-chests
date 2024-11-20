@@ -169,7 +169,7 @@ local function built(EventData)
 	local entity = EventData.entity
 	local type, name, tags = entity.type, "", EventData.tags or {}
 	local is_ghost = type == "entity-ghost"
-	if is_ghost and is_beta then
+	if is_ghost then
 		type = entity.ghost_type
 		name = entity.ghost_name
 		tags = entity.tags or {}
