@@ -1,3 +1,4 @@
+local item_sounds = require("__base__/prototypes/item_sounds")
 make_wide_and_tall{
   name = "steel-chest",
   subgroup = "wide-storage",
