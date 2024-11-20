@@ -55,9 +55,9 @@ make_wide_and_tall{
         filename = "__wide-steel-chests__/graphics/entity/tall-wooden-chest.png",
         priority = "extra-high",
         scale = 0.5,
-        width = 80,
-        height = 128,
-        shift = util.by_pixel(-2, 0.5),
+        width = 62,
+        height = 136,
+        shift = util.by_pixel(0.5, -2),
       },
       {
         filename = "__wide-steel-chests__/graphics/entity/shadows/tall-wooden-chest-shadow.png",
