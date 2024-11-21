@@ -8,35 +8,11 @@ data:extend
       group = "logistics",
       order = "a2",
     },
-    { -- For the rotated entities
-      type = "item-subgroup",
-      name = "wide-storage-wide",
-      group = "logistics",
-      order = "a2a",
-    },
-    {
-      type = "item-subgroup",
-      name = "wide-storage-tall",
-      group = "logistics",
-      order = "a2b",
-    },
     {
       type = "item-subgroup",
       name = "wide-logistics-storage",
       group = "logistics",
       order = "a3",
-    },
-    {
-      type = "item-subgroup",
-      name = "wide-logistics-storage-wide",
-      group = "logistics",
-      order = "a3a",
-    },
-    {
-      type = "item-subgroup",
-      name = "wide-logistics-storage-tall",
-      group = "logistics",
-      order = "a3b",
     },
     {
       type = "item-subgroup",

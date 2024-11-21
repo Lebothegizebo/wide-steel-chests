@@ -1,3 +1,4 @@
+local icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png"
 data:extend(
 {
   --Wide Active Provider Chest
@@ -37,7 +38,7 @@ data:extend(
     icons= 
     {
       {
-        icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+        icon = icon,
         icon_size = 128,
       },
     }
@@ -80,7 +81,7 @@ data:extend(
     icons= 
     {
       {
-        icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+        icon = icon,
         icon_size = 128,
       },
     }
@@ -123,7 +124,7 @@ data:extend(
     icons= 
     {
       {
-        icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+        icon = icon,
         icon_size = 128,
       },
     }
@@ -166,7 +167,7 @@ data:extend(
     icons= 
     {
       {
-        icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+        icon = icon,
         icon_size = 128,
       },
     }
@@ -209,7 +210,7 @@ data:extend(
     icons= 
     {
       {
-        icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+        icon = icon,
         icon_size = 128,
       },
     }

@@ -15,8 +15,8 @@ local tall_chest_hw = {64, 138, 110, 108} --Width, Height, Width, Height
 local tall_chest_shift = {util.by_pixel(-0.25, -2), util.by_pixel(12.25, 5.25)}
 local tall_chest_shadow = "__wide-steel-chests__/graphics/entity/shadows/tall-logistic-chest-shadow.png"
 local tall_remnants = "__wide-steel-chests__/graphics/remnants/tall-logistic-chest-remnants.png"
-local tall_remnants_hw = {88,200}
-local tall_remnants_shift = util.by_pixel(-1, 9)
+local tall_remnants_hw = {150,152}
+local tall_remnants_shift = util.by_pixel(14.75, -1)
 
 
 
