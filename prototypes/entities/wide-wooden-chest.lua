@@ -7,7 +7,7 @@ make_wide_and_tall{
   factoriopedia_simulation = simulations.factoriopedia_wide_wooden_chest,
   inventory_move_sound = item_sounds.wood_inventory_move,
   pick_sound = item_sounds.wood_inventory_pickup,
-  drop_sound = item_sounds.wood_inventory_drop,
+  drop_sound = item_sounds.wood_inventory_move,
   hide_resistances = true,
   icons =
   {

@@ -182,6 +182,8 @@ data:extend{
 			order = params.order,
 			hidden = true,
 			hidden_in_factoriopedia = true,
+			hide_resistances = params.hide_resistances,
+			resistances = params.resistances,
 			factoriopedia_alternative = tall_name,
 			minable = {mining_time = orig_container.minable.mining_time},
 			flags = util.copy(orig_container.flags),

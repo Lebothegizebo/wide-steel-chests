@@ -1,3 +1,4 @@
+-- unused
 require("__base__/prototypes/factoriopedia-util");
 local simulations = {}
 simulations.factoriopedia_wide_wooden_chest =
@@ -106,3 +107,4 @@ simulations.factoriopedia_wide_requester_chest =
 }
 
 return simulations
+
