@@ -6,7 +6,7 @@ local wide_chest_hw = {128, 80, 165, 46} --Width, Height, Width, Height
 local wide_chest_shift = {util.by_pixel(-0.25, -0.5), util.by_pixel(24.25-10, 8)}
 local tall_chest = "__wide-steel-chests__/graphics/entity/tall-logistic-chest.png"
 local tall_chest_hw = {64, 138, 110, 108} --Width, Height, Width, Height
-local tall_chest_shift = {util.by_pixel(-0.25, -2), util.by_pixel(8, 24.25-10)}
+local tall_chest_shift = {util.by_pixel(-0.25, -2), util.by_pixel(12.25, 5.25)}
 local wide_chest_shadow = "__wide-steel-chests__/graphics/entity/shadows/wide-logistic-chest-shadow.png"
 local tall_chest_shadow = "__wide-steel-chests__/graphics/entity/shadows/tall-logistic-chest-shadow.png"
 --MARK: Active Provider

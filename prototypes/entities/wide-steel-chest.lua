@@ -79,7 +79,7 @@ make_wide_and_tall{
         scale = 0.5,
         width = 110,
         height = 108 ,
-        shift = util.by_pixel(8, 24.25-10),
+        shift = util.by_pixel(12.25, 5.25),
         draw_as_shadow = true,
       }
     }
