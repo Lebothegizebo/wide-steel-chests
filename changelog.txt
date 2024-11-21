@@ -10,10 +10,12 @@ Date: ????
     - Added inventory sounds to all chest varations.
     - Added Factoriopedia entries to all chest varations.
   Graphics:
+    - Updated mod thumbnail.
     - Custom graphics for all entities, including rotated varations. 
     - Redesign of some graphics and placeholder graphics.
     - ¯\_(ツ)_/¯.
   Info:
+    - Updated mod dependency listings.
     - To enable logistics chests, enable the beta in mod startup settings. Now updated so that entitys wont disappear upon upgrading to the next release.
     - Due to engine limitations, all chests appear as assembling machines in inventories. The mod uses a rotatable entitiy (assembling machine) as the place result, then replaces the place result with a container. This has this unfortunate side effect, but hey, "It just works™" ¯\_(ツ)_/¯.
     - Due to engine limitations, logistic chests requests will not be restored until it's actually built.

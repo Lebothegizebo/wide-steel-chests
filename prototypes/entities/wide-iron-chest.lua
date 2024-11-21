@@ -104,10 +104,10 @@ make_wide_and_tall{
     {
       {
         filename = "__wide-steel-chests__/graphics/remnants/tall-iron-chest-remnants.png",
-        width = 87,
-        height = 192,
+        width = 126,
+        height = 156,
         scale = 0.5,
-        shift = util.by_pixel(-1, 9),
+        shift = util.by_pixel(-5, -1.5),
         direction_count = 1,
       },
     }
