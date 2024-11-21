@@ -1,14 +1,26 @@
 local item_sounds = require("__base__/prototypes/item_sounds")
 local simulations = require("prototypes.factoriopedia-simulations")
-local wide_icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png"
+local icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png"
+
 local wide_chest = "__wide-steel-chests__/graphics/entity/wide-logistic-chest.png"
+local wide_chest_shadow = "__wide-steel-chests__/graphics/entity/shadows/wide-logistic-chest-shadow.png"
 local wide_chest_hw = {128, 80, 165, 46} --Width, Height, Width, Height
 local wide_chest_shift = {util.by_pixel(-0.25, -0.5), util.by_pixel(24.25-10, 8)}
+local wide_remnants = "__wide-steel-chests__/graphics/remnants/wide-logistic-chest-remnants.png"
+local wide_remnants_hw = {200, 88}
+local wide_remnants_shift = util.by_pixel(9, -1)
+
 local tall_chest = "__wide-steel-chests__/graphics/entity/tall-logistic-chest.png"
 local tall_chest_hw = {64, 138, 110, 108} --Width, Height, Width, Height
 local tall_chest_shift = {util.by_pixel(-0.25, -2), util.by_pixel(12.25, 5.25)}
-local wide_chest_shadow = "__wide-steel-chests__/graphics/entity/shadows/wide-logistic-chest-shadow.png"
 local tall_chest_shadow = "__wide-steel-chests__/graphics/entity/shadows/tall-logistic-chest-shadow.png"
+local tall_remnants = "__wide-steel-chests__/graphics/remnants/tall-logistic-chest-remnants.png"
+local tall_remnants_hw = {88,200}
+local tall_remnants_shift = util.by_pixel(-1, 9)
+
+
+
+
 --MARK: Active Provider
 make_wide_and_tall{
   name = "active-provider-chest",
@@ -33,7 +45,7 @@ make_wide_and_tall{
   icons =
   {
     {
-      icon = wide_icon,
+      icon = icon,
       icon_size = 128,
     },
   },
@@ -99,11 +111,11 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/remnants/wide-steel-chest-remnants.png",
-        width = 192,
-        height = 87,
+        filename = wide_remnants,
+        width = wide_remnants_hw[1],
+        height = wide_remnants_hw[2],
         scale = 0.5,
-        shift = util.by_pixel(9, -1),
+        shift = wide_remnants_shift,
         direction_count = 1,
       },
     }
@@ -113,11 +125,11 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/remnants/tall-steel-chest-remnants.png",
-        width = 87,
-        height = 192,
+        filename = tall_remnants,
+        width = tall_remnants_hw[1],
+        height = tall_remnants_hw[2],
         scale = 0.5,
-        shift = util.by_pixel(-1, 9),
+        shift = tall_remnants_shift,
         direction_count = 1,
       },
     }
@@ -148,7 +160,7 @@ make_wide_and_tall{
   icons =
   {
     {
-      icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png",
+      icon = icon,
       icon_size = 128,
     },
   },
@@ -214,11 +226,11 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/remnants/wide-steel-chest-remnants.png",
-        width = 192,
-        height = 87,
+        filename = wide_remnants,
+        width = wide_remnants_hw[1],
+        height = wide_remnants_hw[2],
         scale = 0.5,
-        shift = util.by_pixel(9, -1),
+        shift = wide_remnants_shift,
         direction_count = 1,
       },
     }
@@ -228,11 +240,11 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/remnants/tall-steel-chest-remnants.png",
-        width = 87,
-        height = 192,
+        filename = tall_remnants,
+        width = tall_remnants_hw[1],
+        height = tall_remnants_hw[2],
         scale = 0.5,
-        shift = util.by_pixel(-1, 9),
+        shift = tall_remnants_shift,
         direction_count = 1,
       },
     }
@@ -263,7 +275,7 @@ make_wide_and_tall{
   icons =
   {
     {
-      icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png",
+      icon = icon,
       icon_size = 128,
     },
   },
@@ -329,11 +341,11 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/remnants/wide-steel-chest-remnants.png",
-        width = 192,
-        height = 87,
+        filename = wide_remnants,
+        width = wide_remnants_hw[1],
+        height = wide_remnants_hw[2],
         scale = 0.5,
-        shift = util.by_pixel(9, -1),
+        shift = wide_remnants_shift,
         direction_count = 1,
       },
     }
@@ -343,11 +355,11 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/remnants/tall-steel-chest-remnants.png",
-        width = 87,
-        height = 192,
+        filename = tall_remnants,
+        width = tall_remnants_hw[1],
+        height = tall_remnants_hw[2],
         scale = 0.5,
-        shift = util.by_pixel(-1, 9),
+        shift = tall_remnants_shift,
         direction_count = 1,
       },
     }
@@ -378,7 +390,7 @@ make_wide_and_tall{
   icons =
   {
     {
-      icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png",
+      icon = icon,
       icon_size = 128,
     },
   },
@@ -444,11 +456,11 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/remnants/wide-steel-chest-remnants.png",
-        width = 192,
-        height = 87,
+        filename = wide_remnants,
+        width = wide_remnants_hw[1],
+        height = wide_remnants_hw[2],
         scale = 0.5,
-        shift = util.by_pixel(9, -1),
+        shift = wide_remnants_shift,
         direction_count = 1,
       },
     }
@@ -458,11 +470,11 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/remnants/tall-steel-chest-remnants.png",
-        width = 87,
-        height = 192,
+        filename = tall_remnants,
+        width = tall_remnants_hw[1],
+        height = tall_remnants_hw[2],
         scale = 0.5,
-        shift = util.by_pixel(-1, 9),
+        shift = tall_remnants_shift,
         direction_count = 1,
       },
     }
@@ -493,7 +505,7 @@ make_wide_and_tall{
   icons =
   {
     {
-      icon = wide_icon,
+      icon = icon,
       icon_size = 128,
     },
   },
@@ -559,11 +571,11 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/remnants/wide-steel-chest-remnants.png",
-        width = 192,
-        height = 87,
+        filename = wide_remnants,
+        width = wide_remnants_hw[1],
+        height = wide_remnants_hw[2],
         scale = 0.5,
-        shift = util.by_pixel(9, -1),
+        shift = wide_remnants_shift,
         direction_count = 1,
       },
     }
@@ -573,11 +585,11 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/remnants/tall-steel-chest-remnants.png",
-        width = 87,
-        height = 192,
+        filename = tall_remnants,
+        width = tall_remnants_hw[1],
+        height = tall_remnants_hw[2],
         scale = 0.5,
-        shift = util.by_pixel(-1, 9),
+        shift = tall_remnants_shift,
         direction_count = 1,
       },
     }

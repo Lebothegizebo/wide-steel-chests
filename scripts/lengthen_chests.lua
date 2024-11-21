@@ -128,6 +128,9 @@ function make_wide_and_tall(params)
 	wide_remnants.name = wide_remnants_name
 	tall_remnants.name = tall_remnants_name
 
+	wide_remnants.flags = {"placeable-neutral", "building-direction-8-way", "not-on-map","placeable-off-grid"}
+	tall_remnants.flags = {"placeable-neutral", "building-direction-8-way", "not-on-map","placeable-off-grid"}
+
 	wide_remnants.subgroup = remnants_subgroup.."-wide"
 	tall_remnants.subgroup = remnants_subgroup.."-tall"
 
