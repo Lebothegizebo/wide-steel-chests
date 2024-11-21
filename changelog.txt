@@ -2,18 +2,28 @@
 Version: 0.2.1
 Date: ????
   Major Features:
-    - Added the ability to rotate Wide Chests. Still possibly full of bugs, report on the discord! Massive thanks to Pennyjim for implementing this.
+    - Added the ability to rotate all Wide Containers.
+    - Still possibly full of bugs, though it seems stable after extensive testing. For any bugs you do find, report on the discord!
     - Rotated chests are fully blueprintable and fully rotatable.
+    - Massive thanks to Pennyjim for implementing the basis to this functionality.
   Features:
-    - Added inventory sounds to all chest varations,
-  Info:
+    - Added inventory sounds to all chest varations.
+    - Added Factoriopedia entries to all chest varations.
+  Graphics:
     - Custom graphics for all entities, including rotated varations. 
+    - Redesign of some graphics and placeholder graphics.
+    - ¯\_(ツ)_/¯.
+  Info:
+    - To enable logistics chests, enable the beta in mod startup settings. Now updated so that entitys wont disappear upon upgrading to the next release.
+    - Due to engine limitations, all chests appear as assembling machines in inventories. The mod uses a rotatable entitiy (assembling machine) as the place result, then replaces the place result with a container. This has this unfortunate side effect, but hey, "It just works™" ¯\_(ツ)_/¯.
     - Due to engine limitations, logistic chests requests will not be restored until it's actually built.
     - Due to engine limitations, any chest that has already been placed cannot be rotated. 
-    - Planned for next release: Logistics chests, configurable chest sizes.
+    - Planned for next release: Logistics chest release, configurable chest sizes.
   Bugfixes:
+    - Fixed some bugs when updating from older versions of Wide Containers.
     - Fixed logistic containers not having a description.
     - Fixed (many) crashes related to the new rotatable chests.
+    - Fixed some old typos and incorrect information in the changelog.
   Scripting:
     - Added a new function make_wide_and_tall(). You can use this to define a chest and have it automaticly rotatable. Nifty, eh? (You should probbably use some or all of the control.lua for this mod).
   Compatibility:
@@ -30,7 +40,7 @@ Date: 21.10.2024
     - Preparing mod for Factorio 2.0 launch.
     - Added startup setting to enable beta content, allowing for faster bugfixes and hotfixes.
     - Note: Beta content wont break your game, but it will be unfinished and unpolished, probbably with placeholder graphics. If anything breaks the mod it wont be listed under beta content and will be commented out upon a hotfix.
-    - Note: Version 0.1.9 will be the last version of Wide Containers for Factorio Version 1.1 in the future with completed logistics content. I will be foxusing my efforts on Facctorio version 2.0.
+    - Note: Version 0.1.9 will be the last version of Wide Containers for Factorio Version 1.1 in the future with completed logistics chests. I will be focusing my efforts on Factorio version 2.0.
   Features:
     - Added 2x1 logistics chests to the game (BETA CONTENT)
     - Added 2x1 logistics chest remnants to the game (BETA CONTENT)
