@@ -1,5 +1,14 @@
 local item_sounds = require("__base__/prototypes/item_sounds")
 local simulations = require("prototypes.factoriopedia-simulations")
+local wide_icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png"
+local wide_chest = "__wide-steel-chests__/graphics/entity/wide-logistic-chest.png"
+local wide_chest_hw = {128, 80, 165, 46} --Width, Height, Width, Height
+local wide_chest_shift = {util.by_pixel(-0.25, -0.5), util.by_pixel(24.25-10, 8)}
+local tall_chest = "__wide-steel-chests__/graphics/entity/tall-logistic-chest.png"
+local tall_chest_hw = {64, 138, 110, 108} --Width, Height, Width, Height
+local tall_chest_shift = {util.by_pixel(-0.25, -2), util.by_pixel(8, 24.25-10)}
+local wide_chest_shadow = "__wide-steel-chests__/graphics/entity/shadows/wide-logistic-chest-shadow.png"
+local tall_chest_shadow = "__wide-steel-chests__/graphics/entity/shadows/tall-logistic-chest-shadow.png"
 --MARK: Active Provider
 make_wide_and_tall{
   name = "active-provider-chest",
@@ -24,7 +33,7 @@ make_wide_and_tall{
   icons =
   {
     {
-      icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+      icon = wide_icon,
       icon_size = 128,
     },
   },
@@ -44,20 +53,20 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/wide-logistic-chest.png",
+        filename = wide_chest,
         priority = "extra-high",
         scale = 0.5,
-        width = 128,
-        height = 80,
-        shift = util.by_pixel(-0.25, -0.5),
+        width = wide_chest_hw[1],
+        height = wide_chest_hw[2],
+        shift = wide_chest_shift[1],
       },
       {
-        filename = "__wide-steel-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png",
+        filename = wide_chest_shadow,
         priority = "extra-high",
         scale = 0.5,
-        width = 165,
-        height = 46,
-        shift = util.by_pixel(24.25-10, 8),
+        width = wide_chest_hw[3],
+        height = wide_chest_hw[4],
+        shift = wide_chest_shift[2],
         draw_as_shadow = true,
       }
     }
@@ -67,20 +76,20 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/tall-logistic-chest.png",
+        filename = tall_chest,
         priority = "extra-high",
         scale = 0.5,
-        width = 80,
-        height = 128,
-        shift = util.by_pixel(-0.5, -0.25),
+        width = tall_chest_hw[1],
+        height = tall_chest_hw[2],
+        shift = tall_chest_shift[1],
       },
       {
-        filename = "__wide-steel-chests__/graphics/entity/shadows/tall-steel-chest-shadow.png",
+        filename = tall_chest_shadow,
         priority = "extra-high",
         scale = 0.5,
-        width = 46,
-        height = 165,
-        shift = util.by_pixel(8, 24.25-10),
+        width = tall_chest_hw[3],
+        height = tall_chest_hw[4],
+        shift = tall_chest_shift[2],
         draw_as_shadow = true,
       }
     }
@@ -139,7 +148,7 @@ make_wide_and_tall{
   icons =
   {
     {
-      icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+      icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png",
       icon_size = 128,
     },
   },
@@ -159,20 +168,20 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/wide-logistic-chest.png",
+        filename = wide_chest,
         priority = "extra-high",
         scale = 0.5,
-        width = 128,
-        height = 80,
-        shift = util.by_pixel(-0.25, -0.5),
+        width = wide_chest_hw[1],
+        height = wide_chest_hw[2],
+        shift = wide_chest_shift[1],
       },
       {
-        filename = "__wide-steel-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png",
+        filename = wide_chest_shadow,
         priority = "extra-high",
         scale = 0.5,
-        width = 165,
-        height = 46,
-        shift = util.by_pixel(24.25-10, 8),
+        width = wide_chest_hw[3],
+        height = wide_chest_hw[4],
+        shift = wide_chest_shift[2],
         draw_as_shadow = true,
       }
     }
@@ -182,20 +191,20 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/tall-logistic-chest.png",
+        filename = tall_chest,
         priority = "extra-high",
         scale = 0.5,
-        width = 80,
-        height = 128,
-        shift = util.by_pixel(-0.5, -0.25),
+        width = tall_chest_hw[1],
+        height = tall_chest_hw[2],
+        shift = tall_chest_shift[1],
       },
       {
-        filename = "__wide-steel-chests__/graphics/entity/shadows/tall-steel-chest-shadow.png",
+        filename = tall_chest_shadow,
         priority = "extra-high",
         scale = 0.5,
-        width = 46,
-        height = 165,
-        shift = util.by_pixel(8, 24.25-10),
+        width = tall_chest_hw[3],
+        height = tall_chest_hw[4],
+        shift = tall_chest_shift[2],
         draw_as_shadow = true,
       }
     }
@@ -254,7 +263,7 @@ make_wide_and_tall{
   icons =
   {
     {
-      icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+      icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png",
       icon_size = 128,
     },
   },
@@ -274,20 +283,20 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/wide-logistic-chest.png",
+        filename = wide_chest,
         priority = "extra-high",
         scale = 0.5,
-        width = 128,
-        height = 80,
-        shift = util.by_pixel(-0.25, -0.5),
+        width = wide_chest_hw[1],
+        height = wide_chest_hw[2],
+        shift = wide_chest_shift[1],
       },
       {
-        filename = "__wide-steel-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png",
+        filename = wide_chest_shadow,
         priority = "extra-high",
         scale = 0.5,
-        width = 165,
-        height = 46,
-        shift = util.by_pixel(24.25-10, 8),
+        width = wide_chest_hw[3],
+        height = wide_chest_hw[4],
+        shift = wide_chest_shift[2],
         draw_as_shadow = true,
       }
     }
@@ -297,20 +306,20 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/tall-logistic-chest.png",
+        filename = tall_chest,
         priority = "extra-high",
         scale = 0.5,
-        width = 80,
-        height = 128,
-        shift = util.by_pixel(-0.5, -0.25),
+        width = tall_chest_hw[1],
+        height = tall_chest_hw[2],
+        shift = tall_chest_shift[1],
       },
       {
-        filename = "__wide-steel-chests__/graphics/entity/shadows/tall-steel-chest-shadow.png",
+        filename = tall_chest_shadow,
         priority = "extra-high",
         scale = 0.5,
-        width = 46,
-        height = 165,
-        shift = util.by_pixel(8, 24.25-10),
+        width = tall_chest_hw[3],
+        height = tall_chest_hw[4],
+        shift = tall_chest_shift[2],
         draw_as_shadow = true,
       }
     }
@@ -369,7 +378,7 @@ make_wide_and_tall{
   icons =
   {
     {
-      icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+      icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png",
       icon_size = 128,
     },
   },
@@ -389,20 +398,20 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/wide-logistic-chest.png",
+        filename = wide_chest,
         priority = "extra-high",
         scale = 0.5,
-        width = 128,
-        height = 80,
-        shift = util.by_pixel(-0.25, -0.5),
+        width = wide_chest_hw[1],
+        height = wide_chest_hw[2],
+        shift = wide_chest_shift[1],
       },
       {
-        filename = "__wide-steel-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png",
+        filename = wide_chest_shadow,
         priority = "extra-high",
         scale = 0.5,
-        width = 165,
-        height = 46,
-        shift = util.by_pixel(24.25-10, 8),
+        width = wide_chest_hw[3],
+        height = wide_chest_hw[4],
+        shift = wide_chest_shift[2],
         draw_as_shadow = true,
       }
     }
@@ -412,20 +421,20 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/tall-logistic-chest.png",
+        filename = tall_chest,
         priority = "extra-high",
         scale = 0.5,
-        width = 80,
-        height = 128,
-        shift = util.by_pixel(-0.5, -0.25),
+        width = tall_chest_hw[1],
+        height = tall_chest_hw[2],
+        shift = tall_chest_shift[1],
       },
       {
-        filename = "__wide-steel-chests__/graphics/entity/shadows/tall-steel-chest-shadow.png",
+        filename = tall_chest_shadow,
         priority = "extra-high",
         scale = 0.5,
-        width = 46,
-        height = 165,
-        shift = util.by_pixel(8, 24.25-10),
+        width = tall_chest_hw[3],
+        height = tall_chest_hw[4],
+        shift = tall_chest_shift[2],
         draw_as_shadow = true,
       }
     }
@@ -504,20 +513,20 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/wide-logistic-chest.png",
+        filename = wide_chest,
         priority = "extra-high",
         scale = 0.5,
-        width = 128,
-        height = 80,
-        shift = util.by_pixel(-0.25, -0.5),
+        width = wide_chest_hw[1],
+        height = wide_chest_hw[2],
+        shift = wide_chest_shift[1],
       },
       {
-        filename = "__wide-steel-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png",
+        filename = wide_chest_shadow,
         priority = "extra-high",
         scale = 0.5,
-        width = 165,
-        height = 46,
-        shift = util.by_pixel(24.25-10, 8),
+        width = wide_chest_hw[3],
+        height = wide_chest_hw[4],
+        shift = wide_chest_shift[2],
         draw_as_shadow = true,
       }
     }
@@ -527,20 +536,20 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/tall-logistic-chest.png",
+        filename = tall_chest,
         priority = "extra-high",
         scale = 0.5,
-        width = 80,
-        height = 128,
-        shift = util.by_pixel(-0.5, -0.25),
+        width = tall_chest_hw[1],
+        height = tall_chest_hw[2],
+        shift = tall_chest_shift[1],
       },
       {
-        filename = "__wide-steel-chests__/graphics/entity/shadows/tall-steel-chest-shadow.png",
+        filename = tall_chest_shadow,
         priority = "extra-high",
         scale = 0.5,
-        width = 46,
-        height = 165,
-        shift = util.by_pixel(8, 24.25-10),
+        width = tall_chest_hw[3],
+        height = tall_chest_hw[4],
+        shift = tall_chest_shift[2],
         draw_as_shadow = true,
       }
     }

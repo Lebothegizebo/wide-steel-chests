@@ -77,8 +77,8 @@ make_wide_and_tall{
         filename = "__wide-steel-chests__/graphics/entity/shadows/tall-steel-chest-shadow.png",
         priority = "extra-high",
         scale = 0.5,
-        width = 46,
-        height = 165,
+        width = 110,
+        height = 108 ,
         shift = util.by_pixel(8, 24.25-10),
         draw_as_shadow = true,
       }
