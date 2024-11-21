@@ -493,7 +493,7 @@ make_wide_and_tall{
   icons =
   {
     {
-      icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+      icon = wide_icon,
       icon_size = 128,
     },
   },
