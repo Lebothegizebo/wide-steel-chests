@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.1
-Date: ????
+Date: 2024-11-21
   Major Features:
     - Added the ability to rotate all Wide Containers.
     - Still possibly full of bugs, though it seems stable after extensive testing. For any bugs you do find, report on the discord!
