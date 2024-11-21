@@ -9,6 +9,7 @@ Date: ????
   Features:
     - Added inventory sounds to all chest varations.
     - Added Factoriopedia entries to all chest varations.
+    - Added Upgrade Planner support.
   Graphics:
     - Updated mod thumbnail.
     - Custom graphics for all entities, including rotated varations. 

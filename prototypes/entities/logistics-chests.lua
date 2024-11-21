@@ -25,7 +25,7 @@ local tall_remnants_shift = util.by_pixel(-1, 9)
 make_wide_and_tall{
   name = "active-provider-chest",
   subgroup = "wide-logistics-storage",
-  order = "a",
+  order = "d",
   factoriopedia_simulation = simulations.factoriopedia_wide_active_provider_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
@@ -140,7 +140,7 @@ make_wide_and_tall{
 make_wide_and_tall{
   name = "passive-provider-chest",
   subgroup = "wide-logistics-storage",
-  order = "b",
+  order = "e",
   factoriopedia_simulation = simulations.factoriopedia_wide_passive_provider_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
@@ -255,7 +255,7 @@ make_wide_and_tall{
 make_wide_and_tall{
   name = "storage-chest",
   subgroup = "wide-logistics-storage",
-  order = "c",
+  order = "f",
   factoriopedia_simulation = simulations.factoriopedia_wide_storage_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
@@ -370,7 +370,7 @@ make_wide_and_tall{
 make_wide_and_tall{
   name = "buffer-chest",
   subgroup = "wide-logistics-storage",
-  order = "d",
+  order = "g",
   factoriopedia_simulation = simulations.factoriopedia_wide_buffer_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
@@ -485,7 +485,7 @@ make_wide_and_tall{
 make_wide_and_tall{
   name = "requester-chest",
   subgroup = "wide-logistics-storage",
-  order = "e",
+  order = "h",
   factoriopedia_simulation = simulations.factoriopedia_wide_requester_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,

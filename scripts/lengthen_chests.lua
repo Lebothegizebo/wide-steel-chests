@@ -59,8 +59,8 @@ function make_wide_and_tall(params)
 	wide_container.name = wide_name
 	tall_container.name = tall_name
 
-	wide_container.subgroup = "parameters"
-	tall_container.subgroup = "parameters"
+	wide_container.subgroup = params.subgroup
+	tall_container.subgroup = params.subgroup
 
 	wide_container.order = params.order
 	tall_container.order = params.order
