@@ -104,8 +104,8 @@ function make_wide_and_tall(params)
 	wide_container.animation = params.horizontal_animation
 	tall_container.animation = params.horizontal_animation
 
-	wide_container.circuit_connector = params.horizontal_connection.circuit_connector
-	tall_container.circuit_connector = params.vertical_connection.circuit_connector
+	wide_container.circuit_connector = table.deepcopy(params.horizontal_connection.circuit_connector)
+	tall_container.circuit_connector = table.deepcopy(params.vertical_connection.circuit_connector)
 
 	wide_container.placeable_by = {item = item_name, count = 1}
 	tall_container.placeable_by = {item = item_name, count = 1}

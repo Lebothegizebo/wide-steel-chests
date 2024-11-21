@@ -71,4 +71,4 @@ data.raw["technology"]["wide-steel-containers"].icons[1].icon="__wide-aai-chests
 data.raw["container"]["wide-steel-chest"].circuit_connector.sprites = nil
 data.raw["container"]["wide-steel-chest"].circuit_connector.points = wide_aai_chest_circuit_connector_definitions.points
 data.raw["container"]["tall-steel-chest"].circuit_connector.sprites = nil
-data.raw["container"]["tall-steel-chest"].circuit_connector.points = wide_aai_chest_circuit_connector_definitions.points
+data.raw["container"]["tall-steel-chest"].circuit_connector.points = tall_aai_chest_circuit_connector_definitions.points
