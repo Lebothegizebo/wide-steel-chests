@@ -218,9 +218,10 @@ script.on_event(defines.events.on_space_platform_built_entity, built)
 
 script.on_event(defines.events.on_player_setup_blueprint, function (EventData)
 	local blueprint = EventData.stack
+	if not blueprint then return log("No entities in this blueprint") end
 	if not blueprint then error() end
 	local entities = blueprint.get_blueprint_entities()
-	if not entities then error() end
+	if not entities then return log("No entities in this blueprint") end
 
 	for _, entity in pairs(entities) do
 		local type_str = entity.name:sub(1, 5)
