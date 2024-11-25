@@ -1,7 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.2
 Date: ????
-  Changes:
+  Bugfixes:
+    - Fixed game error upon blueprinting tiles. (https://mods.factorio.com/mod/wide-steel-chests/discussion/6741d5ea2d59086fa67f0d3f)
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.1
 Date: 2024-11-21
