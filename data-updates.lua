@@ -19,5 +19,7 @@ end
 if mods["aai-containers"] then
     require("prototypes.compatibility.aai-containers.recipes")
 end
-
+if settings.startup["easter-egg"].value then
+    require("prototypes.compatibility.easter-egg.easter-egg")
+end
 require("prototypes.surface-conditions")
