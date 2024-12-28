@@ -18,7 +18,7 @@ data.raw.container["wooden-chest"].picture.layers[1].shift = util.by_pixel(0, 0)
 data.raw.container["wooden-chest"].open_sound.filename = "__wide-steel-chests__/sound/easter-egg/chestopen.ogg"
 data.raw.container["wooden-chest"].close_sound.filename = "__wide-steel-chests__/sound/easter-egg/chestclosed.ogg"
 
-data.raw.container["wooden-chest"].inventory_size = 54
+data.raw.container["wide-wooden-chest"].inventory_size = 54
 data.raw.container["wide-wooden-chest"].picture.layers[1].filename = "__wide-steel-chests__/graphics/easter-egg/minecraft-wide-chest.png"
 data.raw["item"]["wide-wooden-chest"].icons[1].icon = "__wide-steel-chests__/graphics/easter-egg/icons/minecraft-wide-chest.png"
 data.raw["recipe"]["wide-wooden-chest"].icons[1].icon = "__wide-steel-chests__/graphics/easter-egg/icons/minecraft-wide-chest.png"
