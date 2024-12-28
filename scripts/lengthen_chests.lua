@@ -17,6 +17,7 @@ end
 ---@field collision_box data.BoundingBox The collision box of the container 
 ---@field selection_box data.BoundingBox The selection box of the container 
 ---@field inventory_move_sound data.Sound The inventory_move_sound of the container
+---@feild tint data.Colour Item Tint
 ---@field pick_sound data.Sound The pick_sound of the container
 ---@field drop_sound data.Sound The drop_sound of the container
 ---

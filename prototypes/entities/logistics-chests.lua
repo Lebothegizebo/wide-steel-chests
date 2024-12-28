@@ -3,8 +3,9 @@ local simulations = require("prototypes.factoriopedia-simulations")
 local icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png"
 
 local wide_chest = "__wide-steel-chests__/graphics/entity/wide-logistic-chest.png"
+local wide_chest_mask = "__wide-steel-chests__/graphics/entity/wide-logistic-chest-mask.png"
 local wide_chest_shadow = "__wide-steel-chests__/graphics/entity/shadows/wide-logistic-chest-shadow.png"
-local wide_chest_hw = {128, 80, 165, 46} --Width, Height, Width, Height
+local wide_chest_hw = {130, 80, 165, 46} --Width, Height, Width, Height
 local wide_chest_shift = {util.by_pixel(-0.25, -0.5), util.by_pixel(24.25-10, 8)}
 local wide_remnants = "__wide-steel-chests__/graphics/remnants/wide-logistic-chest-remnants.png"
 local wide_remnants_hw = {200, 88}
@@ -19,7 +20,11 @@ local tall_remnants_hw = {150,152}
 local tall_remnants_shift = util.by_pixel(14.75, -1)
 
 local surface_conditions = data.raw.container["steel-chest"].surface_conditions
-
+local tint_passive = {r=220,g=61,b=65}
+local tint_active = {r=200,g=87,b=253}
+local tint_storage = {r=230,g=180,b=66}
+local tint_buffer = {r=70,g=200,b=70}
+local tint_requester = {r=80,g=160,b=220}
 
 --MARK: Active Provider
 make_wide_and_tall{
@@ -67,7 +72,14 @@ make_wide_and_tall{
     {
       {
         filename = wide_chest,
-        priority = "extra-high",
+        scale = 0.5,
+        width = wide_chest_hw[1],
+        height = wide_chest_hw[2],
+        shift = wide_chest_shift[1],
+      },
+      {
+        tint = tint_active,
+        filename = wide_chest_mask,
         scale = 0.5,
         width = wide_chest_hw[1],
         height = wide_chest_hw[2],
@@ -183,6 +195,15 @@ make_wide_and_tall{
     {
       {
         filename = wide_chest,
+        priority = "extra-high",
+        scale = 0.5,
+        width = wide_chest_hw[1],
+        height = wide_chest_hw[2],
+        shift = wide_chest_shift[1],
+      },
+      {
+        filename = wide_chest_mask,
+        tint = tint_passive,
         priority = "extra-high",
         scale = 0.5,
         width = wide_chest_hw[1],
@@ -306,6 +327,15 @@ make_wide_and_tall{
         shift = wide_chest_shift[1],
       },
       {
+        filename = wide_chest_mask,
+        tint = tint_storage,
+        priority = "extra-high",
+        scale = 0.5,
+        width = wide_chest_hw[1],
+        height = wide_chest_hw[2],
+        shift = wide_chest_shift[1],
+      },
+      {
         filename = wide_chest_shadow,
         priority = "extra-high",
         scale = 0.5,
@@ -415,6 +445,15 @@ make_wide_and_tall{
     {
       {
         filename = wide_chest,
+        priority = "extra-high",
+        scale = 0.5,
+        width = wide_chest_hw[1],
+        height = wide_chest_hw[2],
+        shift = wide_chest_shift[1],
+      },
+      {
+        filename = wide_chest_mask,
+        tint = tint_buffer,
         priority = "extra-high",
         scale = 0.5,
         width = wide_chest_hw[1],
@@ -532,6 +571,15 @@ make_wide_and_tall{
       {
         filename = wide_chest,
         priority = "extra-high",
+        scale = 0.5,
+        width = wide_chest_hw[1],
+        height = wide_chest_hw[2],
+        shift = wide_chest_shift[1],
+      },
+      {
+        filename = wide_chest_mask,
+        priority = "extra-high",
+        tint = tint_requester,
         scale = 0.5,
         width = wide_chest_hw[1],
         height = wide_chest_hw[2],
