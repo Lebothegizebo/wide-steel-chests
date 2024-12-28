@@ -1,5 +1,5 @@
 -- Use the function make_wide_and_tall for defining new containers
-
+log("DATA_DEBUG")
 ---@param box data.BoundingBox
 local function rotate_box(box)
 	return {{box[1][2],box[1][1]}, {box[2][2],box[2][1]}}
@@ -122,6 +122,7 @@ function make_wide_and_tall(params)
 	tall_container.factoriopedia_alternative = wide_name
 	wide_container.factoriopedia_alternative = wide_name
 	tall_container.localised_name = localised_name
+
 
 	--MARK: Remnants
 

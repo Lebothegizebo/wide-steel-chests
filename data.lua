@@ -23,3 +23,4 @@ require("prototypes.technology")
 
 -- BETA CONTENT FLAGS
 require("prototypes.beta-content")
+require("prototypes.surface-conditions")

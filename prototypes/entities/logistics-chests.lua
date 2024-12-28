@@ -18,7 +18,7 @@ local tall_remnants = "__wide-steel-chests__/graphics/remnants/tall-logistic-che
 local tall_remnants_hw = {150,152}
 local tall_remnants_shift = util.by_pixel(14.75, -1)
 
-
+local surface_conditions = data.raw.container["steel-chest"].surface_conditions
 
 
 --MARK: Active Provider
@@ -26,6 +26,7 @@ make_wide_and_tall{
   name = "active-provider-chest",
   subgroup = "wide-logistics-storage",
   order = "d",
+  surface_conditions = surface_conditions,
   factoriopedia_simulation = simulations.factoriopedia_wide_active_provider_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
@@ -141,6 +142,7 @@ make_wide_and_tall{
   name = "passive-provider-chest",
   subgroup = "wide-logistics-storage",
   order = "e",
+  surface_conditions = surface_conditions,
   factoriopedia_simulation = simulations.factoriopedia_wide_passive_provider_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
@@ -256,6 +258,7 @@ make_wide_and_tall{
   name = "storage-chest",
   subgroup = "wide-logistics-storage",
   order = "f",
+  surface_conditions = surface_conditions,
   factoriopedia_simulation = simulations.factoriopedia_wide_storage_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
@@ -371,6 +374,7 @@ make_wide_and_tall{
   name = "buffer-chest",
   subgroup = "wide-logistics-storage",
   order = "g",
+  surface_conditions = surface_conditions,
   factoriopedia_simulation = simulations.factoriopedia_wide_buffer_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
@@ -486,6 +490,7 @@ make_wide_and_tall{
   name = "requester-chest",
   subgroup = "wide-logistics-storage",
   order = "h",
+  surface_conditions = surface_conditions,
   factoriopedia_simulation = simulations.factoriopedia_wide_requester_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
