@@ -20,3 +20,4 @@ if mods["aai-containers"] then
     require("prototypes.compatibility.aai-containers.recipes")
 end
 
+require("prototypes.surface-conditions")

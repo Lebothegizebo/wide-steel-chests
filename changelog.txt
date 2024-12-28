@@ -1,7 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.3
-Date: ????
-  Changes:
+Date: 2024-12-28
+  Bugfixes:
+    - All entities now have surface conditions attached to them, meaning they can no longer be placed in space.
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.2
 Date: 2024-11-25
