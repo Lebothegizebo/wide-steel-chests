@@ -1,7 +1,9 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.4
-Date: ????
+Date: 2024-12-28
   Changes:
+    - The mod startup settings: wide-aai-chests-enabled-by-default, wide-aai-chests-enabled no longer show up by default in Wide Containers. You must have Wide AAI containers installed to see these settings.
+    - Added an easter egg that can be enabled via mod settings.
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.3
 Date: 2024-12-28
