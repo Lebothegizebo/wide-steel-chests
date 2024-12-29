@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.6
-Date: ????
+Date: 2024-12-29
   Graphics:
     - Updated icons for wide logistic chests.
     - Updated technology icons for wide logistic chests.
@@ -12,6 +12,8 @@ Date: ????
     - Fixed missing full stop on the mod setting, enable wide AAI containers.
   Scripting:
     - Moved entity graphics from graphics/entity to graphics/entity/(Chest Type) to make it more organised.
+  Compatibility:
+    - Updated compatibility with AAI containers so that icon tints work correctly when logistic chests are enabled.
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.5
 Date: 2024-12-28
