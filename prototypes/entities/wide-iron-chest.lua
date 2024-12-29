@@ -45,7 +45,7 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/wide-iron-chest.png",
+        filename = "__wide-steel-chests__/graphics/entity/iron-chest/wide-iron-chest.png",
         priority = "extra-high",
         scale = 0.5,
         width = 128,
@@ -68,7 +68,7 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/tall-iron-chest.png",
+        filename = "__wide-steel-chests__/graphics/entity/iron-chest/tall-iron-chest.png",
         priority = "extra-high",
         scale = 0.5,
         width = 66,

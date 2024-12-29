@@ -17,10 +17,10 @@ end
 ---@field collision_box data.BoundingBox The collision box of the container 
 ---@field selection_box data.BoundingBox The selection box of the container 
 ---@field inventory_move_sound data.Sound The inventory_move_sound of the container
----@feild tint data.Colour Item Tint
 ---@field pick_sound data.Sound The pick_sound of the container
 ---@field drop_sound data.Sound The drop_sound of the container
----
+---@field animation_sound? data.Sound Animation Sound
+---@field opened_duration? uint8 
 ---@field horizontal_upgrade? data.EntityID The horizontal next_upgrade of the container 
 ---@field horizontal_picture? data.Sprite The horizontal picture of the container
 ---@field horizontal_animation? data.Animation The horizontal animation of the container
@@ -59,6 +59,12 @@ function make_wide_and_tall(params)
 	local localised_name = params.localised_name or {"entity-name."..wide_name}
 	wide_container.name = wide_name
 	tall_container.name = tall_name
+
+	wide_container.animation_sound = params.animation_sound
+	tall_container.animation_sound = params.animation_sound
+
+	wide_container.opened_duration = params.opened_duration
+	tall_container.opened_duration = params.opened_duration
 
 	wide_container.subgroup = params.subgroup
 	tall_container.subgroup = params.subgroup
@@ -103,7 +109,7 @@ function make_wide_and_tall(params)
 	tall_container.picture = params.vertical_picture
 
 	wide_container.animation = params.horizontal_animation
-	tall_container.animation = params.horizontal_animation
+	tall_container.animation = params.vertical_animation
 
 	wide_container.circuit_connector = table.deepcopy(params.horizontal_connection.circuit_connector)
 	tall_container.circuit_connector = table.deepcopy(params.vertical_connection.circuit_connector)
@@ -202,9 +208,9 @@ data:extend{
 			fast_replaceable_group = orig_container.fast_replaceable_group,
 			graphics_set = {
 				animation = {
-					north = params.horizontal_picture--[[@as data.Animation]],
-					east = params.vertical_picture--[[@as data.Animation]],
-					west = params.vertical_picture--[[@as data.Animation]],
+					north = params.horizontal_picture or params.horizontal_animation--[[@as data.Animation]],
+					east = params.vertical_picture or params.vertical_animation--[[@as data.Animation]],
+					west = params.vertical_picture or params.vertical_animation--[[@as data.Animation]],
 				}
 			},
 			circuit_wire_max_distance = orig_container.circuit_wire_max_distance,

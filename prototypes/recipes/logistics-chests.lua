@@ -1,4 +1,10 @@
 local icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png"
+local icon_mask = "__wide-steel-chests__/graphics/icons/wide-logistic-chest-mask.png"
+local tint_passive = {r=220,g=61,b=65} --passive tint
+local tint_active = {r=200,g=87,b=253}  --active tint
+local tint_storage = {r=230,g=180,b=66} --storage tint
+local tint_buffer = {r=70,g=200,b=70} --buffer tint
+local tint_requester = {r=80,g=160,b=220} -- requester tint
 data:extend(
 {
   --Wide Active Provider Chest
@@ -40,6 +46,11 @@ data:extend(
       {
         icon = icon,
         icon_size = 128,
+      },
+      {
+        icon = icon_mask,
+        icon_size = 128,
+        tint = tint_active
       },
     }
   },
@@ -84,6 +95,11 @@ data:extend(
         icon = icon,
         icon_size = 128,
       },
+      {
+        icon = icon_mask,
+        icon_size = 128,
+        tint = tint_passive
+      },
     }
   },
 
@@ -126,6 +142,11 @@ data:extend(
       {
         icon = icon,
         icon_size = 128,
+      },
+      {
+        icon = icon_mask,
+        icon_size = 128,
+        tint = tint_storage
       },
     }
   },
@@ -170,6 +191,11 @@ data:extend(
         icon = icon,
         icon_size = 128,
       },
+      {
+        icon = icon_mask,
+        icon_size = 128,
+        tint = tint_buffer
+      },
     }
   },
   
@@ -212,6 +238,11 @@ data:extend(
       {
         icon = icon,
         icon_size = 128,
+      },
+      {
+        icon = icon_mask,
+        icon_size = 128,
+        tint = tint_requester
       },
     }
   },

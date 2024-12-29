@@ -1,30 +1,41 @@
-local item_sounds = require("__base__/prototypes/item_sounds")
-local simulations = require("prototypes.factoriopedia-simulations")
-local icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png"
 
-local wide_chest = "__wide-steel-chests__/graphics/entity/wide-logistic-chest.png"
-local wide_chest_mask = "__wide-steel-chests__/graphics/entity/wide-logistic-chest-mask.png"
+
+--Wide chest
+local wide_chest = "__wide-steel-chests__/graphics/entity/logistic-chest/wide-logistic-chest.png"
+local wide_chest_mask = "__wide-steel-chests__/graphics/entity/logistic-chest/wide-logistic-chest-mask.png"
 local wide_chest_shadow = "__wide-steel-chests__/graphics/entity/shadows/wide-logistic-chest-shadow.png"
 local wide_chest_hw = {130, 80, 165, 46} --Width, Height, Width, Height
-local wide_chest_shift = {util.by_pixel(-0.25, -0.5), util.by_pixel(24.25-10, 8)}
+local wide_chest_shift = {util.by_pixel(0, -2.5), util.by_pixel(24.25-10, 8)}
+--Remnants
 local wide_remnants = "__wide-steel-chests__/graphics/remnants/wide-logistic-chest-remnants.png"
 local wide_remnants_hw = {200, 88}
 local wide_remnants_shift = util.by_pixel(9, -1)
 
-local tall_chest = "__wide-steel-chests__/graphics/entity/tall-logistic-chest.png"
+--Tall chest
+local tall_chest = "__wide-steel-chests__/graphics/entity/logistic-chest/tall-logistic-chest.png"
+local tall_chest_shadow = "__wide-steel-chests__/graphics/entity/shadows/tall-logistic-chest-shadow.png"
 local tall_chest_hw = {64, 138, 110, 108} --Width, Height, Width, Height
 local tall_chest_shift = {util.by_pixel(-0.25, -2), util.by_pixel(12.25, 5.25)}
-local tall_chest_shadow = "__wide-steel-chests__/graphics/entity/shadows/tall-logistic-chest-shadow.png"
+--Remnants
 local tall_remnants = "__wide-steel-chests__/graphics/remnants/tall-logistic-chest-remnants.png"
 local tall_remnants_hw = {150,152}
 local tall_remnants_shift = util.by_pixel(14.75, -1)
 
+--Local Varibles
+local sounds = require("__base__/prototypes/entity/sounds")
+local item_sounds = require("__base__/prototypes/item_sounds")
+local simulations = require("prototypes.factoriopedia-simulations")
+local icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png"
+local icon_mask = "__wide-steel-chests__/graphics/icons/wide-logistic-chest-mask.png"
 local surface_conditions = data.raw.container["steel-chest"].surface_conditions
-local tint_passive = {r=220,g=61,b=65}
-local tint_active = {r=200,g=87,b=253}
-local tint_storage = {r=230,g=180,b=66}
-local tint_buffer = {r=70,g=200,b=70}
-local tint_requester = {r=80,g=160,b=220}
+local logistic_chest_opened_duration = 7
+local animation_sound = sounds.logistics_chest_open
+
+local tint_passive = {r=220,g=61,b=65} --passive tint
+local tint_active = {r=200,g=87,b=253}  --active tint
+local tint_storage = {r=230,g=180,b=66} --storage tint
+local tint_buffer = {r=70,g=200,b=70} --buffer tint
+local tint_requester = {r=80,g=160,b=220} -- requester tint
 
 --MARK: Active Provider
 make_wide_and_tall{
@@ -36,6 +47,8 @@ make_wide_and_tall{
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
+  animation_sound = animation_sound,
+  opened_duration = logistic_chest_opened_duration,
   hide_resistances = true,
   resistances = 
   {
@@ -54,6 +67,11 @@ make_wide_and_tall{
       icon = icon,
       icon_size = 128,
     },
+    {
+      icon = icon_mask,
+      icon_size = 128,
+      tint = tint_active
+    },
   },
   inventory_multiplier = 2,
   collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
@@ -66,16 +84,19 @@ make_wide_and_tall{
   {
     circuit_connector=circuit_connector_definitions["tall_container"]
   },
-  horizontal_picture =
+  horizontal_animation =
   {
     layers =
     {
       {
         filename = wide_chest,
+        priority = "extra-high",
         scale = 0.5,
         width = wide_chest_hw[1],
         height = wide_chest_hw[2],
         shift = wide_chest_shift[1],
+        frame_count = 7,
+
       },
       {
         tint = tint_active,
@@ -84,6 +105,7 @@ make_wide_and_tall{
         width = wide_chest_hw[1],
         height = wide_chest_hw[2],
         shift = wide_chest_shift[1],
+        repeat_count = 7,
       },
       {
         filename = wide_chest_shadow,
@@ -92,6 +114,7 @@ make_wide_and_tall{
         width = wide_chest_hw[3],
         height = wide_chest_hw[4],
         shift = wide_chest_shift[2],
+        repeat_count = 7,
         draw_as_shadow = true,
       }
     }
@@ -159,6 +182,8 @@ make_wide_and_tall{
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
+  animation_sound = animation_sound,
+  opened_duration = logistic_chest_opened_duration,
   hide_resistances = true,
   resistances = 
   {
@@ -177,6 +202,11 @@ make_wide_and_tall{
       icon = icon,
       icon_size = 128,
     },
+    {
+      icon = icon_mask,
+      icon_size = 128,
+      tint = tint_passive
+    },
   },
   inventory_multiplier = 2,
   collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
@@ -189,7 +219,7 @@ make_wide_and_tall{
   {
     circuit_connector=circuit_connector_definitions["tall_container"]
   },
-  horizontal_picture =
+  horizontal_animation =
   {
     layers =
     {
@@ -200,6 +230,7 @@ make_wide_and_tall{
         width = wide_chest_hw[1],
         height = wide_chest_hw[2],
         shift = wide_chest_shift[1],
+        frame_count = 7
       },
       {
         filename = wide_chest_mask,
@@ -209,6 +240,7 @@ make_wide_and_tall{
         width = wide_chest_hw[1],
         height = wide_chest_hw[2],
         shift = wide_chest_shift[1],
+        repeat_count = 7,
       },
       {
         filename = wide_chest_shadow,
@@ -217,6 +249,7 @@ make_wide_and_tall{
         width = wide_chest_hw[3],
         height = wide_chest_hw[4],
         shift = wide_chest_shift[2],
+        repeat_count = 7,
         draw_as_shadow = true,
       }
     }
@@ -284,6 +317,8 @@ make_wide_and_tall{
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
+  animation_sound = animation_sound,
+  opened_duration = logistic_chest_opened_duration,
   hide_resistances = true,
   resistances = 
   {
@@ -302,6 +337,11 @@ make_wide_and_tall{
       icon = icon,
       icon_size = 128,
     },
+    {
+      icon = icon_mask,
+      icon_size = 128,
+      tint = tint_storage
+    },
   },
   inventory_multiplier = 2,
   collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
@@ -314,7 +354,7 @@ make_wide_and_tall{
   {
     circuit_connector=circuit_connector_definitions["tall_container"]
   },
-  horizontal_picture =
+  horizontal_animation =
   {
     layers =
     {
@@ -325,6 +365,7 @@ make_wide_and_tall{
         width = wide_chest_hw[1],
         height = wide_chest_hw[2],
         shift = wide_chest_shift[1],
+        frame_count = 7
       },
       {
         filename = wide_chest_mask,
@@ -334,6 +375,7 @@ make_wide_and_tall{
         width = wide_chest_hw[1],
         height = wide_chest_hw[2],
         shift = wide_chest_shift[1],
+        repeat_count = 7,
       },
       {
         filename = wide_chest_shadow,
@@ -342,6 +384,7 @@ make_wide_and_tall{
         width = wide_chest_hw[3],
         height = wide_chest_hw[4],
         shift = wide_chest_shift[2],
+        repeat_count = 7,
         draw_as_shadow = true,
       }
     }
@@ -409,6 +452,8 @@ make_wide_and_tall{
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
+  animation_sound = animation_sound,
+  opened_duration = logistic_chest_opened_duration,
   hide_resistances = true,
   resistances = 
   {
@@ -427,6 +472,11 @@ make_wide_and_tall{
       icon = icon,
       icon_size = 128,
     },
+    {
+      icon = icon_mask,
+      icon_size = 128,
+      tint = tint_buffer
+    },
   },
   inventory_multiplier = 2,
   collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
@@ -439,7 +489,7 @@ make_wide_and_tall{
   {
     circuit_connector=circuit_connector_definitions["tall_container"]
   },
-  horizontal_picture =
+  horizontal_animation =
   {
     layers =
     {
@@ -450,6 +500,7 @@ make_wide_and_tall{
         width = wide_chest_hw[1],
         height = wide_chest_hw[2],
         shift = wide_chest_shift[1],
+        frame_count =  7,
       },
       {
         filename = wide_chest_mask,
@@ -459,6 +510,7 @@ make_wide_and_tall{
         width = wide_chest_hw[1],
         height = wide_chest_hw[2],
         shift = wide_chest_shift[1],
+        repeat_count = 7,
       },
       {
         filename = wide_chest_shadow,
@@ -467,6 +519,7 @@ make_wide_and_tall{
         width = wide_chest_hw[3],
         height = wide_chest_hw[4],
         shift = wide_chest_shift[2],
+        repeat_count = 7,
         draw_as_shadow = true,
       }
     }
@@ -534,6 +587,8 @@ make_wide_and_tall{
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
+  animation_sound = animation_sound,
+  opened_duration = logistic_chest_opened_duration,
     hide_resistances = true,
     resistances = 
     {
@@ -552,6 +607,11 @@ make_wide_and_tall{
       icon = icon,
       icon_size = 128,
     },
+    {
+      icon = icon_mask,
+      icon_size = 128,
+      tint = tint_requester
+    },
   },
   inventory_multiplier = 2,
   collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
@@ -564,7 +624,7 @@ make_wide_and_tall{
   {
     circuit_connector=circuit_connector_definitions["tall_container"]
   },
-  horizontal_picture =
+  horizontal_animation =
   {
     layers =
     {
@@ -575,6 +635,7 @@ make_wide_and_tall{
         width = wide_chest_hw[1],
         height = wide_chest_hw[2],
         shift = wide_chest_shift[1],
+        frame_count = 7,
       },
       {
         filename = wide_chest_mask,
@@ -584,6 +645,7 @@ make_wide_and_tall{
         width = wide_chest_hw[1],
         height = wide_chest_hw[2],
         shift = wide_chest_shift[1],
+        repeat_count = 7,
       },
       {
         filename = wide_chest_shadow,
@@ -592,6 +654,7 @@ make_wide_and_tall{
         width = wide_chest_hw[3],
         height = wide_chest_hw[4],
         shift = wide_chest_shift[2],
+        repeat_count = 7,
         draw_as_shadow = true,
       }
     }

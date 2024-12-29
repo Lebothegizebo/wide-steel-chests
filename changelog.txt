@@ -1,7 +1,17 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.6
 Date: ????
-  Changes:
+  Graphics:
+    - Updated icons for wide logistic chests.
+    - Updated technology icons for wide logistic chests.
+    - Added graphics for wide logistic chests. 
+    - Added animation for wide logistic chests.
+    - Added legacy graphics folders.
+  Locale:
+    - Fixed incorrect entity descriptions on tall logistic chests.
+    - Fixed missing full stop on the mod setting, enable wide AAI containers.
+  Scripting:
+    - Moved entity graphics from graphics/entity to graphics/entity/(Chest Type) to make it more organised.
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.5
 Date: 2024-12-28
