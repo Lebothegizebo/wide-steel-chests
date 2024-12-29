@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.6
 Date: 2024-12-29
+  Info:
+    - Updated mod dependency list.
   Graphics:
     - Updated icons for wide logistic chests.
     - Updated technology icons for wide logistic chests.

@@ -6,7 +6,7 @@
   "description": "Adds rotatable 2x1 Containers ideal for train-based manufacturing. Compatible with Space Exploration and AAI Containers.",
   "dependencies": [
 "base >= 2.0",
-"? wide-aai-chests >= 0.1.1",
+"? wide-aai-chests >= 0.1.2",
 "? space-exploration >= 0.7.0",
 "? aai-containers >= 0.3.0"
 
