@@ -151,6 +151,12 @@ local function chest_built(entity, full_name, tags, is_ghost)
 	local new_entity = surface.create_entity(create)
 	if not new_entity then error("Replacement failed!") end
 
+	-- Remove the `removed-entity` action
+	-- This seems to also remove the paired `create-entity` action
+	local undo_stack = create.player.undo_redo_stack
+	local undo_actions = undo_stack.get_undo_item(1)
+	undo_stack.remove_undo_action(1, #undo_actions-1)
+
 	if chest_tags then
 		local func = restore_from_bp[is_ghost and new_entity.ghost_type or new_entity.type]
 		if func then func(new_entity, chest_tags, tags) end
