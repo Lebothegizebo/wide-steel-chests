@@ -26,7 +26,7 @@ data:extend(
     icons= 
     {
       {
-      icon = "__wide-steel-chests__/graphics/icons/wide-iron-chest.png",
+      icon = "__wide-containers-assets__/graphics/icons/wide-iron-chest.png",
       icon_size = 128,
       },
     }

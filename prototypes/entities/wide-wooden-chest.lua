@@ -14,7 +14,7 @@ make_wide_and_tall{
   icons =
   {
     {
-      icon = "__wide-steel-chests__/graphics/icons/wide-wooden-chest.png",
+      icon = "__wide-containers-assets__/graphics/icons/wide-wooden-chest.png",
       icon_size = 128,
     },
   },
@@ -34,7 +34,7 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/wooden-chest/wide-wooden-chest.png",
+        filename = "__wide-containers-assets__/graphics/entity/wooden-chest/wide-wooden-chest.png",
         priority = "extra-high",
         scale = 0.5,
         width = 128,
@@ -42,7 +42,7 @@ make_wide_and_tall{
         shift = util.by_pixel(0.5, -2),
       },
       {
-        filename = "__wide-steel-chests__/graphics/entity/shadows/wide-wooden-chest-shadow.png",
+        filename = "__wide-containers-assets__/graphics/entity/shadows/wide-wooden-chest-shadow.png",
         priority = "extra-high",
         scale = 0.5,
         width = 165,
@@ -57,7 +57,7 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/wooden-chest/tall-wooden-chest.png",
+        filename = "__wide-containers-assets__/graphics/entity/wooden-chest/tall-wooden-chest.png",
         priority = "extra-high",
         scale = 0.5,
         width = 62,
@@ -65,7 +65,7 @@ make_wide_and_tall{
         shift = util.by_pixel(0.5, -2),
       },
       {
-        filename = "__wide-steel-chests__/graphics/entity/shadows/tall-wooden-chest-shadow.png",
+        filename = "__wide-containers-assets__/graphics/entity/shadows/tall-wooden-chest-shadow.png",
         priority = "extra-high",
         scale = 0.5,
         width = 104,
@@ -80,7 +80,7 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/remnants/wide-wooden-chest-remnants.png",
+        filename = "__wide-containers-assets__/graphics/remnants/wide-wooden-chest-remnants.png",
         width = 192,
         height = 87,
         scale = 0.5,
@@ -94,7 +94,7 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/remnants/tall-wooden-chest-remnants.png",
+        filename = "__wide-containers-assets__/graphics/remnants/tall-wooden-chest-remnants.png",
         width = 110,
         height = 136,
         scale = 0.5,

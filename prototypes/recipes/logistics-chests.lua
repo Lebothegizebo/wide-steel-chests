@@ -1,5 +1,5 @@
-local icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png"
-local icon_mask = "__wide-steel-chests__/graphics/icons/wide-logistic-chest-mask.png"
+local icon = "__wide-containers-assets__/graphics/icons/wide-logistic-chest.png"
+local icon_mask = "__wide-containers-assets__/graphics/icons/wide-logistic-chest-mask.png"
 local tint_passive = {r=220,g=61,b=65} --passive tint
 local tint_active = {r=200,g=87,b=253}  --active tint
 local tint_storage = {r=230,g=180,b=66} --storage tint

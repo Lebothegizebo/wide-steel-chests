@@ -25,7 +25,7 @@ make_wide_and_tall{
   icons =
   { 
     {
-      icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+      icon = "__wide-containers-assets__/graphics/icons/wide-steel-chest.png",
       icon_size = 128,
     },
   },
@@ -45,7 +45,7 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/steel-chest/wide-steel-chest.png",
+        filename = "__wide-containers-assets__/graphics/entity/steel-chest/wide-steel-chest.png",
         priority = "extra-high",
         scale = 0.5,
         width = 128,
@@ -53,7 +53,7 @@ make_wide_and_tall{
         shift = util.by_pixel(-0.25, -0.5),
       },
       {
-        filename = "__wide-steel-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png",
+        filename = "__wide-containers-assets__/graphics/entity/shadows/wide-steel-chest-shadow.png",
         priority = "extra-high",
         scale = 0.5,
         width = 165,
@@ -68,7 +68,7 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/entity/steel-chest/tall-steel-chest.png",
+        filename = "__wide-containers-assets__/graphics/entity/steel-chest/tall-steel-chest.png",
         priority = "extra-high",
         scale = 0.5,
         width = 64,
@@ -76,7 +76,7 @@ make_wide_and_tall{
         shift = util.by_pixel(-0.25, -2),
       },
       {
-        filename = "__wide-steel-chests__/graphics/entity/shadows/tall-steel-chest-shadow.png",
+        filename = "__wide-containers-assets__/graphics/entity/shadows/tall-steel-chest-shadow.png",
         priority = "extra-high",
         scale = 0.5,
         width = 110,
@@ -91,7 +91,7 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/remnants/wide-steel-chest-remnants.png",
+        filename = "__wide-containers-assets__/graphics/remnants/wide-steel-chest-remnants.png",
         width = 192,
         height = 87,
         scale = 0.5,
@@ -105,7 +105,7 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-steel-chests__/graphics/remnants/tall-steel-chest-remnants.png",
+        filename = "__wide-containers-assets__/graphics/remnants/tall-steel-chest-remnants.png",
         width = 150,
         height = 152,
         scale = 0.5,

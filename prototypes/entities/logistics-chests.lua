@@ -1,23 +1,23 @@
 
 
 --Wide chest
-local wide_chest = "__wide-steel-chests__/graphics/entity/logistic-chest/wide-logistic-chest.png"
-local wide_chest_mask = "__wide-steel-chests__/graphics/entity/logistic-chest/wide-logistic-chest-mask.png"
-local wide_chest_shadow = "__wide-steel-chests__/graphics/entity/shadows/wide-logistic-chest-shadow.png"
+local wide_chest = "__wide-containers-assets__/graphics/entity/logistic-chest/wide-logistic-chest.png"
+local wide_chest_mask = "__wide-containers-assets__/graphics/entity/logistic-chest/wide-logistic-chest-mask.png"
+local wide_chest_shadow = "__wide-containers-assets__/graphics/entity/shadows/wide-logistic-chest-shadow.png"
 local wide_chest_hw = {130, 80, 165, 46} --Width, Height, Width, Height
 local wide_chest_shift = {util.by_pixel(0, -2.5), util.by_pixel(24.25-10, 8)}
 --Remnants
-local wide_remnants = "__wide-steel-chests__/graphics/remnants/wide-logistic-chest-remnants.png"
+local wide_remnants = "__wide-containers-assets__/graphics/remnants/wide-logistic-chest-remnants.png"
 local wide_remnants_hw = {200, 88}
 local wide_remnants_shift = util.by_pixel(9, -1)
 
 --Tall chest
-local tall_chest = "__wide-steel-chests__/graphics/entity/logistic-chest/tall-logistic-chest.png"
-local tall_chest_shadow = "__wide-steel-chests__/graphics/entity/shadows/tall-logistic-chest-shadow.png"
+local tall_chest = "__wide-containers-assets__/graphics/entity/logistic-chest/tall-logistic-chest.png"
+local tall_chest_shadow = "__wide-containers-assets__/graphics/entity/shadows/tall-logistic-chest-shadow.png"
 local tall_chest_hw = {64, 138, 110, 108} --Width, Height, Width, Height
 local tall_chest_shift = {util.by_pixel(-0.25, -2), util.by_pixel(12.25, 5.25)}
 --Remnants
-local tall_remnants = "__wide-steel-chests__/graphics/remnants/tall-logistic-chest-remnants.png"
+local tall_remnants = "__wide-containers-assets__/graphics/remnants/tall-logistic-chest-remnants.png"
 local tall_remnants_hw = {150,152}
 local tall_remnants_shift = util.by_pixel(14.75, -1)
 
@@ -25,8 +25,8 @@ local tall_remnants_shift = util.by_pixel(14.75, -1)
 local sounds = require("__base__/prototypes/entity/sounds")
 local item_sounds = require("__base__/prototypes/item_sounds")
 local simulations = require("prototypes.factoriopedia-simulations")
-local icon = "__wide-steel-chests__/graphics/icons/wide-logistic-chest.png"
-local icon_mask = "__wide-steel-chests__/graphics/icons/wide-logistic-chest-mask.png"
+local icon = "__wide-containers-assets__/graphics/icons/wide-logistic-chest.png"
+local icon_mask = "__wide-containers-assets__/graphics/icons/wide-logistic-chest-mask.png"
 local surface_conditions = data.raw.container["steel-chest"].surface_conditions
 local logistic_chest_opened_duration = 7
 local animation_sound = sounds.logistics_chest_open
