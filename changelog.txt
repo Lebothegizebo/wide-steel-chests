@@ -1,8 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.7
-Date: ????
+Date: 2025-1-1
+  Info:
+    - HAPPY NEW YEAR!!
   Bugfixes:
-    - Fixed Undo/Redo functionality with the containers. (Most of the jank is fixed, but there is a bit that is coding black magic :))
+    - Fixed Undo/Redo functionality with the containers. (Most of the jank is fixed, but there is a bit that is coding black magic :)).
     - Massive thanks to Pennyjim for the fix.
   Changes:
     - All the mod assets (Image files, sounds, etc.) have moved to a new mod, Wide Containers Assets. This is so that modders can depend on that mod and use the assets, rather than ripping them from this mod.
