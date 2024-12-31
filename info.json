@@ -8,7 +8,7 @@
   [
     "base >= 2.0",
     "? space-age >= 2.0",
-    "wide-containers-assets = 0.2.7",
+    "wide-containers-assets = 0.2.8",
     "? wide-aai-chests >= 0.1.2",
     "? space-exploration >= 0.7.0",
     "? aai-containers >= 0.3.0"
