@@ -1,7 +1,14 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.7
 Date: ????
+  Bugfixes:
+    - Fixed Undo/Redo functionality with the containers. (Most of the jank is fixed, but there is a bit that is coding black magic :))
+    - Massive thanks to Pennyjim for the fix.
   Changes:
+    - All the mod assets (Image files, sounds, etc.) have moved to a new mod, Wide Containers Assets. This is so that modders can depend on that mod and use the assets, rather than ripping them from this mod.
+    - Functionality like lua files that define correct pixel shift vaules, sprite sizes and paths will be avalible for modders to use. 
+    - All assets from Wide AAI containers are going to stay in Wide AAI containers, with no redistribution allowed because of the restricted mod license. 
+    - Updated dependency listings to reflect this change, with Wide Containers Assets being required.
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.6
 Date: 2024-12-29
