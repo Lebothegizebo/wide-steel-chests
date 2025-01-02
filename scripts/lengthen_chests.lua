@@ -1,17 +1,18 @@
 -- Use the function make_wide_and_tall for defining new containers
 log("DATA_DEBUG")
 ---@param box data.BoundingBox
+---@return data.BoundingBox
 local function rotate_box(box)
 	return {{box[1][2],box[1][1]}, {box[2][2],box[2][1]}}
 end
----@return data.BoundingBox
+
 ---@class chest_params
 ---@field name data.EntityID The name of the container
 ---@field localised_name? data.LocalisedString The LocalisedString of the container
 ---@field subgroup data.ItemSubGroupID The subgroup of the container item_prototype
 ---@field order string The order of the container item_prototype
----@field hide_resistances bool Hide resistances of the entity?
----@field resistances data.Resistance
+---@field hide_resistances boolean Hide resistances of the entity?
+---@field resistances data.Resistance[]
 ---@field icons data.IconData[] The icon set of the container
 ---@field inventory_multiplier int The inventory_multiplier of the containers inventory
 ---@field collision_box data.BoundingBox The collision box of the container 
@@ -32,18 +33,19 @@ end
 ---@field vertical_animation? data.Animation The vertical animation of the container
 ---@field vertical_remnants data.Animation The vertical animation of the container remnant
 ---@field vertical_connection? data.CircuitConnectorDefinition The vertical circuit definition of the container
+
 ---@param params chest_params
-
-
 function make_wide_and_tall(params)
 	--MARK: Containers
 	---@type data.ContainerPrototype
 	local orig_container
 	for _, container_type in pairs{"container", "logistic-container", "temporary-container", "infinity-container"} do
-	orig_container = data.raw[container_type][params.name] --[[@as data.ContainerPrototype]]
-	if orig_container then break end
+		orig_container = data.raw[container_type][params.name] --[[@as data.ContainerPrototype]]
+		if orig_container then break end
 	end
 	if not orig_container then error("No container found of name '"..params.name.."'") end
+	---@type data.ContainerPrototype
+	local orig_container = orig_container -- Because omg LuaLS can't handle this
 	local wide_container = table.deepcopy(orig_container)
 	local tall_container = table.deepcopy(orig_container)
 	local orig_remnants = data.raw["corpse"][orig_container.corpse--[[@as string]]]
@@ -111,8 +113,8 @@ function make_wide_and_tall(params)
 	wide_container.animation = params.horizontal_animation
 	tall_container.animation = params.vertical_animation
 
-	wide_container.circuit_connector = table.deepcopy(params.horizontal_connection.circuit_connector)
-	tall_container.circuit_connector = table.deepcopy(params.vertical_connection.circuit_connector)
+	wide_container.circuit_connector = table.deepcopy(params.horizontal_connection)
+	tall_container.circuit_connector = table.deepcopy(params.vertical_connection)
 
 	wide_container.placeable_by = {item = item_name, count = 1}
 	tall_container.placeable_by = {item = item_name, count = 1}

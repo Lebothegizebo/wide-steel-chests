@@ -76,14 +76,8 @@ make_wide_and_tall{
   inventory_multiplier = 2,
   collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
   selection_box = {{-1, -0.5}, {1, 0.5}},
-  horizontal_connection = 
-  {
-    circuit_connector=circuit_connector_definitions["wide_container"]
-  },
-  vertical_connection = 
-  {
-    circuit_connector=circuit_connector_definitions["tall_container"]
-  },
+  horizontal_connection = circuit_connector_definitions["wide_container"],
+  vertical_connection = circuit_connector_definitions["tall_container"],
   horizontal_animation =
   {
     layers =
@@ -211,14 +205,8 @@ make_wide_and_tall{
   inventory_multiplier = 2,
   collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
   selection_box = {{-1, -0.5}, {1, 0.5}},
-  horizontal_connection = 
-  {
-    circuit_connector=circuit_connector_definitions["wide_container"]
-  },
-  vertical_connection = 
-  {
-    circuit_connector=circuit_connector_definitions["tall_container"]
-  },
+  horizontal_connection = circuit_connector_definitions["wide_container"],
+  vertical_connection = circuit_connector_definitions["tall_container"],
   horizontal_animation =
   {
     layers =
@@ -346,14 +334,8 @@ make_wide_and_tall{
   inventory_multiplier = 2,
   collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
   selection_box = {{-1, -0.5}, {1, 0.5}},
-  horizontal_connection = 
-  {
-    circuit_connector=circuit_connector_definitions["wide_container"]
-  },
-  vertical_connection = 
-  {
-    circuit_connector=circuit_connector_definitions["tall_container"]
-  },
+  horizontal_connection = circuit_connector_definitions["wide_container"],
+  vertical_connection = circuit_connector_definitions["tall_container"],
   horizontal_animation =
   {
     layers =
@@ -481,14 +463,8 @@ make_wide_and_tall{
   inventory_multiplier = 2,
   collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
   selection_box = {{-1, -0.5}, {1, 0.5}},
-  horizontal_connection = 
-  {
-    circuit_connector=circuit_connector_definitions["wide_container"]
-  },
-  vertical_connection = 
-  {
-    circuit_connector=circuit_connector_definitions["tall_container"]
-  },
+  horizontal_connection = circuit_connector_definitions["wide_container"],
+  vertical_connection = circuit_connector_definitions["tall_container"],
   horizontal_animation =
   {
     layers =
@@ -616,14 +592,8 @@ make_wide_and_tall{
   inventory_multiplier = 2,
   collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
   selection_box = {{-1, -0.5}, {1, 0.5}},
-  horizontal_connection = 
-  {
-    circuit_connector=circuit_connector_definitions["wide_container"]
-  },
-  vertical_connection = 
-  {
-    circuit_connector=circuit_connector_definitions["tall_container"]
-  },
+  horizontal_connection = circuit_connector_definitions["wide_container"],
+  vertical_connection = circuit_connector_definitions["tall_container"],
   horizontal_animation =
   {
     layers =
