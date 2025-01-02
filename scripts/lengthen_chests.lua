@@ -12,7 +12,7 @@ end
 ---@field subgroup data.ItemSubGroupID The subgroup of the container item_prototype
 ---@field order string The order of the container item_prototype
 ---@field hide_resistances boolean Hide resistances of the entity?
----@field resistances data.Resistance[]
+---@field resistances? data.Resistance[]
 ---@field icons data.IconData[] The icon set of the container
 ---@field inventory_multiplier int The inventory_multiplier of the containers inventory
 ---@field collision_box data.BoundingBox The collision box of the container 

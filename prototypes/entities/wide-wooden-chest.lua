@@ -1,6 +1,10 @@
 local item_sounds = require("__base__/prototypes/item_sounds")
 local simulations = require("prototypes.factoriopedia-simulations")
 local surface_conditions = data.raw.container["steel-chest"].surface_conditions
+--[[ FIXME: Forgot resistances?
+  I've marked them optional (because they fundamentally are),
+  but I don't know if that was your intent
+]]
 make_wide_and_tall{
   name = "wooden-chest",
   subgroup = "wide-storage",
@@ -21,14 +25,8 @@ make_wide_and_tall{
   inventory_multiplier = 2,
   collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
   selection_box = {{-1, -0.5}, {1, 0.5}},
-  horizontal_connection = 
-  {
-    circuit_connector=circuit_connector_definitions["wide_container"]
-  },
-  vertical_connection = 
-  {
-    circuit_connector=circuit_connector_definitions["tall_container"]
-  },
+  horizontal_connection = circuit_connector_definitions["wide_container"],
+  vertical_connection = circuit_connector_definitions["tall_container"],
   horizontal_picture =
   {
     layers =
