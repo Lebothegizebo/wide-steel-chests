@@ -1,10 +1,35 @@
+---@class meld
 local meld = require("meld")
+---@class meld.control_handlers
+meld.control_handlers = meld.control_handlers
 -- Use the function make_wide_and_tall for defining new containers
 log("DATA_DEBUG")
 ---@param box data.BoundingBox
 ---@return data.BoundingBox
 local function rotate_box(box)
 	return {{box[1][2],box[1][1]}, {box[2][2],box[2][1]}}
+end
+
+---@class (exact) meld.multiply_op : meld.control_op
+---@field op "multiply"
+---@field data number
+
+---Multiply a number by the given number.
+---
+---Will do nothing if it does not encounter a number
+---@param multiplier number
+---@return meld.multiply_op
+meld.multiply = function(multiplier)
+  return { marker = meld.control_marker, op = "multiply", data = multiplier}
+end
+---@param target table<any,any>
+---@param k any
+---@param v meld.multiply_op
+meld.control_handlers.multiply = function(target, k, v)
+	local original = target[k]
+	if type(original) == "number" then
+		target[k] = original * v.data
+	end
 end
 
 ---@class chest_params
@@ -98,13 +123,13 @@ function make_wide_and_tall(params)
 
 		-- Container fields
 		picture = meld.overwrite(params.horizontal_picture),
-		inventory_size = orig_container.inventory_size * params.inventory_multiplier,
+		inventory_size = meld.multiply(params.inventory_multiplier),
 
 		--- Logistic Container fields
 		opened_duration = params.opened_duration,
 		animation = meld.overwrite(params.horizontal_animation),
 		animation_sound = meld.overwrite(params.animation_sound),
-		trash_inventory_size = orig_container.trash_inventory_size and orig_container.trash_inventory_size * params.inventory_multiplier or nil,
+		trash_inventory_size = meld.multiply(params.inventory_multiplier),
 		circuit_connector = meld.overwrite(params.horizontal_connection),
 	})
 	local tall_container = meld(table.deepcopy(orig_container), {
@@ -131,13 +156,13 @@ function make_wide_and_tall(params)
 
 		-- Container fields
 		picture = meld.overwrite(params.vertical_picture),
-		inventory_size = orig_container.inventory_size * params.inventory_multiplier,
+		inventory_size = meld.multiply(params.inventory_multiplier),
 
 		--- Logistic Container fields
 		opened_duration = params.opened_duration,
 		animation = meld.overwrite(params.vertical_animation),
 		animation_sound = meld.overwrite(params.animation_sound),
-		trash_inventory_size = (orig_container.trash_inventory_size or 0) * params.inventory_multiplier,
+		trash_inventory_size = meld.multiply(params.inventory_multiplier),
 		circuit_connector = meld.overwrite(params.vertical_connection),
 	})
 
