@@ -9,7 +9,7 @@ simulations.factoriopedia_wide_wooden_chest =
     game.simulation.camera_zoom = 1.8
     game.surfaces[1].create_entities_from_blueprint_string
     {
-      string = "0eNpdj1sKwyAQRfcy36Y0D1t0K6UEkwytkIxBTdMg7r2aUAr9nMc5dyZANy44W00eZADdG3IgbwGcfpAac4/UhCBh1QMWqzEDUtE/0XmIDDQN+AZZxjsDJK+9xgPfi62lZerQpgX21VjjlVfd+OdiMBuXcEM5MimLUjDYElmdeAry6uHyJF/RHogMMeZc7XFK4t8fDF5o3a7il0o0QvDmWlfnmsf4Af12UGk=",
+      string = "0eNqVkdsKwyAMht8l13bQrpbVVxlj2DZ0gTYOdSeK7z5td4DtYuxS4/d/JpmgGU54tMQe1ATUGnagthM46lkP6Y71iKDgQh1mF2M65Kw9oPMQBBB3eAWVh50AZE+ecMHnw23Pp7FBGx+IZ4w1XnvdDB9ZAo7GRdxwUsbIjYAbqCyvVjJ6vO5dKqRP7BdCTSEE8WUq/jZFw8OVTB1ZbJdq+Y93/fL+6OtlK2NnaW7kcYzYew8CzmjdjMiqqMu6lrKQ1brIQ7gDAa6QOA==",
       position = {0, 0}
     }
   ]]
@@ -22,7 +22,7 @@ simulations.factoriopedia_wide_iron_chest =
     game.simulation.camera_zoom = 1.8
     game.surfaces[1].create_entities_from_blueprint_string
     {
-      string = "0eNpVj9sOgjAMht+l18PIYRr2KsaQAQ02gY5sQyVk7+4GMcbLHr7vbzdoxwVnS+xBbUCdYQfqtoGjgfWYeqwnBAUv6jEjazjrHug8BAHEPb5B5eEuANmTJzzgvVgbXqYWbVwQX4k1Xnvdjn8mAbNxETac4qIwy2sBa+TkScYYrweXJumC5kDUFkJKJY9T1P5+EPBE63aVvBR1VdeyupbFuZQhfACJGU7E",
+      string = "0eNqVkdsKwjAMht8l1524ug7WVxGRbgsa2FJp64nRd7d1HhBB8LJNv/9rkgna4YgHRxxAT0CdZQ96PYGnHZsh37EZETScqceCnOWi26MPEAUQ93gBXcaNAORAgXCG74frlo9jiy49EM8QZ4MJph0+kgQcrE+w5azLgVLAFXRR1guVNMHsfK7kH2xnRE8xRvElkv+Klgv1UGVRTw67uVz9o129tL+7esmq1FceGgUcE/VegYATOn9nVC2bqmmUkqpeyTLGGzj6jWk=",
       position = {0, 0}
     }
   ]]
@@ -35,7 +35,7 @@ simulations.factoriopedia_wide_steel_chest =
     game.simulation.camera_zoom = 1.8
     game.surfaces[1].create_entities_from_blueprint_string
     {
-      string = "0eNpVj90OgjAMRt+l18MIYxr2KsaQAQ0uGRthRSXL3t0NYoyX/TnnawN0ZsV50ZZABtC9sx7kLYDXo1Um96yaECS89ICFJ0RT9A/0BJGBtgO+QZbxzgAtadJ40HuxtXadOlzSAvtaFkeKVGf+VQxm5xPtbA5MxqLkDLYE8pNIOaRGnyf5hvZAZIgxx2rCKXl/XzB44uJ3lbhUTd00or7y6sxFjB86gE+G",
+      string = "0eNqVkdsKgzAMht8l13XgoYJ9lTFG1bAFtEobd0D67mvn5hi7GF626fd/aTJD3U04WjIMagZqBuNA7WdwdDK6i3dG9wgKrtRi4hixS5ozOgYvgEyLN1CpPwhAw8SEC/083I9m6mu04YF4p9iBNeu6+44SMA4u0IOJwphYCriDStJyJ4OH9cnFSuzhuCBq9t6LH1O22VTs5MsVTS1ZbJZyscWbr94//1ptwevj3IixD9hnDQIuaN2TkWVWFVUlZSbLPEu9fwDBQ48J",
       position = {0, 0}
     }
   ]]
@@ -48,7 +48,7 @@ simulations.factoriopedia_wide_active_provider_chest =
     game.simulation.camera_zoom = 1.8
     game.surfaces[1].create_entities_from_blueprint_string
     {
-      string = "0eNp1j90OgjAMhd+l18MoPxr2KsaQAQ02gY1sBSXL3t0NYrzy8rSn3zn10I4LzpY0g/RAndEO5N2Do0GrMc20mhAkvKjHTHVMK2azNWuUNuue6BiCANI9vkFewkMAaiYmPDi72Bq9TC3aaBBfnjWsWLXjP6iA2bjIMTqViOwsLwRsIOtTFQNZDS4tUq3muJA+hJRPjFMM+D0mYEXrdlJ1zeuyrqvyVuTnogrhA1A5V0o=",
+      string = "0eNqdkdFuwjAMRf/FzylaU1Kt+RWEUNpaYKlNqsQUUJV/J6Ebe0CTNh5t595zHS/QDmecPFkGvQB1zgbQuwUCHa0Zcs+aEUHDhXosTMc0YzF5N6fSF90JA0MUQLbHK+gy7gWgZWLC1edR3A72PLbo0wPx7ecdGzbt8JupgMmF5ONsDpG8PwXcQBel3KgEZHMMeZBjHVaFXmKM4gUp30fWG/UFLROyJ4/dOt3+J0D1DPDXTZ/Yj7Rr/lJiHJP+51YCZvThIVG1bLZNo5RUdSXLGO+S9J5M",
       position = {0, 0}
     }
   ]]
@@ -61,7 +61,7 @@ simulations.factoriopedia_wide_passive_provider_chest =
     game.simulation.camera_zoom = 1.8
     game.surfaces[1].create_entities_from_blueprint_string
     {
-      string = "0eNp1j00OgjAQhe8y62K0UA29ijGkwAQngZa0BSVN724LMa5cTd78fO9NgHZccLakPcgA1BntQN4DOBq0GnNPqwlBwot6LGblHK2pWrMmbYvuic5DZEC6xzfIS3wwQO3JEx6gXWyNXqYWbVpgX6A1XnnVjn+pDGbjEsjoHCPBC14y2BKDn0Sy9GpweZKTNceJDDHmBORxSha/3xisaN2OEldeV3UtqlvJz6WI8QOCuFhy",
+      string = "0eNqlkd8KwiAUh9/lXLvRLIP5KhHhtkMd2HSoW8Xw3dOtPxcRFF3J8Xi+76dOULUD9pa0BzkB1UY7kLsJHB21atOeVh2ChDM1mPXKORrjas0Ya5vVJ3QeAgPSDV5AFmHPALUnT7iA5uJ60ENXoY0H2ANojVdeVe1HKoPeuAgyOsVIcM7gCjIreC6i0qujS52U7LCMyCmEwN6k/B/pKhd3bRGlDVmsl/bmlwjrZ4Tvb/sUxwghPSx57CLh9WUMRrRunhFbXm7KUggutmtehHADT9+gyQ==",
       position = {0, 0}
     }
   ]]
@@ -74,7 +74,7 @@ simulations.factoriopedia_wide_storage_chest =
     game.simulation.camera_zoom = 1.8
     game.surfaces[1].create_entities_from_blueprint_string
     {
-      string = "0eNpdj9EOgiAUht/lXGOr0EpfpTWHemZsCgbHyjnevYPW3OKKA3z/9zND1Y04OG0Iihl0bY2H4jqD161RXTwzqkco4KUbTDxZp1pM6jt6giBAmwbfUBzCTQAa0qRx5ZdhKs3YV+j4gfjlOEuKVNX9hwkYrGfemijlzEReBEyMyl3GJlKtjzexR7kiPDl8jN+txzrSq37rFXhxOU3Ys337rYAnOr/ostMxT/M8S8/yuJdZCB9ltl4Z",
+      string = "0eNqtkt1qhDAQRt9lruNSs0Ywr1KKRJ21A5psk3HbRXz3TdTuQgstlOYqf9+cwyQzNMOEZ0+WQc9ArbMB9PMMgXprhrRnzYig4Z06zAI7b3rM2lcMDIsAsh1+gM6XFwFomZhwy6+La22nsUEfL4jPOt6xYdMMX4sJOLsQ884maKpZCriCznJ5UJHEpg/pJHnUWySuPL5N+zRgm9Ib/uG1xCG++cg/+BQHtRvl0acjvwFBF/9td7zb/dqju9PT2qWdWJ9oYPThR3J8MmIcI+XxBwRcYmwFqFJWRVUpJVV5lPmy3ADVqLx1",
       position = {0, 0}
     }
   ]]
@@ -87,7 +87,7 @@ simulations.factoriopedia_wide_buffer_chest =
     game.simulation.camera_zoom = 1.8
     game.surfaces[1].create_entities_from_blueprint_string
     {
-      string = "0eNpdj9EOgiAUht/lXGMr0Zq8SmsO9GhsigZYOce7d9CaW1xxgO//fhZQ3YSj1caDWEBXg3Egrgs43RrZxTMjewQBL11joqamQZtUd3QeAgNtanyDOIUbAzRee40bvg5zaaZeoaUH7BdjBy+9VN1fFoNxcIQPJiopMuEpg5lIfshJ5GXr4k1sUW4ITRYf03frsIr0Zt9rBVrUTXvsSb7/lcETrVt1+TktsqLIswtPjzwP4QNuT10d",
+      string = "0eNqtkdFqwzAMRf9Fz05Z3Tpb/CtjBCdROkHidLaytgT/++y47WCDjcH8ZMm+9x6kBZphxqMjy6AXoHayHvTzAp4O1gypZ82IoOFEHRbN3PfoivYVPUMQQLbDM+hteBGAlokJs3wtLrWdxwZd/CBuNm5iw6YZvngJOE4+yiebIpOlFHABXTxtVMxhc/DpIUHUWRErh2/z9eqxTeIc/kkV4hHfaOTfaR42KvM8RpqOXI4Dvf9vtt2d7bf53IjKdULXvLqngdH5H3PjsohxTBn35Qt4j7LVX5Wy2leVUlKVO7kN4QNegLn8",
       position = {0, 0}
     }
   ]]
@@ -100,7 +100,7 @@ simulations.factoriopedia_wide_requester_chest =
     game.simulation.camera_zoom = 1.8
     game.surfaces[1].create_entities_from_blueprint_string
     {
-      string = "0eNplj9EOgjAMRf+lz8MoMAz8ijFkQINLoNNtqITs3+1Aw4N76drunnu3QDNMeLeaPFQL6NaQg+qygNM9qSHOSI0IFbx0h4nFx4TOo03aG1cIAjR1+IbqFK4CkLz2GjfC2sw1TWODlh+IH8kar7xqhn+cgLtxTDAUjZmaZKmAmcXFQbKXV72Lm5il3iTcfSnx6rCN6i3Anizw4Xja48j++48FPNG61U4WaZmXpczPWXrMZAgfQHNf7A==",
+      string = "0eNqtktGOgyAQRf9lnrFJrdiVX9lsDOpsO4liC7htY/j3HaSND022SbO8wAD33pOBGZp+wpMl40HNQO1oHKjPGRwdjO7jntEDgoILdZhZPE/oPNqsPfIMQQCZDq+gtuFLABpPnjA5LMWtNtPQoOUL4uFkR6+9bvpnOwGn0bHDaGJwdC0F3EBlHxvJUV4fXDyIKHVScHU3iUuHbRSn/BUs8BBPQPlbQMVGJqQ9A3VkUyKo4r/xdive6y49oMqlT3dB/U09q9yf0fxq5HHgmPUjCPhh2eIvy7wqqkrKXJa7fBvCL1igv6A=",
       position = {0, 0}
     }
   ]]
