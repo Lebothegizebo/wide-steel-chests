@@ -103,7 +103,7 @@ function make_wide_and_tall(params)
 	local wide_container = meld(table.deepcopy(orig_container), {
 		-- Basic fields
 		name = wide_name,
-		icons = params.icons,
+		icons = meld.overwrite(params.icons),
 		icon = meld.delete(),
 		subgroup = params.subgroup,
 		order = params.order,
@@ -136,7 +136,7 @@ function make_wide_and_tall(params)
 		-- Basic fields
 		name = tall_name,
 		localised_name = meld.overwrite(localised_name),
-		icons = params.icons,
+		icons = meld.overwrite(params.icons),
 		icon = meld.delete(),
 		subgroup = params.subgroup,
 		order = params.order,
