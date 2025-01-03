@@ -25,6 +25,7 @@ end
 ---This expects there to also be
 ---@field subgroup data.ItemSubGroupID
 ---@field order string The order string of the container's prototypes
+---@field factoriopedia_simulation data.SimulationDefinition
 ---
 ---@field hide_resistances boolean Whether or not to hide the resistances of the container entities.
 ---@field resistances? data.Resistance[] The resistances of the container entities
@@ -224,6 +225,7 @@ function make_wide_and_tall(params)
 			hidden = true,
 			hidden_in_factoriopedia = true,
 			factoriopedia_alternative = tall_name,
+			factoriopedia_simulation = params.factoriopedia_simulation,
 
 			-- Entity fields
 			collision_box = params.collision_box,
@@ -249,10 +251,10 @@ function make_wide_and_tall(params)
 			},
 			circuit_wire_max_distance = orig_container.circuit_wire_max_distance,
 			circuit_connector = {
-				wide_container.circuit_connector,
-				tall_container.circuit_connector,
-				wide_container.circuit_connector,
-				tall_container.circuit_connector,
+				params.horizontal_connection,
+				params.vertical_connection,
+				params.horizontal_connection,
+				params.vertical_connection,
 			}
 		}--[[@as data.AssemblingMachinePrototype]],
 
