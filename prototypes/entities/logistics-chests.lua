@@ -22,14 +22,10 @@ local tall_remnants_hw = {150,152}
 local tall_remnants_shift = util.by_pixel(14.75, -1)
 
 --Local Varibles
-local sounds = require("__base__/prototypes/entity/sounds")
 local item_sounds = require("__base__/prototypes/item_sounds")
 local simulations = require("prototypes.factoriopedia-simulations")
 local icon = "__wide-containers-assets__/graphics/icons/wide-logistic-chest.png"
 local icon_mask = "__wide-containers-assets__/graphics/icons/wide-logistic-chest-mask.png"
-local surface_conditions = data.raw.container["steel-chest"].surface_conditions
-local logistic_chest_opened_duration = 7
-local animation_sound = sounds.logistics_chest_open
 
 local tint_passive = {r=220,g=61,b=65} --passive tint
 local tint_active = {r=200,g=87,b=253}  --active tint
@@ -42,25 +38,10 @@ make_wide_and_tall{
   name = "active-provider-chest",
   subgroup = "wide-logistics-storage",
   order = "d",
-  surface_conditions = surface_conditions,
   factoriopedia_simulation = simulations.factoriopedia_wide_active_provider_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
-  animation_sound = animation_sound,
-  opened_duration = logistic_chest_opened_duration,
-  hide_resistances = true,
-  resistances = 
-  {
-    {
-      type = "fire",
-      percent = 90,
-    },
-    {
-      type = "impact",
-      percent = 60 ,
-    },
-  },
   icons =
   {
     {
@@ -171,25 +152,10 @@ make_wide_and_tall{
   name = "passive-provider-chest",
   subgroup = "wide-logistics-storage",
   order = "e",
-  surface_conditions = surface_conditions,
   factoriopedia_simulation = simulations.factoriopedia_wide_passive_provider_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
-  animation_sound = animation_sound,
-  opened_duration = logistic_chest_opened_duration,
-  hide_resistances = true,
-  resistances = 
-  {
-    {
-      type = "fire",
-      percent = 90,
-    },
-    {
-      type = "impact",
-      percent = 60 ,
-    },
-  },
   icons =
   {
     {
@@ -300,25 +266,10 @@ make_wide_and_tall{
   name = "storage-chest",
   subgroup = "wide-logistics-storage",
   order = "f",
-  surface_conditions = surface_conditions,
   factoriopedia_simulation = simulations.factoriopedia_wide_storage_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
-  animation_sound = animation_sound,
-  opened_duration = logistic_chest_opened_duration,
-  hide_resistances = true,
-  resistances = 
-  {
-    {
-      type = "fire",
-      percent = 90,
-    },
-    {
-      type = "impact",
-      percent = 60 ,
-    },
-  },
   icons =
   {
     {
@@ -429,25 +380,10 @@ make_wide_and_tall{
   name = "buffer-chest",
   subgroup = "wide-logistics-storage",
   order = "g",
-  surface_conditions = surface_conditions,
   factoriopedia_simulation = simulations.factoriopedia_wide_buffer_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
-  animation_sound = animation_sound,
-  opened_duration = logistic_chest_opened_duration,
-  hide_resistances = true,
-  resistances = 
-  {
-    {
-      type = "fire",
-      percent = 90,
-    },
-    {
-      type = "impact",
-      percent = 60 ,
-    },
-  },
   icons =
   {
     {
@@ -558,25 +494,10 @@ make_wide_and_tall{
   name = "requester-chest",
   subgroup = "wide-logistics-storage",
   order = "h",
-  surface_conditions = surface_conditions,
   factoriopedia_simulation = simulations.factoriopedia_wide_requester_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
-  animation_sound = animation_sound,
-  opened_duration = logistic_chest_opened_duration,
-    hide_resistances = true,
-    resistances = 
-    {
-      {
-        type = "fire",
-        percent = 90,
-      },
-      {
-        type = "impact",
-        percent = 60 ,
-      },
-    },
   icons =
   {
     {

@@ -1,27 +1,13 @@
 local item_sounds = require("__base__/prototypes/item_sounds")
 local simulations = require("prototypes.factoriopedia-simulations")
-local surface_conditions = data.raw.container["steel-chest"].surface_conditions
 make_wide_and_tall{
   name = "iron-chest",
   subgroup = "wide-storage",
   order = "b",
-  surface_conditions = surface_conditions,
   factoriopedia_simulation = simulations.factoriopedia_wide_iron_chest,
   inventory_move_sound = item_sounds.metal_chest_inventory_move,
   pick_sound = item_sounds.metal_chest_inventory_pickup,
   drop_sound = item_sounds.metal_chest_inventory_move,
-  hide_resistances = true,
-  resistances = 
-  {
-    {
-      type = "fire",
-      percent = 80,
-    },
-    {
-      type = "impact",
-      percent = 30 ,
-    },
-  },
   icons =
   {
     {

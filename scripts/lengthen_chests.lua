@@ -27,13 +27,8 @@ end
 ---@field order string The order string of the container's prototypes
 ---@field factoriopedia_simulation data.SimulationDefinition
 ---
----@field hide_resistances boolean Whether or not to hide the resistances of the container entities.
----@field resistances? data.Resistance[] The resistances of the container entities
 ---@field collision_box data.BoundingBox The collision box of the container entities
 ---@field selection_box data.BoundingBox The selection box of the container entities
----
----@field animation_sound? data.Sound The sound for the logistic container's animation
----@field opened_duration? uint8
 ---
 ---@field inventory_move_sound data.Sound The inventory_move_sound of the container's item
 ---@field pick_sound data.Sound The pick_sound of the container's item
@@ -46,13 +41,13 @@ end
 ---@field horizontal_animation? data.Animation The animation of the horizontal logistic container
 ---@field horizontal_connection? data.CircuitConnectorDefinition The circuit definition of the horizontal container
 ---@field horizontal_remnants data.Animation The animation of the horizontal logistic container's remnants
----@field horizontal_upgrade? data.EntityID The next_upgrade of the horizontal container 
+----@field horizontal_upgrade? data.EntityID The next_upgrade of the horizontal container 
 ---
 ---@field vertical_picture? data.Sprite The picture of the vertical container
 ---@field vertical_animation? data.Animation The animation of the vertical logistic container
 ---@field vertical_connection? data.CircuitConnectorDefinition The circuit definition of the vertical container
 ---@field vertical_remnants data.Animation The animation of the vertical container's remnants
----@field vertical_upgrade? data.EntityID The next_upgrade of the vertical container
+----@field vertical_upgrade? data.EntityID The next_upgrade of the vertical container
 
 ---@param params chest_params
 function make_wide_and_tall(params)
@@ -101,9 +96,8 @@ function make_wide_and_tall(params)
 		placeable_by = meld.overwrite{item = item_name, count = 1},
 		collision_box = meld.overwrite(params.collision_box),
 		selection_box = meld.overwrite(params.selection_box),
-		next_upgrade = meld.overwrite(params.horizontal_upgrade),
-		resistances = params.resistances,
-		hide_resistances = params.hide_resistances,
+		-- next_upgrade = meld.overwrite(params.horizontal_upgrade), -- Doesn't work on hidden entities (the other one)...
+		next_upgrade = meld.delete(),
 		corpse = wide_remnants_name,
 
 		-- Container fields
@@ -111,10 +105,8 @@ function make_wide_and_tall(params)
 		inventory_size = meld.invoke(multiply(params.inventory_multiplier)),
 
 		--- Logistic Container fields
-		opened_duration = params.opened_duration,
 		animation = meld.overwrite(params.horizontal_animation),
-		animation_sound = meld.overwrite(params.animation_sound),
-		trash_inventory_size = meld.invoke(multiply(params.inventory_multiplier)),
+		-- trash_inventory_size = meld.invoke(multiply(params.inventory_multiplier)), -- Do we actually want to multiply the trash?
 		circuit_connector = meld.overwrite(params.horizontal_connection),
 	})
 	local tall_container = meld(table.deepcopy(orig_container), {
@@ -134,9 +126,8 @@ function make_wide_and_tall(params)
 		placeable_by = meld.overwrite{item = item_name, count = 1},
 		collision_box = meld.overwrite(rotate_box(params.collision_box)),
 		selection_box = meld.overwrite(rotate_box(params.selection_box)),
-		next_upgrade = meld.overwrite(params.vertical_upgrade),
-		resistances = params.resistances,
-		hide_resistances = params.hide_resistances,
+		-- next_upgrade = meld.overwrite(params.vertical_upgrade), -- Doesn't work on hidden entities...
+		next_upgrade = meld.delete(),
 		corpse = tall_remnants_name,
 
 		-- Container fields
@@ -144,10 +135,8 @@ function make_wide_and_tall(params)
 		inventory_size = meld.invoke(multiply(params.inventory_multiplier)),
 
 		--- Logistic Container fields
-		opened_duration = params.opened_duration,
 		animation = meld.overwrite(params.vertical_animation),
-		animation_sound = meld.overwrite(params.animation_sound),
-		trash_inventory_size = meld.invoke(multiply(params.inventory_multiplier)),
+		-- trash_inventory_size = meld.invoke(multiply(params.inventory_multiplier)), -- Do we actually want to multiply the trash?
 		circuit_connector = meld.overwrite(params.vertical_connection),
 	})
 
@@ -230,8 +219,8 @@ function make_wide_and_tall(params)
 			-- Entity fields
 			collision_box = params.collision_box,
 			selection_box = params.selection_box,
-			resistances = params.resistances,
-			hide_resistances = params.hide_resistances,
+			resistances = orig_container.resistances,
+			hide_resistances = orig_container.hide_resistances,
 			max_health = orig_container.max_health,
 			minable = {mining_time = orig_container.minable.mining_time},
 			fast_replaceable_group = orig_container.fast_replaceable_group,

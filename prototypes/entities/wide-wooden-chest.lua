@@ -1,20 +1,13 @@
 local item_sounds = require("__base__/prototypes/item_sounds")
 local simulations = require("prototypes.factoriopedia-simulations")
-local surface_conditions = data.raw.container["steel-chest"].surface_conditions
---[[ FIXME: Forgot resistances?
-  I've marked them optional (because they fundamentally are),
-  but I don't know if that was your intent
-]]
 make_wide_and_tall{
   name = "wooden-chest",
   subgroup = "wide-storage",
   order = "a",
-  surface_conditions = surface_conditions,
   factoriopedia_simulation = simulations.factoriopedia_wide_wooden_chest,
   inventory_move_sound = item_sounds.wood_inventory_move,
   pick_sound = item_sounds.wood_inventory_pickup,
   drop_sound = item_sounds.wood_inventory_move,
-  hide_resistances = true,
   icons =
   {
     {
