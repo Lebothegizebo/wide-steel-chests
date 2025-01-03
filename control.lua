@@ -205,27 +205,37 @@ script.on_event(defines.events.script_raised_revive, built)
 script.on_event(defines.events.on_space_platform_built_entity, built)
 
 ---@class ChestTags
----@field circuit? ChestTags.circuit
+---@field circuit? BlueprintControlBehavior.container|BlueprintControlBehavior.logistic_container
 ---@field bar? uint
----@field request? ChestTags.request_filters
+---@field request? BlueprintFilters
 
----@class ChestTags.circuit
+---@class BlueprintControlBehavior.container
 ---@field read_contents? boolean
+
+---@class BlueprintControlBehavior.logistic_container : BlueprintControlBehavior.container
 ---@field circuit_condition_enabled? boolean
 ---@field circuit_condition? CircuitCondition
 ---@field circuit_mode_of_operation? defines.control_behavior.logistic_container.exclusive_mode defaults to `defines.control_behavior.logistic_container.exclusive_mode.send_contents`
 
----@class ChestTags.request_filters
+---@class BlueprintFilters
 ---@field request_from_buffers? boolean
 ---@field trash_not_requested? boolean
----@field sections ChestTags.request_filters.section[]
+---@field sections BlueprintFilters.section[]
 
----@class ChestTags.request_filters.section
+---@class BlueprintFilters.section
 ---@field index uint
 ---@field filters? BlueprintLogisticFilter[]
 ---@field group? string
 ---@field multiplier? int
 ---@field active? false
+
+---@class BlueprintEntity.container : BlueprintEntity
+---@field control_behavior BlueprintControlBehavior.container
+---@field bar int
+
+---@class BlueprintEntity.logistic_container : BlueprintEntity.container
+---@field control_behavior BlueprintControlBehavior.logistic_container
+---@field request_filters BlueprintFilters
 
 script.on_event(defines.events.on_player_setup_blueprint, function (EventData)
 	local blueprint = EventData.stack
@@ -238,6 +248,7 @@ script.on_event(defines.events.on_player_setup_blueprint, function (EventData)
 		local type_str = entity.name:sub(1, 5)
 		local type = type_str == "wide-" and 0 or type_str == "tall-" and 4 or nil --[[@as defines.direction?]]
 		if type then
+			---@cast entity BlueprintEntity.container|BlueprintEntity.logistic_container
 			local chest = entity.name:sub(6)
 			entity.name = "rotatable-"..chest
 			entity.direction = type
