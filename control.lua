@@ -12,9 +12,10 @@ end)
 ---@return LogisticFilter[]
 local function convert_bp_filters(bp_filters)
 	---@type LogisticFilter[]
-	local filters = {}
+	local filters, last_index = {}, 0
 
 	for _, filter in pairs(bp_filters) do
+		last_index = math.max(last_index, filter.index)
 		filters[filter.index] = {
 			value = {
 				type = filter.type,
@@ -27,6 +28,12 @@ local function convert_bp_filters(bp_filters)
 			minimum_delivery_count = filter.minimum_delivery_count,
 			-- Import_from??
 		}
+	end
+
+	for i = 1, last_index-1, 1 do
+		if not filters[i] then
+			filters[i] = {}
+		end
 	end
 
 	return filters
@@ -43,6 +50,9 @@ local function repair_logistic(requester, chest_tags)
 		local section
 		if tag_section.group then
 			section = requester.add_section(tag_section.group)--[[@as LuaLogisticSection]]
+			if section.filters_count == 0 and tag_section.filters then
+				section.filters = convert_bp_filters(tag_section.filters)
+			end
 		else
 			section = requester.add_section()--[[@as LuaLogisticSection]]
 			section.filters = convert_bp_filters(tag_section.filters or {})

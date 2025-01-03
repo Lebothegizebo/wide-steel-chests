@@ -4,6 +4,10 @@ Date: ????
   Bugfixes:
     - Actually listen to script raised built events
     - Fixed a crash when an entity is built without any player attribution (aka via script)
+    - Preserve spacing in filters
+    - Preserve LogisticGroups from blueprints that don't exist in the game. For the most part at least...
+      If there's an empty group but the blueprint has filters for it, it will override it.
+      This is because it relies on `filters_count` as there's no way to check if a group exists or not.
   Changes:
     - Added basic simulations to showcase rotated version
     - Use meld for container prototype creation, hopefully improving the inheritence clarity
