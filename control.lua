@@ -123,6 +123,8 @@ local function chest_built(entity, full_name, tags, is_ghost)
 		entity_name = "tall-"..entity_name
 	end
 
+	local player = entity.last_user
+
 	local chest_tags = tags.wide_chest or {} --[[@as ChestTags]]
 	tags.wide_chest = nil
 
@@ -134,7 +136,7 @@ local function chest_built(entity, full_name, tags, is_ghost)
 
 		position = entity.position,
 		force = entity.force,
-		player = entity.last_user,
+		player = player,
 		create_build_effect_smoke = false,
 
 		bar = chest_tags.bar,
@@ -153,9 +155,11 @@ local function chest_built(entity, full_name, tags, is_ghost)
 
 	-- Remove the `removed-entity` action
 	-- This seems to also remove the paired `create-entity` action
-	local undo_stack = create.player.undo_redo_stack
-	local undo_actions = undo_stack.get_undo_item(1)
-	undo_stack.remove_undo_action(1, #undo_actions-1)
+	if player then
+		local undo_stack = player.undo_redo_stack
+		local undo_actions = undo_stack.get_undo_item(1)
+		undo_stack.remove_undo_action(1, #undo_actions-1)
+	end
 
 	if chest_tags then
 		local func = restore_from_bp[is_ghost and new_entity.ghost_type or new_entity.type]
@@ -196,6 +200,7 @@ end
 
 script.on_event(defines.events.on_built_entity, built)
 script.on_event(defines.events.on_robot_built_entity, built)
+script.on_event(defines.events.script_raised_built, built)
 script.on_event(defines.events.script_raised_revive, built)
 script.on_event(defines.events.on_space_platform_built_entity, built)
 
