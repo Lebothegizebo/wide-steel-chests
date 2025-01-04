@@ -18,7 +18,14 @@ end
 
 ---@class chest_params
 ---@field name data.EntityID The name of the source container
----@field localised_name? data.LocalisedString The LocalisedString of the container's prototypes
+--- The LocalisedString of the container's name.
+---
+--- Default is `"entity-name.wide-"..name`.
+---@field localised_name? data.LocalisedString
+--- The LocalisedString of the container's description.
+---
+--- Default is `"entity-description."..name`.
+---@field localised_description? data.LocalisedString
 ---@field icons data.IconData[] The icon set of the container's prototypes
 ---The base subgroup of the container
 ---
@@ -67,7 +74,10 @@ function make_wide_and_tall(params)
 	local tall_name = "tall-"..params.name
 	local item_name = wide_name --TODO: make a migration to use the rotatable name?
 	local rote_name = "rotatable-"..params.name
+
+	-- Localisation
 	local localised_name = params.localised_name or {"entity-name."..wide_name}
+	local localised_description = params.localised_description or {"entity-description."..orig_container.name}
 
 	-- Remnant setup
 	local orig_remnants = data.raw["corpse"][orig_container.corpse--[[@as string]]]
@@ -83,6 +93,8 @@ function make_wide_and_tall(params)
 	local wide_container = meld(table.deepcopy(orig_container), {
 		-- Basic fields
 		name = wide_name,
+		localised_name = meld.overwrite(localised_name),
+		localised_description = meld.overwrite(localised_description),
 		icons = meld.overwrite(params.icons),
 		icon = meld.delete(),
 		subgroup = params.subgroup,
@@ -113,6 +125,7 @@ function make_wide_and_tall(params)
 		-- Basic fields
 		name = tall_name,
 		localised_name = meld.overwrite(localised_name),
+		localised_description = meld.overwrite(localised_description),
 		icons = meld.overwrite(params.icons),
 		icon = meld.delete(),
 		subgroup = params.subgroup,
@@ -188,7 +201,9 @@ function make_wide_and_tall(params)
 			-- Basic fields
 			type = "item",
 			name = item_name,
-			localised_name = localised_name,
+			-- Shouldn't be necessary as the entity it places has them
+			-- localised_name = localised_name,
+			-- localised_description = localised_description,
 			icons = params.icons,
 			subgroup = params.subgroup,
 			order = params.order,
@@ -208,6 +223,7 @@ function make_wide_and_tall(params)
 			type = "assembling-machine",
 			name = rote_name,
 			localised_name = localised_name,
+			localised_description = localised_description,
 			icons = params.icons,
 			-- item_subgroup = "logistics", -- Why was this added? It's not a field nor a valid subgroup
 			order = params.order,
