@@ -25,7 +25,7 @@ data:extend(
     },
     ingredients =
     {
-	    {
+      {
         type = "item",
         name = "electronic-circuit",
         amount = 5
@@ -41,18 +41,6 @@ data:extend(
         amount = 1
       }
     },
-    icons= 
-    {
-      {
-        icon = icon,
-        icon_size = 128,
-      },
-      {
-        icon = icon_mask,
-        icon_size = 128,
-        tint = tint_active
-      },
-    }
   },
 
   --Wide Passive Provider Chest
@@ -73,7 +61,7 @@ data:extend(
     },
     ingredients =
     {
-	    {
+      {
         type = "item",
         name = "electronic-circuit",
         amount = 5
@@ -89,18 +77,6 @@ data:extend(
         amount = 1
       }
     },
-    icons= 
-    {
-      {
-        icon = icon,
-        icon_size = 128,
-      },
-      {
-        icon = icon_mask,
-        icon_size = 128,
-        tint = tint_passive
-      },
-    }
   },
 
   --Wide Storage Chest
@@ -121,7 +97,7 @@ data:extend(
     },
     ingredients =
     {
-	    {
+      {
         type = "item",
         name = "electronic-circuit",
         amount = 5
@@ -137,18 +113,6 @@ data:extend(
         amount = 1
       }
     },
-    icons= 
-    {
-      {
-        icon = icon,
-        icon_size = 128,
-      },
-      {
-        icon = icon_mask,
-        icon_size = 128,
-        tint = tint_storage
-      },
-    }
   },
   
   --Wide Buffer Chest
@@ -169,7 +133,7 @@ data:extend(
     },
     ingredients =
     {
-	    {
+      {
         type = "item",
         name = "electronic-circuit",
         amount = 5
@@ -185,18 +149,6 @@ data:extend(
         amount = 1
       }
     },
-    icons= 
-    {
-      {
-        icon = icon,
-        icon_size = 128,
-      },
-      {
-        icon = icon_mask,
-        icon_size = 128,
-        tint = tint_buffer
-      },
-    }
   },
   
   --Wide Requester Chest
@@ -217,7 +169,7 @@ data:extend(
     },
     ingredients =
     {
-	    {
+      {
         type = "item",
         name = "electronic-circuit",
         amount = 5
@@ -233,18 +185,6 @@ data:extend(
         amount = 1
       }
     },
-    icons= 
-    {
-      {
-        icon = icon,
-        icon_size = 128,
-      },
-      {
-        icon = icon_mask,
-        icon_size = 128,
-        tint = tint_requester
-      },
-    }
   },
 }
 )

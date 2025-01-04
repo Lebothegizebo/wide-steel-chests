@@ -7,7 +7,6 @@ data.raw["container"]["wide-steel-chest"]["picture"].layers[1].height=74
 data.raw["container"]["wide-steel-chest"]["picture"].layers[2].width=102
 data.raw["container"]["wide-steel-chest"]["picture"].layers[2].height=50
 data.raw["item"]["wide-steel-chest"].icons[1].icon = "__wide-aai-chests__/graphics/icons/wide-steel-chest.png"
-data.raw["recipe"]["wide-steel-chest"].icons[1].icon = "__wide-aai-chests__/graphics/icons/wide-steel-chest.png"
 data.raw["container"]["wide-steel-chest"].icons[1].icon = "__wide-aai-chests__/graphics/icons/wide-steel-chest.png"
 data.raw["container"]["wide-steel-chest"]["picture"].layers[1].filename = "__wide-aai-chests__/graphics/entity/wide-steel-chest.png"
 data.raw["container"]["wide-steel-chest"]["picture"].layers[2].filename = "__wide-aai-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png"

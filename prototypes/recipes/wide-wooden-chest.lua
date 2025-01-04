@@ -1,6 +1,6 @@
 data:extend(
 {
-   {
+  {
     type = "recipe",
     name = "wide-wooden-chest",
     subgroup = "wide-storage",
@@ -17,19 +17,12 @@ data:extend(
     },
     ingredients =
     {
-	    {
+      {
         type = "item",
         name = "wood",
         amount = 4
       }
     },
-    icons= 
-    {
-      {
-        icon = "__wide-containers-assets__/graphics/icons/wide-wooden-chest.png",
-        icon_size = 128,
-      },
-    }
   }
 }
 )
