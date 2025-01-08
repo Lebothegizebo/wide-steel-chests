@@ -2,6 +2,9 @@
 Version: 0.2.9
 Date: ????
   Changes:
+    - Updated Factoriopedia simulations.
+  Bugfixes:
+    - Fixed Wide AAI containers shadows not rendering as shadows due to draw_as_shadow being missing from the meld.
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.8
 Date: 2025-01-08

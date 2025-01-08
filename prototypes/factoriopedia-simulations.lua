@@ -5,7 +5,7 @@ simulations.factoriopedia_wide_wooden_chest =
 {
   init =
   [[
-    game.simulation.camera_position = {0, 0.5}
+    game.simulation.camera_position = {1, 0.5}
     game.simulation.camera_zoom = 1.8
     local player = game.simulation.create_test_player{name="test"}
     player.character.destroy()
@@ -23,7 +23,7 @@ simulations.factoriopedia_wide_iron_chest =
 {
   init =
   [[
-    game.simulation.camera_position = {0, 0.5}
+    game.simulation.camera_position = {1, 0.5}
     game.simulation.camera_zoom = 1.8
     local player = game.simulation.create_test_player{name="test"}
     player.character.destroy()
@@ -42,7 +42,7 @@ simulations.factoriopedia_wide_steel_chest =
 {
   init =
   [[
-    game.simulation.camera_position = {0, 0.5}
+    game.simulation.camera_position = {1, 0.5}
     game.simulation.camera_zoom = 1.8
     local player = game.simulation.create_test_player{name="test"}
     player.character.destroy()
@@ -61,7 +61,7 @@ simulations.factoriopedia_wide_active_provider_chest =
 {
   init =
   [[
-    game.simulation.camera_position = {0, 0.5}
+    game.simulation.camera_position = {1, 0.5}
     game.simulation.camera_zoom = 1.8
     local player = game.simulation.create_test_player{name="test"}
     player.character.destroy()
@@ -80,7 +80,7 @@ simulations.factoriopedia_wide_passive_provider_chest =
 {
   init =
   [[
-    game.simulation.camera_position = {0, 0.5}
+    game.simulation.camera_position = {1, 0.5}
     game.simulation.camera_zoom = 1.8
     local player = game.simulation.create_test_player{name="test"}
     player.character.destroy()
@@ -99,7 +99,7 @@ simulations.factoriopedia_wide_storage_chest =
 {
   init =
   [[
-    game.simulation.camera_position = {0, 0.5}
+    game.simulation.camera_position = {1, 0.5}
     game.simulation.camera_zoom = 1.8
     local player = game.simulation.create_test_player{name="test"}
     player.character.destroy()
@@ -118,7 +118,7 @@ simulations.factoriopedia_wide_buffer_chest =
 {
   init =
   [[
-    game.simulation.camera_position = {0, 0.5}
+    game.simulation.camera_position = {1, 0.5}
     game.simulation.camera_zoom = 1.8
     local player = game.simulation.create_test_player{name="test"}
     player.character.destroy()
@@ -137,7 +137,7 @@ simulations.factoriopedia_wide_requester_chest =
 {
   init =
   [[
-    game.simulation.camera_position = {0, 0.5}
+    game.simulation.camera_position = {1, 0.5}
     game.simulation.camera_zoom = 1.8
     local player = game.simulation.create_test_player{name="test"}
     player.character.destroy()

@@ -22,6 +22,7 @@ local wide_steel_graphics = {
 			height = 50,
 			scale = 0.5,
 			shift = util.by_pixel(26, 3),
+			draw_as_shadow = true
 		}
 	}
 }
@@ -40,6 +41,7 @@ local tall_steel_graphics = {
 			height=148,
 			scale = 0.5,
 			shift = util.by_pixel(9, 3),
+			draw_as_shadow = true
 		}
 	}
 }
