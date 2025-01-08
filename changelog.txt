@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.8
-Date: ????
+Date: 2025-01-08
   Bugfixes:
     - Actually listen to script raised built events
     - Fixed a crash when an entity is built without any player attribution (aka via script)
