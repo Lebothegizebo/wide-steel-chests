@@ -1,97 +1,69 @@
-local item_sounds = require("__base__/prototypes/item_sounds")
-local simulations = require("prototypes.factoriopedia-simulations")
-make_wide_and_tall{
-  name = "wooden-chest",
-  subgroup = "wide-storage",
-  order = "a",
-  factoriopedia_simulation = simulations.factoriopedia_wide_wooden_chest,
-  inventory_move_sound = item_sounds.wood_inventory_move,
-  pick_sound = item_sounds.wood_inventory_pickup,
-  drop_sound = item_sounds.wood_inventory_move,
-  icons =
-  {
+data:extend(
+{
+ {
+    type = "item",
+    name = "wide-wooden-chest",
+    icons = 
     {
-      icon = "__wide-containers-assets__/graphics/icons/wide-wooden-chest.png",
-      icon_size = 128,
+      {
+        icon = "__wide-steel-chests__/graphics/icons/wide-wooden-chest.png",
+        icon_size = 128,
+      },
     },
+    subgroup = "wide-storage",
+    place_result = "wide-wooden-chest",
+    stack_size = 50,
+    order = "a"
   },
-  inventory_multiplier = 2,
-  collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
-  selection_box = {{-1, -0.5}, {1, 0.5}},
-  horizontal_connection = circuit_connector_definitions["wide_container"],
-  vertical_connection = circuit_connector_definitions["tall_container"],
-  horizontal_picture =
-  {
-    layers =
+   {
+    type = "container",
+    name = "wide-wooden-chest",
+    icons = 
     {
       {
-        filename = "__wide-containers-assets__/graphics/entity/wooden-chest/wide-wooden-chest.png",
-        priority = "extra-high",
-        scale = 0.5,
-        width = 128,
-        height = 80,
-        shift = util.by_pixel(0.5, -2),
+        icon = "__wide-steel-chests__/graphics/icons/wide-wooden-chest.png",
+        icon_size = 128,
       },
+    },
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 0.2, result = "wide-wooden-chest"},
+    max_health = 200,
+    corpse = "wide-wooden-chest-remnants",
+    dying_explosion = "wooden-chest-explosion",
+    open_sound = { filename = "__base__/sound/wooden-chest-open.ogg", volume = 0.6 },
+    close_sound = { filename = "__base__/sound/wooden-chest-close.ogg", volume = 0.6 },
+    collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
+    selection_box = {{-1, -0.5}, {1, 0.5}},
+    scale_info_icons = true,
+    fast_replaceable_group = "container",
+    inventory_size = 32,
+    vehicle_impact_sound = table.deepcopy(data.raw.container["wooden-chest"].vehicle_impact_sound),
+    damaged_trigger_effect = table.deepcopy(data.raw.container["wooden-chest"].damaged_trigger_effect),
+    picture =
+    {
+      layers =
       {
-        filename = "__wide-containers-assets__/graphics/entity/shadows/wide-wooden-chest-shadow.png",
-        priority = "extra-high",
-        scale = 0.5,
-        width = 165,
-        height = 46,
-        shift = util.by_pixel(21.25-10, 8),
-        draw_as_shadow = true,
+        {
+          filename = "__wide-steel-chests__/graphics/entity/wide-wooden-chest.png",
+          priority = "extra-high",
+          scale = 0.5,
+          width = 128,
+          height = 80,
+          shift = util.by_pixel(0.5, -2),
+        },
+        {
+          filename = "__wide-steel-chests__/graphics/entity/shadows/wide-wooden-chest-shadow.png",
+          priority = "extra-high",
+          scale = 0.5,
+          width = 165,
+          height = 46,
+          shift = util.by_pixel(21.25-10, 8),
+          draw_as_shadow = true,
+        }
       }
-    }
-  },
-  vertical_picture =
-  {
-    layers =
-    {
-      {
-        filename = "__wide-containers-assets__/graphics/entity/wooden-chest/tall-wooden-chest.png",
-        priority = "extra-high",
-        scale = 0.5,
-        width = 62,
-        height = 136,
-        shift = util.by_pixel(0.5, -2),
-      },
-      {
-        filename = "__wide-containers-assets__/graphics/entity/shadows/tall-wooden-chest-shadow.png",
-        priority = "extra-high",
-        scale = 0.5,
-        width = 104,
-        height = 108,
-        shift = util.by_pixel(10.25, 6),
-        draw_as_shadow = true,
-      }
-    }
-  },
-  horizontal_remnants =
-  {
-    layers =
-    {
-      {
-        filename = "__wide-containers-assets__/graphics/remnants/wide-wooden-chest-remnants.png",
-        width = 192,
-        height = 87,
-        scale = 0.5,
-        shift = util.by_pixel(9, -1),
-        direction_count = 1,
-      },
-    }
-  },
-  vertical_remnants =
-  {
-    layers =
-    {
-      {
-        filename = "__wide-containers-assets__/graphics/remnants/tall-wooden-chest-remnants.png",
-        width = 110,
-        height = 136,
-        scale = 0.5,
-        shift = util.by_pixel(7.5, -1.5),
-        direction_count = 1,
-      },
-    }
-  },
-}
+    },
+    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
+    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+  }
+})

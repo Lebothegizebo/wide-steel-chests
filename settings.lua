@@ -1,7 +1,4 @@
-
-if mods["wide-aai-chests"] then
-data:extend(
-{
+data:extend({
     {
         type = "bool-setting",
         name = "wide-aai-chests-enabled-by-default",
@@ -14,20 +11,11 @@ data:extend(
         setting_type = "startup",
         default_value = false
     },
-
-})
-end
-data:extend({
     {
         type = "bool-setting",
         name = "enable-wide-containers-beta",
         setting_type = "startup",
         default_value = false
-    },
-    {
-        type = "bool-setting",
-        name = "easter-egg",
-        setting_type = "startup",
-        default_value = false
-    }   
+    }
+    
 })

@@ -3,7 +3,6 @@ if mods["aai-containers"] and mods["wide-aai-chests"] and settings.startup["wide
     require("prototypes.compatibility.wide-aai-chests.prototypes")
 elseif mods["wide-aai-chests"] and settings.startup["wide-aai-chests-enabled"].value  then
     require("prototypes.compatibility.wide-aai-chests.prototypes")
-
 end
 
 -- Loads mod settings from AAI containers if wide-aai-chests is enabled
@@ -19,7 +18,3 @@ end
 if mods["aai-containers"] then
     require("prototypes.compatibility.aai-containers.recipes")
 end
-if settings.startup["easter-egg"].value then
-    require("prototypes.compatibility.easter-egg.easter-egg")
-end
-require("prototypes.surface-conditions")

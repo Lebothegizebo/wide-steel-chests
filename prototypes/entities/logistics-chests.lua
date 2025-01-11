@@ -1,660 +1,402 @@
-
-
---Wide chest
-local wide_chest = "__wide-containers-assets__/graphics/entity/logistic-chest/wide-logistic-chest.png"
-local wide_chest_mask = "__wide-containers-assets__/graphics/entity/logistic-chest/wide-logistic-chest-mask.png"
-local wide_chest_shadow = "__wide-containers-assets__/graphics/entity/shadows/wide-logistic-chest-shadow.png"
-local wide_chest_hw = {130, 80, 165, 46} --Width, Height, Width, Height
-local wide_chest_shift = {util.by_pixel(0, -2.5), util.by_pixel(24.25-4, 4)}
---Remnants
-local wide_remnants = "__wide-containers-assets__/graphics/remnants/wide-logistic-chest-remnants.png"
-local wide_remnants_hw = {200, 88}
-local wide_remnants_shift = util.by_pixel(9, -1)
-
---Tall chest
-local tall_chest = "__wide-containers-assets__/graphics/entity/logistic-chest/tall-logistic-chest.png"
-local tall_chest_mask = "__wide-containers-assets__/graphics/entity/logistic-chest/tall-logistic-chest-mask.png"
-local tall_chest_shadow = "__wide-containers-assets__/graphics/entity/shadows/tall-logistic-chest-shadow.png"
-local tall_chest_hw = {66, 138, 110, 108} --Width, Height, Width, Height
-local tall_chest_shift = {util.by_pixel(0, -2), util.by_pixel(12.25, 5.25)}
---Remnants
-local tall_remnants = "__wide-containers-assets__/graphics/remnants/tall-logistic-chest-remnants.png"
-local tall_remnants_hw = {150,152}
-local tall_remnants_shift = util.by_pixel(14.75, -1)
-
---Local Varibles
-local item_sounds = require("__base__/prototypes/item_sounds")
-local simulations = require("prototypes.factoriopedia-simulations")
-local icon = "__wide-containers-assets__/graphics/icons/wide-logistic-chest.png"
-local icon_mask = "__wide-containers-assets__/graphics/icons/wide-logistic-chest-mask.png"
-
-local tint_passive = {r=220,g=61,b=65} --passive tint
-local tint_active = {r=200,g=87,b=253}  --active tint
-local tint_storage = {r=230,g=180,b=66} --storage tint
-local tint_buffer = {r=70,g=200,b=70} --buffer tint
-local tint_requester = {r=80,g=160,b=220} -- requester tint
-
---MARK: Active Provider
-make_wide_and_tall{
-  name = "active-provider-chest",
-  subgroup = "wide-logistics-storage",
-  order = "d",
-  factoriopedia_simulation = simulations.factoriopedia_wide_active_provider_chest,
-  inventory_move_sound = item_sounds.metal_chest_inventory_move,
-  pick_sound = item_sounds.metal_chest_inventory_pickup,
-  drop_sound = item_sounds.metal_chest_inventory_move,
-  icons =
+data:extend(
+{
+  --Wide Active Provider Chest
   {
-    {
-      icon = icon,
-      icon_size = 128,
-    },
-    {
-      icon = icon_mask,
-      icon_size = 128,
-      tint = tint_active
-    },
-  },
-  inventory_multiplier = 2,
-  collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
-  selection_box = {{-1, -0.5}, {1, 0.5}},
-  horizontal_connection = circuit_connector_definitions["wide_container"],
-  vertical_connection = circuit_connector_definitions["tall_container"],
-  horizontal_animation =
-  {
-    layers =
-    {
+    type = "item",
+    name = "wide-active-provider-chest",
+    subgroup = "wide-logistics-storage",
+    place_result = "wide-active-provider-chest",
+    stack_size = 50,
+    order = "a",
+    icons = 
       {
-        filename = wide_chest,
-        priority = "extra-high",
-        scale = 0.5,
-        width = wide_chest_hw[1],
-        height = wide_chest_hw[2],
-        shift = wide_chest_shift[1],
-        frame_count = 7,
-
-      },
-      {
-        tint = tint_active,
-        filename = wide_chest_mask,
-        scale = 0.5,
-        width = wide_chest_hw[1],
-        height = wide_chest_hw[2],
-        shift = wide_chest_shift[1],
-        repeat_count = 7,
-      },
-      {
-        filename = wide_chest_shadow,
-        priority = "extra-high",
-        scale = 0.5,
-        width = wide_chest_hw[3],
-        height = wide_chest_hw[4],
-        shift = wide_chest_shift[2],
-        repeat_count = 7,
-        draw_as_shadow = true,
+        {
+          icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+          icon_size = 128,
+        },
       }
-    }
   },
-  vertical_animation =
   {
-    layers =
-    {
+    type = "logistic-container",
+    name = "wide-active-provider-chest",
+    logistic_mode = "active-provider",
+    icons = 
       {
-        filename = tall_chest,
-        priority = "extra-high",
-        scale = 0.5,
-        width = tall_chest_hw[1],
-        height = tall_chest_hw[2],
-        shift = tall_chest_shift[1],
-        frame_count = 7,
+        {
+          icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+          icon_size = 128,
+        },
       },
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 0.2, result = "wide-active-provider-chest"},
+    max_health = 350,
+    corpse = "wide-steel-chest-remnants",
+    dying_explosion = "steel-chest-explosion",
+    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume=0.43 },
+    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.43 },
+    resistances =
       {
-        tint = tint_active,
-        filename = tall_chest_mask,
-        scale = 0.5,
-        width = tall_chest_hw[1],
-        height = tall_chest_hw[2],
-        shift = tall_chest_shift[1],
-        repeat_count = 7,
+        {
+          type = "fire",
+          percent = 90
+        },
+        {
+          type = "impact",
+          percent = 60
+        }
       },
+    collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
+    selection_box = {{-1, -0.5}, {1, 0.5}},
+    scale_info_icons = true,
+    fast_replaceable_group = "container",
+    inventory_size = 96,
+    vehicle_impact_sound = table.deepcopy(data.raw.container["steel-chest"].vehicle_impact_sound),
+    damaged_trigger_effect = table.deepcopy(data.raw.container["steel-chest"].damaged_trigger_effect),
+    picture =
       {
-        filename = tall_chest_shadow,
-        priority = "extra-high",
-        scale = 0.5,
-        width = tall_chest_hw[3],
-        height = tall_chest_hw[4],
-        shift = tall_chest_shift[2],
-        repeat_count = 7,
-        draw_as_shadow = true,
+        layers =
+          {
+            { 
+              filename = "__wide-steel-chests__/graphics/entity/logistic-chest-base.png",
+              priority = "extra-high",
+              scale = 0.5,
+              width = 128,
+              height = 80,
+              shift = util.by_pixel(-0.25, -0.5),
+            },
+            {
+              filename = "__wide-steel-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png",
+              priority = "extra-high",
+              scale = 0.5,
+              width = 165,
+              height = 46,
+              shift = util.by_pixel(24.25-10, 8),
+              draw_as_shadow = true,
+            }
+          }
+      },
+    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
+    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+  },
+  --Wide Passive Provider chest
+  {
+    type = "item",
+    name = "wide-passive-provider-chest",
+    subgroup = "wide-logistics-storage",
+    place_result = "wide-passive-provider-chest",
+    stack_size = 50,
+    order = "b",
+    icons = 
+      {
+        {
+          icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+          icon_size = 128,
+        },
       }
-    }
   },
-  horizontal_remnants =
   {
-    layers =
-    {
+    type = "logistic-container",
+    name = "wide-passive-provider-chest",
+    logistic_mode = "passive-provider",
+    icons = 
       {
-        filename = wide_remnants,
-        width = wide_remnants_hw[1],
-        height = wide_remnants_hw[2],
-        scale = 0.5,
-        shift = wide_remnants_shift,
-        direction_count = 1,
+        {
+          icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+          icon_size = 128,
+        },
       },
-    }
-  },
-  vertical_remnants =
-  {
-    layers =
-    {
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 0.2, result = "wide-passive-provider-chest"},
+    max_health = 350,
+    corpse = "wide-steel-chest-remnants",
+    dying_explosion = "steel-chest-explosion",
+    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume=0.43 },
+    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.43 },
+    resistances =
       {
-        filename = tall_remnants,
-        width = tall_remnants_hw[1],
-        height = tall_remnants_hw[2],
-        scale = 0.5,
-        shift = tall_remnants_shift,
-        direction_count = 1,
+        {
+          type = "fire",
+          percent = 90
+        },
+        {
+          type = "impact",
+          percent = 60
+        }
       },
-    }
+    collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
+    selection_box = {{-1, -0.5}, {1, 0.5}},
+    scale_info_icons = true,
+    fast_replaceable_group = "container",
+    inventory_size = 96,
+    vehicle_impact_sound = table.deepcopy(data.raw.container["steel-chest"].vehicle_impact_sound),
+    damaged_trigger_effect = table.deepcopy(data.raw.container["steel-chest"].damaged_trigger_effect),
+    picture =
+      {
+        layers =
+          {
+            { 
+              filename = "__wide-steel-chests__/graphics/entity/logistic-chest-base.png",
+              priority = "extra-high",
+              scale = 0.5,
+              width = 128,
+              height = 80,
+              shift = util.by_pixel(-0.25, -0.5),
+            },
+            {
+              filename = "__wide-steel-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png",
+              priority = "extra-high",
+              scale = 0.5,
+              width = 165,
+              height = 46,
+              shift = util.by_pixel(24.25-10, 8),
+              draw_as_shadow = true,
+            }
+          }
+      },
+    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
+    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
-}
 
---MARK: Passive Provider
-make_wide_and_tall{
-  name = "passive-provider-chest",
-  subgroup = "wide-logistics-storage",
-  order = "e",
-  factoriopedia_simulation = simulations.factoriopedia_wide_passive_provider_chest,
-  inventory_move_sound = item_sounds.metal_chest_inventory_move,
-  pick_sound = item_sounds.metal_chest_inventory_pickup,
-  drop_sound = item_sounds.metal_chest_inventory_move,
-  icons =
+  --Wide Storage Chest
   {
-    {
-      icon = icon,
-      icon_size = 128,
-    },
-    {
-      icon = icon_mask,
-      icon_size = 128,
-      tint = tint_passive
-    },
-  },
-  inventory_multiplier = 2,
-  collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
-  selection_box = {{-1, -0.5}, {1, 0.5}},
-  horizontal_connection = circuit_connector_definitions["wide_container"],
-  vertical_connection = circuit_connector_definitions["tall_container"],
-  horizontal_animation =
-  {
-    layers =
+    type = "item",
+    name = "wide-storage-chest",
+    subgroup = "wide-logistics-storage",
+    place_result = "wide-storage-chest",
+    stack_size = 50,
+    order = "c",
+    icons = 
     {
       {
-        filename = wide_chest,
-        priority = "extra-high",
-        scale = 0.5,
-        width = wide_chest_hw[1],
-        height = wide_chest_hw[2],
-        shift = wide_chest_shift[1],
-        frame_count = 7
-      },
-      {
-        filename = wide_chest_mask,
-        tint = tint_passive,
-        priority = "extra-high",
-        scale = 0.5,
-        width = wide_chest_hw[1],
-        height = wide_chest_hw[2],
-        shift = wide_chest_shift[1],
-        repeat_count = 7,
-      },
-      {
-        filename = wide_chest_shadow,
-        priority = "extra-high",
-        scale = 0.5,
-        width = wide_chest_hw[3],
-        height = wide_chest_hw[4],
-        shift = wide_chest_shift[2],
-        repeat_count = 7,
-        draw_as_shadow = true,
-      }
-    }
-  },
-  vertical_animation =
-  {
-    layers =
-    {
-      {
-        filename = tall_chest,
-        priority = "extra-high",
-        scale = 0.5,
-        width = tall_chest_hw[1],
-        height = tall_chest_hw[2],
-        shift = tall_chest_shift[1],
-        frame_count = 7,
-      },
-      {
-        tint = tint_passive,
-        filename = tall_chest_mask,
-        scale = 0.5,
-        width = tall_chest_hw[1],
-        height = tall_chest_hw[2],
-        shift = tall_chest_shift[1],
-        repeat_count = 7,
-      },
-      {
-        filename = tall_chest_shadow,
-        priority = "extra-high",
-        scale = 0.5,
-        width = tall_chest_hw[3],
-        height = tall_chest_hw[4],
-        shift = tall_chest_shift[2],
-        repeat_count = 7,
-        draw_as_shadow = true,
-      }
-    }
-  },
-  horizontal_remnants =
-  {
-    layers =
-    {
-      {
-        filename = wide_remnants,
-        width = wide_remnants_hw[1],
-        height = wide_remnants_hw[2],
-        scale = 0.5,
-        shift = wide_remnants_shift,
-        direction_count = 1,
+        icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+        icon_size = 128,
       },
     }
   },
-  vertical_remnants =
   {
-    layers =
-    {
+    type = "logistic-container",
+    name = "wide-storage-chest",
+    logistic_mode = "storage",
+    max_logistic_slots = 1,
+    icons = 
       {
-        filename = tall_remnants,
-        width = tall_remnants_hw[1],
-        height = tall_remnants_hw[2],
-        scale = 0.5,
-        shift = tall_remnants_shift,
-        direction_count = 1,
+        {
+          icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+          icon_size = 128,
+        },
       },
-    }
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 0.2, result = "wide-storage-chest"},
+    max_health = 350,
+    corpse = "wide-steel-chest-remnants",
+    dying_explosion = "steel-chest-explosion",
+    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume=0.43 },
+    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.43 },
+    resistances =
+      {
+        {
+          type = "fire",
+          percent = 90
+        },
+        {
+          type = "impact",
+          percent = 60
+        }
+      },
+    collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
+    selection_box = {{-1, -0.5}, {1, 0.5}},
+    scale_info_icons = true,
+    fast_replaceable_group = "container",
+    inventory_size = 96,
+    vehicle_impact_sound = table.deepcopy(data.raw.container["steel-chest"].vehicle_impact_sound),
+    damaged_trigger_effect = table.deepcopy(data.raw.container["steel-chest"].damaged_trigger_effect),
+    picture =
+      {
+        layers =
+        {
+          { 
+            filename = "__wide-steel-chests__/graphics/entity/logistic-chest-base.png",
+            priority = "extra-high",
+            scale = 0.5,
+            width = 128,
+            height = 80,
+            shift = util.by_pixel(-0.25, -0.5),
+          },
+          {
+            filename = "__wide-steel-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png",
+            priority = "extra-high",
+            scale = 0.5,
+            width = 165,
+            height = 46,
+            shift = util.by_pixel(24.25-10, 8),
+            draw_as_shadow = true,
+          }
+        }
+      },
+    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
+    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
-}
 
---MARK: Storage
-make_wide_and_tall{
-  name = "storage-chest",
-  subgroup = "wide-logistics-storage",
-  order = "f",
-  factoriopedia_simulation = simulations.factoriopedia_wide_storage_chest,
-  inventory_move_sound = item_sounds.metal_chest_inventory_move,
-  pick_sound = item_sounds.metal_chest_inventory_pickup,
-  drop_sound = item_sounds.metal_chest_inventory_move,
-  icons =
+  --Wide Buffer Chest
   {
-    {
-      icon = icon,
-      icon_size = 128,
-    },
-    {
-      icon = icon_mask,
-      icon_size = 128,
-      tint = tint_storage
-    },
-  },
-  inventory_multiplier = 2,
-  collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
-  selection_box = {{-1, -0.5}, {1, 0.5}},
-  horizontal_connection = circuit_connector_definitions["wide_container"],
-  vertical_connection = circuit_connector_definitions["tall_container"],
-  horizontal_animation =
-  {
-    layers =
-    {
+    type = "item",
+    name = "wide-buffer-chest",
+    subgroup = "wide-logistics-storage",
+    place_result = "wide-buffer-chest",
+    stack_size = 50,
+    order = "d",
+    icons = 
       {
-        filename = wide_chest,
-        priority = "extra-high",
-        scale = 0.5,
-        width = wide_chest_hw[1],
-        height = wide_chest_hw[2],
-        shift = wide_chest_shift[1],
-        frame_count = 7
-      },
-      {
-        filename = wide_chest_mask,
-        tint = tint_storage,
-        priority = "extra-high",
-        scale = 0.5,
-        width = wide_chest_hw[1],
-        height = wide_chest_hw[2],
-        shift = wide_chest_shift[1],
-        repeat_count = 7,
-      },
-      {
-        filename = wide_chest_shadow,
-        priority = "extra-high",
-        scale = 0.5,
-        width = wide_chest_hw[3],
-        height = wide_chest_hw[4],
-        shift = wide_chest_shift[2],
-        repeat_count = 7,
-        draw_as_shadow = true,
+        {
+          icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+          icon_size = 128,
+        },
       }
-    }
   },
-  vertical_animation =
   {
-    layers =
-    {
+    type = "logistic-container",
+    name = "wide-buffer-chest",
+    logistic_mode = "buffer",
+    icons = 
       {
-        filename = tall_chest,
-        priority = "extra-high",
-        scale = 0.5,
-        width = tall_chest_hw[1],
-        height = tall_chest_hw[2],
-        shift = tall_chest_shift[1],
-        frame_count = 7,
+        {
+          icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+          icon_size = 128,
+        },
       },
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 0.2, result = "wide-buffer-chest"},
+    max_health = 350,
+    corpse = "wide-steel-chest-remnants",
+    dying_explosion = "steel-chest-explosion",
+    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume=0.43 },
+    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.43 },
+    resistances =
       {
-        tint = tint_storage,
-        filename = tall_chest_mask,
-        scale = 0.5,
-        width = tall_chest_hw[1],
-        height = tall_chest_hw[2],
-        shift = tall_chest_shift[1],
-        repeat_count = 7,
+        {
+          type = "fire",
+          percent = 90
+        },
+        {
+          type = "impact",
+          percent = 60
+        }
       },
+    collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
+    selection_box = {{-1, -0.5}, {1, 0.5}},
+    scale_info_icons = true,
+    fast_replaceable_group = "container",
+    inventory_size = 96,
+    vehicle_impact_sound = table.deepcopy(data.raw.container["steel-chest"].vehicle_impact_sound),
+    damaged_trigger_effect = table.deepcopy(data.raw.container["steel-chest"].damaged_trigger_effect),
+    picture =
       {
-        filename = tall_chest_shadow,
-        priority = "extra-high",
-        scale = 0.5,
-        width = tall_chest_hw[3],
-        height = tall_chest_hw[4],
-        shift = tall_chest_shift[2],
-        repeat_count = 7,
-        draw_as_shadow = true,
-      }
-    }
+        layers =
+          {
+            { 
+              filename = "__wide-steel-chests__/graphics/entity/logistic-chest-base.png",
+              priority = "extra-high",
+              scale = 0.5,
+              width = 128,
+              height = 80,
+              shift = util.by_pixel(-0.25, -0.5),
+            },
+            {
+              filename = "__wide-steel-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png",
+              priority = "extra-high",
+              scale = 0.5,
+              width = 165,
+              height = 46,
+              shift = util.by_pixel(24.25-10, 8),
+              draw_as_shadow = true,
+            }
+          }
+      },
+    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
+    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
-  horizontal_remnants =
-  {
-    layers =
-    {
-      {
-        filename = wide_remnants,
-        width = wide_remnants_hw[1],
-        height = wide_remnants_hw[2],
-        scale = 0.5,
-        shift = wide_remnants_shift,
-        direction_count = 1,
-      },
-    }
-  },
-  vertical_remnants =
-  {
-    layers =
-    {
-      {
-        filename = tall_remnants,
-        width = tall_remnants_hw[1],
-        height = tall_remnants_hw[2],
-        scale = 0.5,
-        shift = tall_remnants_shift,
-        direction_count = 1,
-      },
-    }
-  },
-}
 
---MARK: Buffer
-make_wide_and_tall{
-  name = "buffer-chest",
-  subgroup = "wide-logistics-storage",
-  order = "g",
-  factoriopedia_simulation = simulations.factoriopedia_wide_buffer_chest,
-  inventory_move_sound = item_sounds.metal_chest_inventory_move,
-  pick_sound = item_sounds.metal_chest_inventory_pickup,
-  drop_sound = item_sounds.metal_chest_inventory_move,
-  icons =
+  --Wide Requester Chest
   {
-    {
-      icon = icon,
-      icon_size = 128,
-    },
-    {
-      icon = icon_mask,
-      icon_size = 128,
-      tint = tint_buffer
-    },
-  },
-  inventory_multiplier = 2,
-  collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
-  selection_box = {{-1, -0.5}, {1, 0.5}},
-  horizontal_connection = circuit_connector_definitions["wide_container"],
-  vertical_connection = circuit_connector_definitions["tall_container"],
-  horizontal_animation =
-  {
-    layers =
-    {
+    type = "item",
+    name = "wide-requester-chest",
+    subgroup = "wide-logistics-storage",
+    place_result = "wide-requester-chest",
+    stack_size = 50,
+    order = "e",
+    icons = 
       {
-        filename = wide_chest,
-        priority = "extra-high",
-        scale = 0.5,
-        width = wide_chest_hw[1],
-        height = wide_chest_hw[2],
-        shift = wide_chest_shift[1],
-        frame_count =  7,
-      },
-      {
-        filename = wide_chest_mask,
-        tint = tint_buffer,
-        priority = "extra-high",
-        scale = 0.5,
-        width = wide_chest_hw[1],
-        height = wide_chest_hw[2],
-        shift = wide_chest_shift[1],
-        repeat_count = 7,
-      },
-      {
-        filename = wide_chest_shadow,
-        priority = "extra-high",
-        scale = 0.5,
-        width = wide_chest_hw[3],
-        height = wide_chest_hw[4],
-        shift = wide_chest_shift[2],
-        repeat_count = 7,
-        draw_as_shadow = true,
+        {
+          icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+          icon_size = 128,
+        },
       }
-    }
   },
-  vertical_animation =
   {
-    layers =
-    {
+    type = "logistic-container",
+    name = "wide-requester-chest",
+    logistic_mode = "requester",
+    icons = 
       {
-        filename = tall_chest,
-        priority = "extra-high",
-        scale = 0.5,
-        width = tall_chest_hw[1],
-        height = tall_chest_hw[2],
-        shift = tall_chest_shift[1],
-        frame_count = 7,
+        {
+          icon = "__wide-steel-chests__/graphics/icons/wide-steel-chest.png",
+          icon_size = 128,
+        },
       },
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 0.2, result = "wide-requester-chest"},
+    max_health = 350,
+    corpse = "wide-steel-chest-remnants",
+    dying_explosion = "steel-chest-explosion",
+    open_sound = { filename = "__base__/sound/metallic-chest-open.ogg", volume=0.43 },
+    close_sound = { filename = "__base__/sound/metallic-chest-close.ogg", volume = 0.43 },
+    resistances =
       {
-        tint = tint_buffer,
-        filename = tall_chest_mask,
-        scale = 0.5,
-        width = tall_chest_hw[1],
-        height = tall_chest_hw[2],
-        shift = tall_chest_shift[1],
-        repeat_count = 7,
+        {
+          type = "fire",
+          percent = 90
+        },
+        {
+          type = "impact",
+          percent = 60
+        }
       },
+    collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
+    selection_box = {{-1, -0.5}, {1, 0.5}},
+    scale_info_icons = true,
+    fast_replaceable_group = "container",
+    inventory_size = 96,
+    vehicle_impact_sound = table.deepcopy(data.raw.container["steel-chest"].vehicle_impact_sound),
+    damaged_trigger_effect = table.deepcopy(data.raw.container["steel-chest"].damaged_trigger_effect),
+    picture =
       {
-        filename = tall_chest_shadow,
-        priority = "extra-high",
-        scale = 0.5,
-        width = tall_chest_hw[3],
-        height = tall_chest_hw[4],
-        shift = tall_chest_shift[2],
-        repeat_count = 7,
-        draw_as_shadow = true,
-      }
-    }
+        layers =
+          {
+            { 
+              filename = "__wide-steel-chests__/graphics/entity/logistic-chest-base.png",
+              priority = "extra-high",
+              scale = 0.5,
+              width = 128,
+              height = 80,
+              shift = util.by_pixel(-0.25, -0.5),
+            },
+            {
+              filename = "__wide-steel-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png",
+              priority = "extra-high",
+              scale = 0.5,
+              width = 165,
+              height = 46,
+              shift = util.by_pixel(24.25-10, 8),
+              draw_as_shadow = true,
+            }
+          }   
+      },
+    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
+    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
-  horizontal_remnants =
-  {
-    layers =
-    {
-      {
-        filename = wide_remnants,
-        width = wide_remnants_hw[1],
-        height = wide_remnants_hw[2],
-        scale = 0.5,
-        shift = wide_remnants_shift,
-        direction_count = 1,
-      },
-    }
-  },
-  vertical_remnants =
-  {
-    layers =
-    {
-      {
-        filename = tall_remnants,
-        width = tall_remnants_hw[1],
-        height = tall_remnants_hw[2],
-        scale = 0.5,
-        shift = tall_remnants_shift,
-        direction_count = 1,
-      },
-    }
-  },
-}
-
---MARK: Requester
-make_wide_and_tall{
-  name = "requester-chest",
-  subgroup = "wide-logistics-storage",
-  order = "h",
-  factoriopedia_simulation = simulations.factoriopedia_wide_requester_chest,
-  inventory_move_sound = item_sounds.metal_chest_inventory_move,
-  pick_sound = item_sounds.metal_chest_inventory_pickup,
-  drop_sound = item_sounds.metal_chest_inventory_move,
-  icons =
-  {
-    {
-      icon = icon,
-      icon_size = 128,
-    },
-    {
-      icon = icon_mask,
-      icon_size = 128,
-      tint = tint_requester
-    },
-  },
-  inventory_multiplier = 2,
-  collision_box = {{-0.8, -0.35}, {0.8, 0.35}},
-  selection_box = {{-1, -0.5}, {1, 0.5}},
-  horizontal_connection = circuit_connector_definitions["wide_container"],
-  vertical_connection = circuit_connector_definitions["tall_container"],
-  horizontal_animation =
-  {
-    layers =
-    {
-      {
-        filename = wide_chest,
-        priority = "extra-high",
-        scale = 0.5,
-        width = wide_chest_hw[1],
-        height = wide_chest_hw[2],
-        shift = wide_chest_shift[1],
-        frame_count = 7,
-      },
-      {
-        filename = wide_chest_mask,
-        priority = "extra-high",
-        tint = tint_requester,
-        scale = 0.5,
-        width = wide_chest_hw[1],
-        height = wide_chest_hw[2],
-        shift = wide_chest_shift[1],
-        repeat_count = 7,
-      },
-      {
-        filename = wide_chest_shadow,
-        priority = "extra-high",
-        scale = 0.5,
-        width = wide_chest_hw[3],
-        height = wide_chest_hw[4],
-        shift = wide_chest_shift[2],
-        repeat_count = 7,
-        draw_as_shadow = true,
-      }
-    }
-  },
-  vertical_animation =
-  {
-    layers =
-    {
-      {
-        filename = tall_chest,
-        priority = "extra-high",
-        scale = 0.5,
-        width = tall_chest_hw[1],
-        height = tall_chest_hw[2],
-        shift = tall_chest_shift[1],
-        frame_count = 7,
-      },
-      {
-        tint = tint_requester,
-        filename = tall_chest_mask,
-        scale = 0.5,
-        width = tall_chest_hw[1],
-        height = tall_chest_hw[2],
-        shift = tall_chest_shift[1],
-        repeat_count = 7,
-      },
-      {
-        filename = tall_chest_shadow,
-        priority = "extra-high",
-        scale = 0.5,
-        width = tall_chest_hw[3],
-        height = tall_chest_hw[4],
-        shift = tall_chest_shift[2],
-        repeat_count = 7,
-        draw_as_shadow = true,
-      }
-    }
-  },
-  horizontal_remnants =
-  {
-    layers =
-    {
-      {
-        filename = wide_remnants,
-        width = wide_remnants_hw[1],
-        height = wide_remnants_hw[2],
-        scale = 0.5,
-        shift = wide_remnants_shift,
-        direction_count = 1,
-      },
-    }
-  },
-  vertical_remnants =
-  {
-    layers =
-    {
-      {
-        filename = tall_remnants,
-        width = tall_remnants_hw[1],
-        height = tall_remnants_hw[2],
-        scale = 0.5,
-        shift = tall_remnants_shift,
-        direction_count = 1,
-      },
-    }
-  },
-}
+})

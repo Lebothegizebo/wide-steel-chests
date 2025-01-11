@@ -1,8 +1,6 @@
 --Containers
-data:extend
-(
-{
-    { -- For the item and asm
+data:extend({
+    {
       type = "item-subgroup",
       name = "wide-storage",
       group = "logistics",
@@ -16,27 +14,9 @@ data:extend
     },
     {
       type = "item-subgroup",
-      name = "wide-storage-remnants-wide",
+      name = "wide-storage-remnants",
       group = "environment",
-      order = "da1",
-    },
-    {
-      type = "item-subgroup",
-      name = "wide-storage-remnants-tall",
-      group = "environment",
-      order = "da2",
-    },
-    {
-      type = "item-subgroup",
-      name = "wide-logistics-storage-remnants-wide",
-      group = "environment",
-      order = "da3",
-    },
-    {
-      type = "item-subgroup",
-      name = "wide-logistics-storage-remnants-tall",
-      group = "environment",
-      order = "da4",
+      order = "da",
     },
     --compatibility
     {
@@ -45,5 +25,4 @@ data:extend
       group = "logistics",
       order = "a1",
     }
-}
-)
+  })

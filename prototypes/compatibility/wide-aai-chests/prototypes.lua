@@ -1,131 +1,42 @@
-local meld = require("meld")
-
 --Loads all req
 require("scripts.compatibility.wide-aai-chests.sprites")
 
--- New graphics
-local wide_steel_icon = {
-	{icon = "__wide-aai-chests__/graphics/icons/wide-steel-chest.png"}
-}
-local wide_steel_graphics = {
-	layers = meld.overwrite{
-		{
-			filename = "__wide-aai-chests__/graphics/entity/wide-steel-chest.png",
-			width = 128,
-			height = 74,
-			scale = 0.5,
-			shift = util.by_pixel(0, -2),
-		},
-		{
-			filename = "__wide-aai-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png",
-			width = 102,
-			height = 50,
-			scale = 0.5,
-			shift = util.by_pixel(26, 3),
-			draw_as_shadow = true
-		}
-	}
-}
-local tall_steel_graphics = {
-	layers = meld.overwrite{
-		{
-			filename = "__wide-aai-chests__/graphics/entity/tall-steel-chest.png",
-			width=64,
-			height=148,
-			scale = 0.5,
-			shift = util.by_pixel(0, 0),
-		},
-		{
-			filename = "__wide-aai-chests__/graphics/entity/shadows/tall-steel-chest-shadow.png",
-			width=102,
-			height=148,
-			scale = 0.5,
-			shift = util.by_pixel(9, 3),
-			draw_as_shadow = true
-		}
-	}
-}
-
--- Wide steel chest
+--wide-steel-chest--
+data.raw["container"]["wide-steel-chest"]["picture"].layers[1].width=128
+data.raw["container"]["wide-steel-chest"]["picture"].layers[1].height=74
+data.raw["container"]["wide-steel-chest"]["picture"].layers[2].width=102
+data.raw["container"]["wide-steel-chest"]["picture"].layers[2].height=50
 data.raw["item"]["wide-steel-chest"].icons[1].icon = "__wide-aai-chests__/graphics/icons/wide-steel-chest.png"
-meld(data.raw["container"]["wide-steel-chest"], {
-	icons = wide_steel_icon,
-	picture = wide_steel_graphics
-})
--- Tall steel chest
-meld(data.raw["container"]["tall-steel-chest"], {
-	icons = wide_steel_icon,
-	picture = tall_steel_graphics
-})
--- Rotatable steel chest
-meld(data.raw["assembling-machine"]["rotatable-steel-chest"], {
-	icons = wide_steel_icon,
-	graphics_set = {
-		animation = {
-			north = wide_steel_graphics,
-			east = tall_steel_graphics,
-			west = tall_steel_graphics,
-		}
-	}
-})
-
--- Wide steel chest corpse
-meld(data.raw["corpse"]["wide-steel-chest-remnants"], {
-	icons = wide_steel_icon,
-	animation = {
-		layers = meld.overwrite{
-			{
-				filename = "__wide-aai-chests__/graphics/remnants/wide-steel-chest-remnants.png",
-				width = 128,
-				height = 74,
-				scale = 0.5,
-				shift = util.by_pixel(0, -2),
-				direction_count = 1,
-			},
-			{
-				filename = "__wide-aai-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png",
-				width = 102,
-				height = 50,
-				scale = 0.5,
-				shift = util.by_pixel(26, 3),
-				direction_count = 1,
-				draw_as_shadow = true,
-			}
-		}
-	}
-})
-
--- Tall steel chest corpse
-meld(data.raw["corpse"]["tall-steel-chest-remnants"], {
-	icons = wide_steel_icon,
-	animation = {
-		layers = meld.overwrite{
-			{
-				filename = "__wide-aai-chests__/graphics/remnants/tall-steel-chest-remnants.png",
-				width = 128,
-				height = 74,
-				scale = 0.5,
-				shift = util.by_pixel(0, -2),
-				direction_count = 1,
-			},
-			{
-				filename = "__wide-aai-chests__/graphics/entity/shadows/tall-steel-chest-shadow.png",
-				width = 102,
-				height = 50,
-				scale = 0.5,
-				shift = util.by_pixel(26, 3),
-				direction_count = 1,
-				draw_as_shadow = true,
-			}
-		}
-	}
-})
+data.raw["recipe"]["wide-steel-chest"].icons[1].icon = "__wide-aai-chests__/graphics/icons/wide-steel-chest.png"
+data.raw["container"]["wide-steel-chest"].icons[1].icon = "__wide-aai-chests__/graphics/icons/wide-steel-chest.png"
+data.raw["container"]["wide-steel-chest"]["picture"].layers[1].filename = "__wide-aai-chests__/graphics/entity/wide-steel-chest.png"
+data.raw["container"]["wide-steel-chest"]["picture"].layers[2].filename = "__wide-aai-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png"
+--shift--
+data.raw["container"]["wide-steel-chest"]["picture"].layers[1].shift = util.by_pixel(0, -2)
+data.raw["container"]["wide-steel-chest"]["picture"].layers[2].shift = util.by_pixel(26, 3)
+--corpse--
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[1] = {}
+data.raw["corpse"]["wide-steel-chest-remnants"].icons[1].icon = "__wide-aai-chests__/graphics/icons/wide-steel-chest.png"
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[1].width = 128
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[1].height = 74
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[1].scale = 0.5
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[1].filename = "__wide-aai-chests__/graphics/remnants/wide-steel-chest-remnants.png"
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[1].shift = util.by_pixel(0, -2)
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[1].direction_count = 1
+--corpse-shadow--
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[2] = {}
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[2].filename = "__wide-aai-chests__/graphics/entity/shadows/wide-steel-chest-shadow.png"
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[2].width = 102
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[2].height = 50
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[2].scale = 0.5
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[2].shift = util.by_pixel(26, 3)
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[2].direction_count = 1
+data.raw["corpse"]["wide-steel-chest-remnants"].animation.layers[2].draw_as_shadow = true
 
 --technology--
+
 data.raw["technology"]["wide-steel-containers"].icons[1].icon="__wide-aai-chests__/graphics/technology/wide-steel-containers.png"
 
 --circuit connector sprites
-data.raw["container"]["wide-steel-chest"].circuit_connector.sprites = nil
-data.raw["container"]["wide-steel-chest"].circuit_connector.points = wide_aai_chest_circuit_connector_definitions.points
-data.raw["container"]["tall-steel-chest"].circuit_connector.sprites = nil
-data.raw["container"]["tall-steel-chest"].circuit_connector.points = tall_aai_chest_circuit_connector_definitions.points
+data.raw["container"]["wide-steel-chest"].circuit_wire_connection_point = wide_aai_chest_circuit_connector_definitions.points
+data.raw["container"]["wide-steel-chest"].circuit_connector_sprites = nil
