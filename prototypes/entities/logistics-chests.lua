@@ -1,31 +1,31 @@
 
 
 --Wide chest
-local wide_chest = "__wide-containers-assets__/graphics/entity/logistic-chest/wide-logistic-chest.png"
-local wide_chest_mask = "__wide-containers-assets__/graphics/entity/logistic-chest/wide-logistic-chest-mask.png"
-local wide_chest_shadow = "__wide-containers-assets__/graphics/entity/shadows/wide-logistic-chest-shadow.png"
+local wide_chest = "wide-containers__/graphics/entity/logistic-chest/wide-logistic-chest.png"
+local wide_chest_mask = "wide-containers__/graphics/entity/logistic-chest/wide-logistic-chest-mask.png"
+local wide_chest_shadow = "wide-containers__/graphics/entity/shadows/wide-logistic-chest-shadow.png"
 local wide_chest_hw = {130, 80, 165, 46} --Width, Height, Width, Height
 local wide_chest_shift = {util.by_pixel(0, -2.5), util.by_pixel(24.25-4, 4)}
 --Remnants
-local wide_remnants = "__wide-containers-assets__/graphics/remnants/wide-logistic-chest-remnants.png"
+local wide_remnants = "wide-containers__/graphics/remnants/wide-logistic-chest-remnants.png"
 local wide_remnants_hw = {200, 88}
 local wide_remnants_shift = util.by_pixel(9, -1)
 
 --Tall chest
-local tall_chest = "__wide-containers-assets__/graphics/entity/logistic-chest/tall-logistic-chest.png"
-local tall_chest_mask = "__wide-containers-assets__/graphics/entity/logistic-chest/tall-logistic-chest-mask.png"
-local tall_chest_shadow = "__wide-containers-assets__/graphics/entity/shadows/tall-logistic-chest-shadow.png"
+local tall_chest = "wide-containers__/graphics/entity/logistic-chest/tall-logistic-chest.png"
+local tall_chest_mask = "wide-containers__/graphics/entity/logistic-chest/tall-logistic-chest-mask.png"
+local tall_chest_shadow = "wide-containers__/graphics/entity/shadows/tall-logistic-chest-shadow.png"
 local tall_chest_hw = {66, 138, 110, 108} --Width, Height, Width, Height
 local tall_chest_shift = {util.by_pixel(0, -2), util.by_pixel(12.25, 5.25)}
 --Remnants
-local tall_remnants = "__wide-containers-assets__/graphics/remnants/tall-logistic-chest-remnants.png"
+local tall_remnants = "wide-containers__/graphics/remnants/tall-logistic-chest-remnants.png"
 local tall_remnants_hw = {150,152}
 local tall_remnants_shift = util.by_pixel(14.75, -1)
 
 --Local Varibles
 local item_sounds = require("sounds.item_sounds")
-local icon = "__wide-containers-assets__/graphics/icons/wide-logistic-chest.png"
-local icon_mask = "__wide-containers-assets__/graphics/icons/wide-logistic-chest-mask.png"
+local icon = "wide-containers__/graphics/icons/wide-logistic-chest.png"
+local icon_mask = "wide-containers__/graphics/icons/wide-logistic-chest-mask.png"
 
 local tint_passive = {r=220,g=61,b=65} --passive tint
 local tint_active = {r=200,g=87,b=253}  --active tint
@@ -35,13 +35,9 @@ local tint_requester = {r=80,g=160,b=220} -- requester tint
 
 --MARK: Active Provider
 make_wide_and_tall{
-  name = "active-provider-chest",
+  name = "logistic-chest-active-provider",
   subgroup = "wide-logistics-storage",
   order = "d",
-  factoriopedia_simulation = simulations.factoriopedia_wide_active_provider_chest,
-  inventory_move_sound = item_sounds.metal_chest_inventory_move,
-  pick_sound = item_sounds.metal_chest_inventory_pickup,
-  drop_sound = item_sounds.metal_chest_inventory_move,
   icons =
   {
     {
@@ -160,13 +156,9 @@ make_wide_and_tall{
 
 --MARK: Passive Provider
 make_wide_and_tall{
-  name = "passive-provider-chest",
+  name = "logistic-chest-passive-provider",
   subgroup = "wide-logistics-storage",
   order = "e",
-  factoriopedia_simulation = simulations.factoriopedia_wide_passive_provider_chest,
-  inventory_move_sound = item_sounds.metal_chest_inventory_move,
-  pick_sound = item_sounds.metal_chest_inventory_pickup,
-  drop_sound = item_sounds.metal_chest_inventory_move,
   icons =
   {
     {
@@ -285,13 +277,9 @@ make_wide_and_tall{
 
 --MARK: Storage
 make_wide_and_tall{
-  name = "storage-chest",
+  name = "logistic-chest-storage",
   subgroup = "wide-logistics-storage",
   order = "f",
-  factoriopedia_simulation = simulations.factoriopedia_wide_storage_chest,
-  inventory_move_sound = item_sounds.metal_chest_inventory_move,
-  pick_sound = item_sounds.metal_chest_inventory_pickup,
-  drop_sound = item_sounds.metal_chest_inventory_move,
   icons =
   {
     {
@@ -410,13 +398,9 @@ make_wide_and_tall{
 
 --MARK: Buffer
 make_wide_and_tall{
-  name = "buffer-chest",
+  name = "logistic-chest-buffer",
   subgroup = "wide-logistics-storage",
   order = "g",
-  factoriopedia_simulation = simulations.factoriopedia_wide_buffer_chest,
-  inventory_move_sound = item_sounds.metal_chest_inventory_move,
-  pick_sound = item_sounds.metal_chest_inventory_pickup,
-  drop_sound = item_sounds.metal_chest_inventory_move,
   icons =
   {
     {
@@ -535,13 +519,9 @@ make_wide_and_tall{
 
 --MARK: Requester
 make_wide_and_tall{
-  name = "requester-chest",
+  name = "logistic-chest-requester",
   subgroup = "wide-logistics-storage",
   order = "h",
-  factoriopedia_simulation = simulations.factoriopedia_wide_requester_chest,
-  inventory_move_sound = item_sounds.metal_chest_inventory_move,
-  pick_sound = item_sounds.metal_chest_inventory_pickup,
-  drop_sound = item_sounds.metal_chest_inventory_move,
   icons =
   {
     {

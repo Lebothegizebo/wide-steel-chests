@@ -182,7 +182,7 @@ local is_beta = settings.startup["enable-wide-containers-beta"].value --[[@as bo
 ---@alias BuiltEventData
 ---| EventData.on_built_entity
 ---| EventData.on_robot_built_entity
----| EventData.on_space_platform_built_entity
+-----| EventData.on_space_platform_built_entity
 ---| EventData.script_raised_built
 ---@param EventData BuiltEventData
 local function built(EventData)

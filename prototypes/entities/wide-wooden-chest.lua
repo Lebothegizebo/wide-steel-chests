@@ -3,14 +3,10 @@ make_wide_and_tall{
   name = "wooden-chest",
   subgroup = "wide-storage",
   order = "a",
-  factoriopedia_simulation = simulations.factoriopedia_wide_wooden_chest,
-  inventory_move_sound = item_sounds.wood_inventory_move,
-  pick_sound = item_sounds.wood_inventory_pickup,
-  drop_sound = item_sounds.wood_inventory_move,
   icons =
   {
     {
-      icon = "__wide-containers-assets__/graphics/icons/wide-wooden-chest.png",
+      icon = "wide-containers__/graphics/icons/wide-wooden-chest.png",
       icon_size = 128,
     },
   },
@@ -24,7 +20,7 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-containers-assets__/graphics/entity/wooden-chest/wide-wooden-chest.png",
+        filename = "wide-containers__/graphics/entity/wooden-chest/wide-wooden-chest.png",
         priority = "extra-high",
         scale = 0.5,
         width = 128,
@@ -32,7 +28,7 @@ make_wide_and_tall{
         shift = util.by_pixel(0.5, -2),
       },
       {
-        filename = "__wide-containers-assets__/graphics/entity/shadows/wide-wooden-chest-shadow.png",
+        filename = "wide-containers__/graphics/entity/shadows/wide-wooden-chest-shadow.png",
         priority = "extra-high",
         scale = 0.5,
         width = 165,
@@ -47,7 +43,7 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-containers-assets__/graphics/entity/wooden-chest/tall-wooden-chest.png",
+        filename = "wide-containers__/graphics/entity/wooden-chest/tall-wooden-chest.png",
         priority = "extra-high",
         scale = 0.5,
         width = 62,
@@ -55,7 +51,7 @@ make_wide_and_tall{
         shift = util.by_pixel(0.5, -2),
       },
       {
-        filename = "__wide-containers-assets__/graphics/entity/shadows/tall-wooden-chest-shadow.png",
+        filename = "wide-containers__/graphics/entity/shadows/tall-wooden-chest-shadow.png",
         priority = "extra-high",
         scale = 0.5,
         width = 104,
@@ -70,7 +66,7 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-containers-assets__/graphics/remnants/wide-wooden-chest-remnants.png",
+        filename = "wide-containers__/graphics/remnants/wide-wooden-chest-remnants.png",
         width = 192,
         height = 87,
         scale = 0.5,
@@ -84,7 +80,7 @@ make_wide_and_tall{
     layers =
     {
       {
-        filename = "__wide-containers-assets__/graphics/remnants/tall-wooden-chest-remnants.png",
+        filename = "wide-containers__/graphics/remnants/tall-wooden-chest-remnants.png",
         width = 110,
         height = 136,
         scale = 0.5,

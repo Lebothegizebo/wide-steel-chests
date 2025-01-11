@@ -1,5 +1,4 @@
 -- Use the function make_wide_and_tall for defining new containers
-log("DATA_DEBUG")
 ---@param box data.BoundingBox
 local function rotate_box(box)
 	return {{box[1][2],box[1][1]}, {box[2][2],box[2][1]}}
@@ -32,14 +31,13 @@ end
 ---@field vertical_animation? data.Animation The vertical animation of the container
 ---@field vertical_remnants data.Animation The vertical animation of the container remnant
 ---@field vertical_connection? data.CircuitConnectorDefinition The vertical circuit definition of the container
----@param params chest_params
-
-
+---@field params chest_params
 function make_wide_and_tall(params)
 	--MARK: Containers
 	---@type data.ContainerPrototype
+
 	local orig_container
-	for _, container_type in pairs{"container", "logistic-container", "temporary-container", "infinity-container"} do
+	for _, container_type in pairs{"container", "logistic-container"} do
 	orig_container = data.raw[container_type][params.name] --[[@as data.ContainerPrototype]]
 	if orig_container then break end
 	end
