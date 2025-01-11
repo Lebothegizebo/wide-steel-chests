@@ -1,6 +1,5 @@
 local meld = require("meld")
 -- Use the function make_wide_and_tall for defining new containers
-log("DATA_DEBUG")
 ---@param box data.BoundingBox
 ---@return data.BoundingBox
 local function rotate_box(box)

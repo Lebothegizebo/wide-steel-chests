@@ -1,6 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.10
 Date: ????
+  Changes:
+    - Slightly rebalanced the following technologies:
+    - Basic Wide Containers now costs 10 automation science packs.
+    - Wide logistic Containers technology now costs double the amount of science.
   Features:
     - Logistics chests have now been unlocked for use by all players, and are now not in beta.
     - Logistics chests do not currently have remnants, but they will come in the future.

@@ -6,7 +6,7 @@ data:extend(
 		type = "technology",
 		name = "wide-containers",
 		icons = { {icon = "__wide-containers-assets__/graphics/technology/wide-containers.png",icon_size = 128} },
-		unit = {count = 20, ingredients = { {"automation-science-pack", 1} }, time = 5},
+		unit = {count = 10, ingredients = { {"automation-science-pack", 1} }, time = 5},
 		effects = { { type = "unlock-recipe", recipe = "wide-wooden-chest" }, { type = "unlock-recipe", recipe = "wide-iron-chest" } },
 	},
 	{ -- wide steel containers technology
@@ -30,7 +30,7 @@ data:extend(
 		name = "wide-logistics-containers",
 		icons = { {icon = "__wide-containers-assets__/graphics/technology/wide-logistic-chest.png", icon_size = 128}, {icon = "__wide-containers-assets__/graphics/technology/wide-logistic-chest-mask.png", icon_size = 128, tint = tint_requester} },
 	  	prerequisites = {"wide-storage-containers", "logistic-system"},
-	  	unit = {count = 100, ingredients = { {"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}, {"utility-science-pack", 1}   }, time = 30},
+	  	unit = {count = 200, ingredients = { {"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}, {"utility-science-pack", 1}   }, time = 30},
 	  	effects = { { type = "unlock-recipe", recipe = "wide-active-provider-chest" }, { type = "unlock-recipe", recipe = "wide-requester-chest" }, { type = "unlock-recipe", recipe = "wide-buffer-chest" } },
 	},
 })
