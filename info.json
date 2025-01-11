@@ -1,9 +1,9 @@
 {
   "name": "wide-steel-chests",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "title": "Wide Containers",
   "author": "Lebothegizebo",
-  "description": "Adds 2x1 Containers ideal for train-based manufacturing. Compatible with Space Exploration and AAI Containers.",
+  "description": "Adds 2x1 Containers ideal for train-based manufacturing. Compatible with Space Exploration and AAI Containers. This is a backport to factorio 1.1.",
   "dependencies": [
 "base >= 1.1",
 "? wide-aai-chests >= 0.0.3",
