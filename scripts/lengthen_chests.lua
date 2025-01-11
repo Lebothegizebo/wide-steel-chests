@@ -194,9 +194,12 @@ data:extend{
 			fast_replaceable_group = orig_container.fast_replaceable_group,
 			graphics_set = {
 				animation = {
-					north = params.horizontal_picture or params.horizontal_animation--[[@as data.Animation]],
-					east = params.vertical_picture or params.vertical_animation--[[@as data.Animation]],
-					west = params.vertical_picture or params.vertical_animation--[[@as data.Animation]],
+					layers = 
+					{
+						north = params.horizontal_picture or params.horizontal_animation--[[@as data.Animation]],
+						east = params.vertical_picture or params.vertical_animation--[[@as data.Animation]],
+						west = params.vertical_picture or params.vertical_animation--[[@as data.Animation]],
+					}
 				}
 			},
 			circuit_wire_max_distance = orig_container.circuit_wire_max_distance,

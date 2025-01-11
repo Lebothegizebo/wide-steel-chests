@@ -20,7 +20,6 @@ local function convert_bp_filters(bp_filters)
 			value = {
 				type = filter.type,
 				name = filter.name,
-				quality = filter.quality,
 				comparator = filter.comparator
 			},
 			min = filter.count,
@@ -142,7 +141,6 @@ local function chest_built(entity, full_name, tags, is_ghost)
 	local create = {
 		name = entity_name,
 		inner_name = entity_name,
-		quality = entity.quality,
 
 		position = entity.position,
 		force = entity.force,
@@ -165,11 +163,13 @@ local function chest_built(entity, full_name, tags, is_ghost)
 
 	-- Remove the `removed-entity` action
 	-- This seems to also remove the paired `create-entity` action
+	--[[
 	if player then
 		local undo_stack = player.undo_redo_stack
 		local undo_actions = undo_stack.get_undo_item(1)
 		undo_stack.remove_undo_action(1, #undo_actions-1)
 	end
+	]]
 
 	if chest_tags then
 		local func = restore_from_bp[is_ghost and new_entity.ghost_type or new_entity.type]
@@ -186,7 +186,10 @@ local is_beta = settings.startup["enable-wide-containers-beta"].value --[[@as bo
 ---| EventData.script_raised_built
 ---@param EventData BuiltEventData
 local function built(EventData)
-	local entity = EventData.entity
+	
+	local entity = {}
+	entity.tags = EventData.tags
+	entity.name = EventData.name
 	local type, name, tags = entity.type, "", EventData.tags or {}
 	local is_ghost = type == "entity-ghost"
 	if is_ghost then
@@ -194,11 +197,11 @@ local function built(EventData)
 		name = entity.ghost_name
 		tags = entity.tags or {}
 	else
-		name = entity.name
+		name = EventData.name
 	end
 
 	if type == "assembling-machine"
-	and name:sub(1, 10) == "rotatable-" then
+	and name == "rotatable-" then
 		chest_built(entity, name, tags, is_ghost)
 	elseif tags.wide_chest then
 		local chest_tags = tags.wide_chest--[[@as ChestTags]]
