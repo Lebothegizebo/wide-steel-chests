@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.10
-Date: ????
+Date: 2025-01-11
   Changes:
     - Slightly rebalanced the following technologies:
     - Basic Wide Containers now costs 10 automation science packs.
