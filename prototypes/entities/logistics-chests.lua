@@ -5,7 +5,7 @@ local wide_chest = "__wide-containers-assets__/graphics/entity/logistic-chest/wi
 local wide_chest_mask = "__wide-containers-assets__/graphics/entity/logistic-chest/wide-logistic-chest-mask.png"
 local wide_chest_shadow = "__wide-containers-assets__/graphics/entity/shadows/wide-logistic-chest-shadow.png"
 local wide_chest_hw = {130, 80, 165, 46} --Width, Height, Width, Height
-local wide_chest_shift = {util.by_pixel(0, -2.5), util.by_pixel(24.25-10, 8)}
+local wide_chest_shift = {util.by_pixel(0, -2.5), util.by_pixel(24.25-4, 4)}
 --Remnants
 local wide_remnants = "__wide-containers-assets__/graphics/remnants/wide-logistic-chest-remnants.png"
 local wide_remnants_hw = {200, 88}
