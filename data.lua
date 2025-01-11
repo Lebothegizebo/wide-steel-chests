@@ -4,8 +4,8 @@ require("scripts.lengthen_chests")
 require("scripts.sprites")
 -- Subgroups
 require("prototypes.subgroups")
--- Remnants
-require("prototypes.remnants")
+-- Categories
+require("prototypes.categories")
 -- Entitys
 require("prototypes.entities.logistics-chests")
 require("prototypes.entities.wide-steel-chest")

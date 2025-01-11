@@ -21,7 +21,7 @@ data:extend(
 	 	icons = { {icon = "__wide-steel-chests__/graphics/technology/wide-storage-containers.png", icon_size = 128} },
 	  	prerequisites = {"wide-steel-containers", "logistic-robotics"},
 	  	unit = {count = 100, ingredients = { {"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}  }, time = 30},
-	  	effects = { { type = "unlock-recipe", recipe = "wide-storage-chest" }, { type = "unlock-recipe", recipe = "wide-passive-provider-chest" } },
+	  	effects = { { type = "unlock-recipe", recipe = "wide-logistic-chest-storage" }, { type = "unlock-recipe", recipe = "wide-logistic-chest-passive-provider" } },
 	},
 	{
 		type = "technology",
@@ -29,7 +29,7 @@ data:extend(
 	 	icons = { {icon = "__wide-steel-chests__/graphics/technology/wide-logistics-containers.png", icon_size = 128} },
 	  	prerequisites = {"wide-storage-containers", "logistic-system"},
 	  	unit = {count = 100, ingredients = { {"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}, {"utility-science-pack", 1}   }, time = 30},
-	  	effects = { { type = "unlock-recipe", recipe = "wide-active-provider-chest" }, { type = "unlock-recipe", recipe = "wide-requester-chest" }, { type = "unlock-recipe", recipe = "wide-buffer-chest" } },
+	  	effects = { { type = "unlock-recipe", recipe = "wide-logistic-chest-active-provider" }, { type = "unlock-recipe", recipe = "wide-logistic-chest-requester" }, { type = "unlock-recipe", recipe = "wide-logistic-chest-buffer" } },
 	},
 
 })
