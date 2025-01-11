@@ -13,9 +13,10 @@ local wide_remnants_shift = util.by_pixel(9, -1)
 
 --Tall chest
 local tall_chest = "__wide-containers-assets__/graphics/entity/logistic-chest/tall-logistic-chest.png"
+local tall_chest_mask = "__wide-containers-assets__/graphics/entity/logistic-chest/tall-logistic-chest-mask.png"
 local tall_chest_shadow = "__wide-containers-assets__/graphics/entity/shadows/tall-logistic-chest-shadow.png"
-local tall_chest_hw = {64, 138, 110, 108} --Width, Height, Width, Height
-local tall_chest_shift = {util.by_pixel(-0.25, -2), util.by_pixel(12.25, 5.25)}
+local tall_chest_hw = {66, 138, 110, 108} --Width, Height, Width, Height
+local tall_chest_shift = {util.by_pixel(0, -2), util.by_pixel(12.25, 5.25)}
 --Remnants
 local tall_remnants = "__wide-containers-assets__/graphics/remnants/tall-logistic-chest-remnants.png"
 local tall_remnants_hw = {150,152}
@@ -94,7 +95,7 @@ make_wide_and_tall{
       }
     }
   },
-  vertical_picture =
+  vertical_animation =
   {
     layers =
     {
@@ -105,6 +106,16 @@ make_wide_and_tall{
         width = tall_chest_hw[1],
         height = tall_chest_hw[2],
         shift = tall_chest_shift[1],
+        frame_count = 7,
+      },
+      {
+        tint = tint_active,
+        filename = tall_chest_mask,
+        scale = 0.5,
+        width = tall_chest_hw[1],
+        height = tall_chest_hw[2],
+        shift = tall_chest_shift[1],
+        repeat_count = 7,
       },
       {
         filename = tall_chest_shadow,
@@ -113,6 +124,7 @@ make_wide_and_tall{
         width = tall_chest_hw[3],
         height = tall_chest_hw[4],
         shift = tall_chest_shift[2],
+        repeat_count = 7,
         draw_as_shadow = true,
       }
     }
@@ -208,7 +220,7 @@ make_wide_and_tall{
       }
     }
   },
-  vertical_picture =
+  vertical_animation =
   {
     layers =
     {
@@ -219,6 +231,16 @@ make_wide_and_tall{
         width = tall_chest_hw[1],
         height = tall_chest_hw[2],
         shift = tall_chest_shift[1],
+        frame_count = 7,
+      },
+      {
+        tint = tint_passive,
+        filename = tall_chest_mask,
+        scale = 0.5,
+        width = tall_chest_hw[1],
+        height = tall_chest_hw[2],
+        shift = tall_chest_shift[1],
+        repeat_count = 7,
       },
       {
         filename = tall_chest_shadow,
@@ -227,6 +249,7 @@ make_wide_and_tall{
         width = tall_chest_hw[3],
         height = tall_chest_hw[4],
         shift = tall_chest_shift[2],
+        repeat_count = 7,
         draw_as_shadow = true,
       }
     }
@@ -322,7 +345,7 @@ make_wide_and_tall{
       }
     }
   },
-  vertical_picture =
+  vertical_animation =
   {
     layers =
     {
@@ -333,6 +356,16 @@ make_wide_and_tall{
         width = tall_chest_hw[1],
         height = tall_chest_hw[2],
         shift = tall_chest_shift[1],
+        frame_count = 7,
+      },
+      {
+        tint = tint_storage,
+        filename = tall_chest_mask,
+        scale = 0.5,
+        width = tall_chest_hw[1],
+        height = tall_chest_hw[2],
+        shift = tall_chest_shift[1],
+        repeat_count = 7,
       },
       {
         filename = tall_chest_shadow,
@@ -341,6 +374,7 @@ make_wide_and_tall{
         width = tall_chest_hw[3],
         height = tall_chest_hw[4],
         shift = tall_chest_shift[2],
+        repeat_count = 7,
         draw_as_shadow = true,
       }
     }
@@ -436,7 +470,7 @@ make_wide_and_tall{
       }
     }
   },
-  vertical_picture =
+  vertical_animation =
   {
     layers =
     {
@@ -447,6 +481,16 @@ make_wide_and_tall{
         width = tall_chest_hw[1],
         height = tall_chest_hw[2],
         shift = tall_chest_shift[1],
+        frame_count = 7,
+      },
+      {
+        tint = tint_buffer,
+        filename = tall_chest_mask,
+        scale = 0.5,
+        width = tall_chest_hw[1],
+        height = tall_chest_hw[2],
+        shift = tall_chest_shift[1],
+        repeat_count = 7,
       },
       {
         filename = tall_chest_shadow,
@@ -455,6 +499,7 @@ make_wide_and_tall{
         width = tall_chest_hw[3],
         height = tall_chest_hw[4],
         shift = tall_chest_shift[2],
+        repeat_count = 7,
         draw_as_shadow = true,
       }
     }
@@ -550,7 +595,7 @@ make_wide_and_tall{
       }
     }
   },
-  vertical_picture =
+  vertical_animation =
   {
     layers =
     {
@@ -561,6 +606,16 @@ make_wide_and_tall{
         width = tall_chest_hw[1],
         height = tall_chest_hw[2],
         shift = tall_chest_shift[1],
+        frame_count = 7,
+      },
+      {
+        tint = tint_requester,
+        filename = tall_chest_mask,
+        scale = 0.5,
+        width = tall_chest_hw[1],
+        height = tall_chest_hw[2],
+        shift = tall_chest_shift[1],
+        repeat_count = 7,
       },
       {
         filename = tall_chest_shadow,
@@ -569,6 +624,7 @@ make_wide_and_tall{
         width = tall_chest_hw[3],
         height = tall_chest_hw[4],
         shift = tall_chest_shift[2],
+        repeat_count = 7,
         draw_as_shadow = true,
       }
     }
