@@ -23,8 +23,7 @@ local tall_remnants_hw = {150,152}
 local tall_remnants_shift = util.by_pixel(14.75, -1)
 
 --Local Varibles
-local item_sounds = require("__base__/prototypes/item_sounds")
-local simulations = require("prototypes.factoriopedia-simulations")
+local item_sounds = require("sounds.item_sounds")
 local icon = "__wide-containers-assets__/graphics/icons/wide-logistic-chest.png"
 local icon_mask = "__wide-containers-assets__/graphics/icons/wide-logistic-chest-mask.png"
 
