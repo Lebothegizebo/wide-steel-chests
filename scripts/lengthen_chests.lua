@@ -95,14 +95,6 @@ function make_wide_and_tall(params)
 	wide_container.inventory_size = wide_container.inventory_size * params.inventory_multiplier
 	tall_container.inventory_size = tall_container.inventory_size * params.inventory_multiplier
 
-	wide_container.inventory_move_sound = params.inventory_move_sound
-	tall_container.inventory_move_sound = params.inventory_move_sound
-
-	wide_container.pick_sound = params.pick_sound
-	tall_container.pick_sound = params.pick_sound
-
-	wide_container.drop_sound = params.drop_sound
-	tall_container.drop_sound = params.drop_sound
 	wide_container.picture = params.horizontal_picture
 	tall_container.picture = params.vertical_picture
 
@@ -121,11 +113,7 @@ function make_wide_and_tall(params)
 	wide_container.next_upgrade = params.horizontal_upgrade
 	wide_container.next_upgrade = params.vertical_upgrade
 
-	-- Hide it because we just want it to see the wide one
-	tall_container.hidden_in_factoriopedia = true
-	wide_container.hidden_in_factoriopedia = false
-	tall_container.factoriopedia_alternative = wide_name
-	wide_container.factoriopedia_alternative = wide_name
+
 	tall_container.localised_name = localised_name
 
 
