@@ -75,8 +75,8 @@ data:extend(
             }
           }
       },
-    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_wire_connection_point = circuit_connector_definitions["wide-container"].points,
+    circuit_connector_sprites = circuit_connector_definitions["wide-container"].sprites,  
     circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
   --Wide Passive Provider chest
@@ -154,8 +154,8 @@ data:extend(
             }
           }
       },
-    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_wire_connection_point = circuit_connector_definitions["wide-container"].points,
+    circuit_connector_sprites = circuit_connector_definitions["wide-container"].sprites,  
     circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
 
@@ -235,8 +235,8 @@ data:extend(
           }
         }
       },
-    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_wire_connection_point = circuit_connector_definitions["wide-container"].points,
+    circuit_connector_sprites = circuit_connector_definitions["wide-container"].sprites,  
     circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
 
@@ -315,8 +315,8 @@ data:extend(
             }
           }
       },
-    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_wire_connection_point = circuit_connector_definitions["wide-container"].points,
+    circuit_connector_sprites = circuit_connector_definitions["wide-container"].sprites,  
     circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
 
@@ -395,8 +395,8 @@ data:extend(
             }
           }   
       },
-    circuit_wire_connection_point = circuit_connector_definitions["wide-chest"].points,
-    circuit_connector_sprites = circuit_connector_definitions["wide-chest"].sprites,  
+    circuit_wire_connection_point = circuit_connector_definitions["wide-container"].points,
+    circuit_connector_sprites = circuit_connector_definitions["wide-container"].sprites,  
     circuit_wire_max_distance = default_circuit_wire_max_distance,
   },
 })

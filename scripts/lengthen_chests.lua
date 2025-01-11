@@ -1,251 +1,211 @@
-local meld = require("meld")
 -- Use the function make_wide_and_tall for defining new containers
+log("DATA_DEBUG")
 ---@param box data.BoundingBox
----@return data.BoundingBox
 local function rotate_box(box)
 	return {{box[1][2],box[1][1]}, {box[2][2],box[2][1]}}
 end
-local function multiply(multiplier)
-	return function(value)
-		if type(value) == "number" then
-			return value * multiplier
-		else
-			return value
-		end
-	end
-end
-
+---@return data.BoundingBox
 ---@class chest_params
----@field name data.EntityID The name of the source container
---- The LocalisedString of the container's name.
----
---- Default is `"entity-name.wide-"..name`.
----@field localised_name? data.LocalisedString
---- The LocalisedString of the container's description.
----
---- Default is `"entity-description."..name`.
----@field localised_description? data.LocalisedString
----@field icons data.IconData[] The icon set of the container's prototypes
----The base subgroup of the container
----
----This expects there to also be
----@field subgroup data.ItemSubGroupID
----@field order string The order string of the container's prototypes
----@field factoriopedia_simulation data.SimulationDefinition
----
----@field collision_box data.BoundingBox The collision box of the container entities
----@field selection_box data.BoundingBox The selection box of the container entities
----
----@field inventory_move_sound data.Sound The inventory_move_sound of the container's item
----@field pick_sound data.Sound The pick_sound of the container's item
----@field drop_sound data.Sound The drop_sound of the container's item
----
+---@field name data.EntityID The name of the container
+---@field localised_name? data.LocalisedString The LocalisedString of the container
+---@field subgroup data.ItemSubGroupID The subgroup of the container item_prototype
+---@field order string The order of the container item_prototype
+---@field hide_resistances bool Hide resistances of the entity?
+---@field resistances data.Resistance
+---@field icons data.IconData[] The icon set of the container
 ---@field inventory_multiplier int The inventory_multiplier of the containers inventory
+---@field collision_box data.BoundingBox The collision box of the container 
+---@field selection_box data.BoundingBox The selection box of the container 
+---@field inventory_move_sound data.Sound The inventory_move_sound of the container
+---@field pick_sound data.Sound The pick_sound of the container
+---@field drop_sound data.Sound The drop_sound of the container
+---@field animation_sound? data.Sound Animation Sound
+---@field opened_duration? uint8 
+---@field horizontal_upgrade? data.EntityID The horizontal next_upgrade of the container 
+---@field horizontal_picture? data.Sprite The horizontal picture of the container
+---@field horizontal_animation? data.Animation The horizontal animation of the container
+---@field horizontal_remnants data.Animation The horizontal animation of the container remnant 
+---@field horizontal_connection? data.CircuitConnectorDefinition The horizontal circuit definition of the container
 ---
----
----@field horizontal_picture? data.Sprite The picture of the horizontal container
----@field horizontal_animation? data.Animation The animation of the horizontal logistic container
----@field horizontal_connection? data.CircuitConnectorDefinition The circuit definition of the horizontal container
----@field horizontal_remnants data.Animation The animation of the horizontal logistic container's remnants
-----@field horizontal_upgrade? data.EntityID The next_upgrade of the horizontal container 
----
----@field vertical_picture? data.Sprite The picture of the vertical container
----@field vertical_animation? data.Animation The animation of the vertical logistic container
----@field vertical_connection? data.CircuitConnectorDefinition The circuit definition of the vertical container
----@field vertical_remnants data.Animation The animation of the vertical container's remnants
-----@field vertical_upgrade? data.EntityID The next_upgrade of the vertical container
-
+---@field vertical_upgrade? data.EntityID The vertical next_upgrade of the container this is duplicating
+---@field vertical_picture? data.Sprite The vertical picture of the container
+---@field vertical_animation? data.Animation The vertical animation of the container
+---@field vertical_remnants data.Animation The vertical animation of the container remnant
+---@field vertical_connection? data.CircuitConnectorDefinition The vertical circuit definition of the container
 ---@param params chest_params
+
+
 function make_wide_and_tall(params)
 	--MARK: Containers
 	---@type data.ContainerPrototype
 	local orig_container
 	for _, container_type in pairs{"container", "logistic-container", "temporary-container", "infinity-container"} do
-		orig_container = data.raw[container_type][params.name] --[[@as data.ContainerPrototype]]
-		if orig_container then break end
+	orig_container = data.raw[container_type][params.name] --[[@as data.ContainerPrototype]]
+	if orig_container then break end
 	end
 	if not orig_container then error("No container found of name '"..params.name.."'") end
-	---@type data.ContainerPrototype|data.LogisticContainerPrototype|data.TemporaryContainerPrototype|data.InfinityContainerPrototype
-	local orig_container = orig_container -- Because omg LuaLS can't handle this
-
-	-- Names
+	local wide_container = table.deepcopy(orig_container)
+	local tall_container = table.deepcopy(orig_container)
+	local orig_remnants = data.raw["corpse"][orig_container.corpse--[[@as string]]]
+	local wide_remnants = table.deepcopy(orig_remnants)
+	local tall_remnants = table.deepcopy(orig_remnants)
 	local wide_name = "wide-"..params.name
-	local tall_name = "tall-"..params.name
+	local tall_name = "tall-"..params.name	
 	local item_name = wide_name --TODO: make a migration to use the rotatable name?
 	local rote_name = "rotatable-"..params.name
-
-	-- Localisation
-	local localised_name = params.localised_name or {"entity-name."..wide_name}
-	local localised_description = params.localised_description or {"entity-description."..orig_container.name}
-
-	-- Remnant setup
-	local orig_remnants = data.raw["corpse"][orig_container.corpse--[[@as string]]]
-	---@type data.EntityID?,data.EntityID?
-	local wide_remnants_name, tall_remnants_name
-	if orig_remnants then
-		wide_remnants_name = wide_name.."-remnants"
-		tall_remnants_name = tall_name.."-remnants"
-	end
 	local remnants_subgroup = params.subgroup.."-remnants"
+	local wide_remnants_name = wide_name.."-remnants"
+	local tall_remnants_name = tall_name.."-remnants"
+	local localised_name = params.localised_name or {"entity-name."..wide_name}
+	wide_container.name = wide_name
+	tall_container.name = tall_name
+
+	wide_container.animation_sound = params.animation_sound
+	tall_container.animation_sound = params.animation_sound
+
+	wide_container.opened_duration = params.opened_duration
+	tall_container.opened_duration = params.opened_duration
+
+	wide_container.subgroup = params.subgroup
+	tall_container.subgroup = params.subgroup
+
+	wide_container.order = params.order
+	tall_container.order = params.order
+
+	wide_container.hide_resistances = params.hide_resistances
+	tall_container.hide_resistances = params.hide_resistances
+
+	wide_container.resistances = params.resistances
+	tall_container.resistances = params.resistances
+
+	wide_container.icon = nil
+	wide_container.icons = params.icons
+	tall_container.icon = nil
+	tall_container.icons = params.icons
+
+	wide_container.minable.result = item_name
+	tall_container.minable.result = item_name
+
+	wide_container.corpse = wide_remnants_name
+	tall_container.corpse = tall_remnants_name
+
+	wide_container.collision_box = params.collision_box
+	wide_container.selection_box = params.selection_box
+	tall_container.collision_box = rotate_box(params.collision_box)
+	tall_container.selection_box = rotate_box(params.selection_box)
+
+	wide_container.inventory_size = wide_container.inventory_size * params.inventory_multiplier
+	tall_container.inventory_size = tall_container.inventory_size * params.inventory_multiplier
+
+	wide_container.inventory_move_sound = params.inventory_move_sound
+	tall_container.inventory_move_sound = params.inventory_move_sound
+
+	wide_container.pick_sound = params.pick_sound
+	tall_container.pick_sound = params.pick_sound
+
+	wide_container.drop_sound = params.drop_sound
+	tall_container.drop_sound = params.drop_sound
+	wide_container.picture = params.horizontal_picture
+	tall_container.picture = params.vertical_picture
+
+	wide_container.animation = params.horizontal_animation
+	tall_container.animation = params.vertical_animation
+
+	wide_container.circuit_connector = table.deepcopy(params.horizontal_connection.circuit_connector)
+	tall_container.circuit_connector = table.deepcopy(params.vertical_connection.circuit_connector)
+
+	wide_container.placeable_by = {item = item_name, count = 1}
+	tall_container.placeable_by = {item = item_name, count = 1}
+
+	wide_container.hidden = false
+	tall_container.hidden = true
+
+	wide_container.next_upgrade = params.horizontal_upgrade
+	wide_container.next_upgrade = params.vertical_upgrade
+
+	-- Hide it because we just want it to see the wide one
+	tall_container.hidden_in_factoriopedia = true
+	wide_container.hidden_in_factoriopedia = false
+	tall_container.factoriopedia_alternative = wide_name
+	wide_container.factoriopedia_alternative = wide_name
+	tall_container.localised_name = localised_name
 
 
-	local wide_container = meld(table.deepcopy(orig_container), {
-		-- Basic fields
-		name = wide_name,
-		localised_name = meld.overwrite(localised_name),
-		localised_description = meld.overwrite(localised_description),
-		icons = meld.overwrite(params.icons),
-		icon = meld.delete(),
-		subgroup = params.subgroup,
-		order = params.order,
-		hidden = false,
-		hidden_in_factoriopedia = false,
-		factoriopedia_alternative = wide_name,
+	--MARK: Remnants
 
-		-- Entity fields
-		minable = {result = item_name},
-		placeable_by = meld.overwrite{item = item_name, count = 1},
-		collision_box = meld.overwrite(params.collision_box),
-		selection_box = meld.overwrite(params.selection_box),
-		-- next_upgrade = meld.overwrite(params.horizontal_upgrade), -- Doesn't work on hidden entities (the other one)...
-		next_upgrade = meld.delete(),
-		corpse = wide_remnants_name,
+	wide_remnants.name = wide_remnants_name
+	tall_remnants.name = tall_remnants_name
 
-		-- Container fields
-		picture = meld.overwrite(params.horizontal_picture),
-		inventory_size = meld.invoke(multiply(params.inventory_multiplier)),
+	wide_remnants.flags = {"placeable-neutral", "building-direction-8-way", "not-on-map","placeable-off-grid"}
+	tall_remnants.flags = {"placeable-neutral", "building-direction-8-way", "not-on-map","placeable-off-grid"}
 
-		--- Logistic Container fields
-		animation = meld.overwrite(params.horizontal_animation),
-		-- trash_inventory_size = meld.invoke(multiply(params.inventory_multiplier)), -- Do we actually want to multiply the trash?
-		circuit_connector = meld.overwrite(params.horizontal_connection),
-	})
-	local tall_container = meld(table.deepcopy(orig_container), {
-		-- Basic fields
-		name = tall_name,
-		localised_name = meld.overwrite(localised_name),
-		localised_description = meld.overwrite(localised_description),
-		icons = meld.overwrite(params.icons),
-		icon = meld.delete(),
-		subgroup = params.subgroup,
-		order = params.order,
-		hidden = true,
-		hidden_in_factoriopedia = true,
-		factoriopedia_alternative = wide_name,
+	wide_remnants.subgroup = remnants_subgroup.."-wide"
+	tall_remnants.subgroup = remnants_subgroup.."-tall"
 
-		-- Entity fields
-		minable = {result = item_name},
-		placeable_by = meld.overwrite{item = item_name, count = 1},
-		collision_box = meld.overwrite(rotate_box(params.collision_box)),
-		selection_box = meld.overwrite(rotate_box(params.selection_box)),
-		-- next_upgrade = meld.overwrite(params.vertical_upgrade), -- Doesn't work on hidden entities...
-		next_upgrade = meld.delete(),
-		corpse = tall_remnants_name,
+	wide_remnants.order = params.order
+	tall_remnants.order = params.order
 
-		-- Container fields
-		picture = meld.overwrite(params.vertical_picture),
-		inventory_size = meld.invoke(multiply(params.inventory_multiplier)),
+	wide_remnants.icon = nil
+	wide_remnants.icons = params.icons
+	tall_remnants.icon = nil
+	tall_remnants.icons = params.icons
 
-		--- Logistic Container fields
-		animation = meld.overwrite(params.vertical_animation),
-		-- trash_inventory_size = meld.invoke(multiply(params.inventory_multiplier)), -- Do we actually want to multiply the trash?
-		circuit_connector = meld.overwrite(params.vertical_connection),
-	})
+	wide_remnants.selection_box = table.deepcopy(params.selection_box) -- Deepcopy to keep it from being linked to the container
+	tall_remnants.selection_box = rotate_box(params.selection_box)
 
-	---@type data.CorpsePrototype,data.CorpsePrototype
-	local tall_remnants,wide_remnants
-	if orig_remnants then
-		tall_remnants = meld(table.deepcopy(orig_remnants), {
-			-- Basic fields
-			name = wide_remnants_name,
-			localised_name = meld.overwrite{"remnant-name", localised_name},
-			icons = meld.overwrite(params.icons),
-			icon = meld.delete(),
-			subgroup = remnants_subgroup.."-wide",
-			order = params.order,
+	-- Why were these set, they are determined automatically..
+	wide_remnants.tile_width = nil
+	wide_remnants.tile_height = nil
+	tall_remnants.tile_width = nil
+	tall_remnants.tile_height = nil
 
-			-- Entity fields
-			selection_box = meld.overwrite(params.selection_box),
-			tile_width = meld.delete(),
-			tile_height = meld.delete(),
-			flags = meld.overwrite{"placeable-neutral", "building-direction-8-way", "not-on-map","placeable-off-grid"},
+	wide_remnants.animation = params.horizontal_remnants
+	tall_remnants.animation = params.vertical_remnants
 
-			-- Corpse fields
-			animation = meld.overwrite(params.horizontal_remnants),
-		})
-		wide_remnants = meld(table.deepcopy(orig_remnants), {
-			-- Basic fields
-			name = tall_remnants_name,
-			localised_name = meld.overwrite{"remnant-name", localised_name},
-			icons = meld.overwrite(params.icons),
-			icon = meld.delete(),
-			subgroup = remnants_subgroup.."-tall",
-			order = params.order,
-
-			-- Entity fields
-			selection_box = meld.overwrite(rotate_box(params.selection_box)),
-			tile_width = meld.delete(),
-			tile_height = meld.delete(),
-			flags = meld.overwrite{"placeable-neutral", "building-direction-8-way", "not-on-map","placeable-off-grid"},
-
-			-- Corpse fields
-			animation = meld.overwrite(params.vertical_remnants),
-		})
-	end
+	wide_remnants.localised_name = {"remnant-name", localised_name}
+	tall_remnants.localised_name = {"remnant-name", localised_name}
 
 	--MARK: Item & ASM
 
-	data:extend{
+data:extend{
+{
+	type = "item",
+	hidden_in_factoriopedia = false,
+	hide_resistances = params.hide_resistances,
+	resistances = params.resistances,
+	name = item_name,
+	subgroup = params.subgroup,
+	order = params.order,
+	inventory_move_sound = params.inventory_move_sound,
+	pick_sound = params.pick_sound,
+	drop_sound = params.drop_sound,
+	flags = {"primary-place-result"},
+	place_result = rote_name,
+	stack_size = 50,
+	icons = params.icons
+	}--[[@as data.ItemPrototype]],
 		{
-			-- Basic fields
-			type = "item",
-			name = item_name,
-			-- Shouldn't be necessary as the entity it places has them
-			-- localised_name = localised_name,
-			-- localised_description = localised_description,
-			icons = params.icons,
-			subgroup = params.subgroup,
-			order = params.order,
-			hidden_in_factoriopedia = false,
-
-			-- Item fields
-			stack_size = 50,
-			place_result = rote_name,
-			flags = {"primary-place-result"},
-			pick_sound = params.pick_sound,
-			drop_sound = params.drop_sound,
-			inventory_move_sound = params.inventory_move_sound,
-		}--[[@as data.ItemPrototype]],
-
-		{
-			-- Basic fields
 			type = "assembling-machine",
 			name = rote_name,
 			localised_name = localised_name,
-			localised_description = localised_description,
 			icons = params.icons,
-			-- item_subgroup = "logistics", -- Why was this added? It's not a field nor a valid subgroup
+			item_subgroup = "logistics",
 			order = params.order,
 			hidden = true,
 			hidden_in_factoriopedia = true,
+			hide_resistances = params.hide_resistances,
+			resistances = params.resistances,
 			factoriopedia_alternative = tall_name,
-			factoriopedia_simulation = params.factoriopedia_simulation,
-
-			-- Entity fields
-			collision_box = params.collision_box,
-			selection_box = params.selection_box,
-			resistances = orig_container.resistances,
-			hide_resistances = orig_container.hide_resistances,
-			max_health = orig_container.max_health,
 			minable = {mining_time = orig_container.minable.mining_time},
-			fast_replaceable_group = orig_container.fast_replaceable_group,
 			flags = util.copy(orig_container.flags),
-
-			-- Assembling Machine fields
+			max_health = orig_container.max_health,
+			energy_usage = "1W",
 			crafting_speed = 1,
 			crafting_categories = {"null"},
-			energy_usage = "1W",
 			energy_source = {type = "void"},
+			collision_box = params.collision_box,
+			selection_box = params.selection_box,
+			fast_replaceable_group = orig_container.fast_replaceable_group,
 			graphics_set = {
 				animation = {
 					north = params.horizontal_picture or params.horizontal_animation--[[@as data.Animation]],
@@ -255,10 +215,10 @@ function make_wide_and_tall(params)
 			},
 			circuit_wire_max_distance = orig_container.circuit_wire_max_distance,
 			circuit_connector = {
-				params.horizontal_connection,
-				params.vertical_connection,
-				params.horizontal_connection,
-				params.vertical_connection,
+				wide_container.circuit_connector,
+				tall_container.circuit_connector,
+				wide_container.circuit_connector,
+				tall_container.circuit_connector,
 			}
 		}--[[@as data.AssemblingMachinePrototype]],
 

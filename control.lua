@@ -212,7 +212,7 @@ script.on_event(defines.events.on_built_entity, built)
 script.on_event(defines.events.on_robot_built_entity, built)
 script.on_event(defines.events.script_raised_built, built)
 script.on_event(defines.events.script_raised_revive, built)
-script.on_event(defines.events.on_space_platform_built_entity, built)
+--script.on_event(defines.events.on_space_platform_built_entity, built) - Removed for Factorio 1.1
 
 ---@class ChestTags
 ---@field circuit? BlueprintControlBehavior.container|BlueprintControlBehavior.logistic_container

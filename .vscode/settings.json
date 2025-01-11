@@ -7,8 +7,10 @@
         }
     ],
     "Lua.workspace.userThirdParty": [
-        "c:\\Users\\Liam\\AppData\\Roaming\\Code\\User\\workspaceStorage\\af7aef6d37f6f6b78270b3e53ad154cc\\justarandomgeek.factoriomod-debug\\sumneko-3rd"
+        "c:\\Users\\Liam\\AppData\\Roaming\\Code\\User\\workspaceStorage\\a7f55192268adcc3fb6dfc1eb289d0a9\\justarandomgeek.factoriomod-debug\\sumneko-3rd"
     ],
     "Lua.workspace.checkThirdParty": "ApplyInMemory",
-    "Lua.workspace.library": []
+    "Lua.workspace.library": [
+        "c:\\users\\Liam\\Desktop\\Factorio_1.1.110\\data"
+    ]
 }

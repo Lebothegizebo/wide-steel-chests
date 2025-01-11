@@ -1,6 +1,6 @@
 -- Scripting
 require("circuit-connector-generated-definitions")
-require("lengthen_chests")
+require("scripts.lengthen_chests")
 require("scripts.sprites")
 -- Subgroups
 require("prototypes.subgroups")
