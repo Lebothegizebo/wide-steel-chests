@@ -1,7 +1,15 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.10
 Date: ????
-  Changes:
+  Features:
+    - Logistics chests have now been unlocked for use by all players, and are now not in beta.
+    - Logistics chests do not currently have remnants, but they will come in the future.
+  Graphics:
+    - Added graphics for Tall logistics chests.
+    - Added Shadows for Tall logistics chests.
+    - Added Shadows for Wide logistics chests.
+  Scripting:
+    - Removed all assets containted in this mod.
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.9
 Date: 2025-01-08
