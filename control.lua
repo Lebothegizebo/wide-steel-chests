@@ -248,9 +248,13 @@ script.on_event(defines.events.on_space_platform_built_entity, built)
 ---@field request_filters BlueprintFilters
 
 script.on_event(defines.events.on_player_setup_blueprint, function (EventData)
+	-- Let players disable this
+	if not settings.get_player_settings(EventData.player_index)["bp-rotatable-wide-chests"].value then
+		return
+	end
+
 	local blueprint = EventData.stack
-	if not blueprint then return log("No entities in this blueprint") end
-	if not blueprint then error() end
+	if not blueprint then return log("No item stack for this blueprint?") end
 	local entities = blueprint.get_blueprint_entities()
 	if not entities then return log("No entities in this blueprint") end
 	local changes = false
