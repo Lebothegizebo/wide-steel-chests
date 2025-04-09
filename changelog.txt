@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.11
-Date: ????
+Date: 2025-04-09
   Features:
     - Added a setting to disable blueprint configuration interception so cut/paste connections are never broken.
       This will disable blueprint rotation of Wide Containers.
