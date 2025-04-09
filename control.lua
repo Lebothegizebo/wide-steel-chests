@@ -114,8 +114,7 @@ local restore_from_bp = {
 ---@param entity LuaEntity
 ---@param full_name string
 ---@param tags Tags
----@param is_ghost boolean
-local function chest_built(entity, full_name, tags, is_ghost)
+local function chest_built(entity, full_name, tags)
 	local entity_name = full_name:sub(11)
 	local surface = entity.surface
 
@@ -152,12 +151,6 @@ local function chest_built(entity, full_name, tags, is_ghost)
 	}
 	chest_tags.bar = nil
 
-	if is_ghost then
-		create.name = "entity-ghost"
-		create.inner_name = entity_name
-		create.tags = tags
-	end
-
 	local new_entity = surface.create_entity(create)
 	if not new_entity then error("Replacement failed!") end
 
@@ -172,7 +165,7 @@ local function chest_built(entity, full_name, tags, is_ghost)
 	]]
 
 	if chest_tags then
-		local func = restore_from_bp[is_ghost and new_entity.ghost_type or new_entity.type]
+		local func = restore_from_bp[new_entity.type]
 		if func then func(new_entity, chest_tags, tags) end
 	end
 end
@@ -186,23 +179,14 @@ local is_beta = settings.startup["enable-wide-containers-beta"].value --[[@as bo
 ---| EventData.script_raised_built
 ---@param EventData BuiltEventData
 local function built(EventData)
-	
-	local entity = {}
-	entity.tags = EventData.tags
-	entity.name = EventData.name
-	local type, name, tags = entity.type, "", EventData.tags or {}
-	local is_ghost = type == "entity-ghost"
-	if is_ghost then
-		type = entity.ghost_type
-		name = entity.ghost_name
-		tags = entity.tags or {}
-	else
-		name = EventData.name
-	end
+	local entity = EventData.entity
+	local type = entity.type
+	local name = entity.name
+	local tags = EventData.tags or {}
 
 	if type == "assembling-machine"
 	and name == "rotatable-" then
-		chest_built(entity, name, tags, is_ghost)
+		chest_built(entity, name, tags)
 	elseif tags.wide_chest then
 		local chest_tags = tags.wide_chest--[[@as ChestTags]]
 		local point = entity.get_logistic_point(defines.logistic_member_index.logistic_container)
