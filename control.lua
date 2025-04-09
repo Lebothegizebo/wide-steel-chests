@@ -253,13 +253,18 @@ script.on_event(defines.events.on_player_setup_blueprint, function (EventData)
 	if not blueprint then error() end
 	local entities = blueprint.get_blueprint_entities()
 	if not entities then return log("No entities in this blueprint") end
+	local changes = false
 
 	for _, entity in pairs(entities) do
 		local type_str = entity.name:sub(1, 5)
 		local type = type_str == "wide-" and 0 or type_str == "tall-" and 4 or nil --[[@as defines.direction?]]
 		if type then
+			-- Track if there actually was anything changed
+
+			if not changes then changes = true end
 			---@cast entity BlueprintEntity.container|BlueprintEntity.logistic_container
 			local chest = entity.name:sub(6)
+
 			entity.name = "rotatable-"..chest
 			entity.direction = type
 			entity.tags = entity.tags or {}
@@ -273,5 +278,7 @@ script.on_event(defines.events.on_player_setup_blueprint, function (EventData)
 		end
 	end
 
-	blueprint.set_blueprint_entities(entities)
+	if changes then
+		blueprint.set_blueprint_entities(entities)
+	end
 end)
