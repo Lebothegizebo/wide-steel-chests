@@ -15,9 +15,6 @@ end
 ---@field inventory_multiplier int The inventory_multiplier of the containers inventory
 ---@field collision_box data.BoundingBox The collision box of the container 
 ---@field selection_box data.BoundingBox The selection box of the container 
----@field inventory_move_sound data.Sound The inventory_move_sound of the container
----@field pick_sound data.Sound The pick_sound of the container
----@field drop_sound data.Sound The drop_sound of the container
 ---@field animation_sound? data.Sound Animation Sound
 ---@field opened_duration? uint8 
 ---@field horizontal_upgrade? data.EntityID The horizontal next_upgrade of the container 
@@ -162,9 +159,6 @@ data:extend{
 	name = item_name,
 	subgroup = params.subgroup,
 	order = params.order,
-	inventory_move_sound = params.inventory_move_sound,
-	pick_sound = params.pick_sound,
-	drop_sound = params.drop_sound,
 	flags = {"primary-place-result"},
 	place_result = rote_name,
 	stack_size = 50,
