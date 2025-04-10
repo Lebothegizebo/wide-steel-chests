@@ -2,8 +2,7 @@
     "factorio.versions": [
         {
             "name": "Factorio 1.1",
-            "factorioPath": "c:\\users\\Liam\\Desktop\\Factorio_1.1.110\\bin\\x64\\factorio.exe",
-            "active": true
+            "factorioPath": "c:\\users\\Liam\\Desktop\\Factorio_1.1.110\\bin\\x64\\factorio.exe"
         }
     ],
     "Lua.workspace.userThirdParty": [
