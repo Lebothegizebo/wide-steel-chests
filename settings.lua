@@ -1,4 +1,3 @@
-
 if mods["wide-aai-chests"] then
 data:extend(
 {
