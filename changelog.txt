@@ -2,8 +2,14 @@
 Version: 0.1.9
 Date: 11.1.2025
   Info:
-    - Started Backporting features from the 2.0 version of this mod.
-    - Started Backporting logistics chests.
+    - !!LEGACY RELEASE!!
+    - This is a backport to 1.1 of all the features from the 2.0 mod, check the changelogs of the 2.0 version for more information on new content!
+    - Backported most features from Wide Containers 0.2.11.
+    - Backported logistics chests.
+    - Graphics are included in this mod, Wide Containers Assets is not required.
+    - Wide AAI containers has also received a legacy patch to support this backport.
+    - Removed Easter Egg from this version.
+    - Removed Legacy Graphics from this version.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.8
 Date: 21.10.2024
