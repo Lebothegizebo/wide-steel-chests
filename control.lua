@@ -179,7 +179,7 @@ local is_beta = settings.startup["enable-wide-containers-beta"].value --[[@as bo
 ---| EventData.script_raised_built
 ---@param EventData BuiltEventData
 local function built(EventData)
-	local entity = EventData.entity
+	local entity = EventData.created_entity
 	local type = entity.type
 	local name = entity.name
 	local tags = EventData.tags or {}
@@ -236,8 +236,7 @@ script.on_event(defines.events.script_raised_revive, built)
 
 script.on_event(defines.events.on_player_setup_blueprint, function (EventData)
 	local blueprint = EventData.stack
-	if not blueprint then return log("No entities in this blueprint") end
-	if not blueprint then error() end
+	if not blueprint then return log("No blueprint stack??") end
 	local entities = blueprint.get_blueprint_entities()
 	if not entities then return log("No entities in this blueprint") end
 
